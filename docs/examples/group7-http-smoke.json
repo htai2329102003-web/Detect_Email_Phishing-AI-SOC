@@ -1,0 +1,3906 @@
+{
+  "database": "isolated SQLite TEST adapter; PostgreSQL runtime NOT VERIFIED",
+  "external_real_apis": "NOT TESTED",
+  "flows": [
+    {
+      "scenario": "success",
+      "fixture": "clean.eml",
+      "http_status": 200,
+      "case_http_status": 200,
+      "response": {
+        "case_id": "7cb3219c-5963-4949-8819-d2ec36909884",
+        "status": "PENDING",
+        "evidence": [
+          {
+            "evidence_id": "ev_1ff05eb365567763d6a544ddbe0531a466600e984f290dea36fcabfc4ba68928",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_ANALYSIS",
+            "family": "attachment",
+            "indicator": "attachment:static_checks",
+            "value": {
+              "checked": 0
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.761803Z"
+          },
+          {
+            "evidence_id": "ev_3081fdc0e14bea251224ce82385770395dee78a0faf6573f4184f1fcd6569376",
+            "analyzer": "url",
+            "tool": "static_rules",
+            "signal_type": "URL_ANALYSIS",
+            "family": "url_deception",
+            "indicator": "url:url_checks",
+            "value": {
+              "checked": 0,
+              "scope": "local_static"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.764051Z"
+          },
+          {
+            "evidence_id": "ev_4b5670e7882a48da4ce58b55337bfaad535fbb2472e6ba765347d3a92dce49f9",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "RECEIVED_CHAIN_ANOMALY",
+            "family": "identity",
+            "indicator": "Received",
+            "value": {
+              "hop_count": 1,
+              "parsed_timestamp_count": 1,
+              "basic_anomaly": false
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 0.8,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.761803Z"
+          },
+          {
+            "evidence_id": "ev_6ba58713223783616aa2bf363fa9ce460ad3f7a3158bac69d1044b9dea9b2f6a",
+            "analyzer": "content_bec",
+            "tool": "structured_llm",
+            "signal_type": "BEC_REQUEST",
+            "family": "content_bec",
+            "indicator": "redacted:content_bec",
+            "value": {
+              "signals": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "llm",
+              "reference": "structured_bec:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.766105Z"
+          },
+          {
+            "evidence_id": "ev_8b7af3514f3f3677c7e20ea261447ad7852843aa035611c07b3242aff386d158",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "RETURN_PATH_MISMATCH",
+            "family": "identity",
+            "indicator": "return_path",
+            "value": {
+              "from_domain": "example.test",
+              "observed_domains": [
+                "example.test"
+              ]
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.761803Z"
+          },
+          {
+            "evidence_id": "ev_99a9a3686fba16e3f84865ca3f97ad9accc239187a888f9e68c58842b9c6b887",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DMARC_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:dmarc",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.761803Z"
+          },
+          {
+            "evidence_id": "ev_9a43898352506e1689b1c8a883347abf5de619146e857b8ff7c278ff0a03d181",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "family": "identity",
+            "indicator": "From:display-name",
+            "value": {
+              "from_domain": "example.test",
+              "displayed_domains": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.761803Z"
+          },
+          {
+            "evidence_id": "ev_a5ab9ef59ed9751b71b627c429333701a6f741dd5a66f4a51675de0c1474ca44",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "REPLY_TO_MISMATCH",
+            "family": "identity",
+            "indicator": "reply_to",
+            "value": {
+              "from_domain": "example.test",
+              "observed_domains": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.761803Z"
+          },
+          {
+            "evidence_id": "ev_be8852534b40ee10b0fc612b1334ca0421958195f66ab4c2f03129e3963c70ad",
+            "analyzer": "qr",
+            "tool": "local_qr_decoder",
+            "signal_type": "QR_ANALYSIS",
+            "family": "qr",
+            "indicator": "qr:local_checks",
+            "value": {
+              "images": 0
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:local_qr_decoder:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.764051Z"
+          },
+          {
+            "evidence_id": "ev_cb09925b2d01ba22c7f13834eeab1f450677b94919d8703d627fee029a1fe2fb",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DKIM_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:dkim",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.761803Z"
+          },
+          {
+            "evidence_id": "ev_dcd4455893ce8172eed179dab94c2ce76aea3b5732dc15620dbc202e417e33ae",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "SPF_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:spf",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.761803Z"
+          }
+        ],
+        "score": 0.0,
+        "label_candidate": "SAFE",
+        "coverage": {
+          "required": [
+            "DKIM_FAIL",
+            "DMARC_FAIL",
+            "SPF_FAIL"
+          ],
+          "applicable": [
+            "ATTACHMENT_ANALYSIS",
+            "BEC_REQUEST",
+            "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "QR_ANALYSIS",
+            "RECEIVED_CHAIN_ANOMALY",
+            "REPLY_TO_MISMATCH",
+            "RETURN_PATH_MISMATCH",
+            "URL_ANALYSIS"
+          ],
+          "completed": [
+            "ATTACHMENT_ANALYSIS",
+            "BEC_REQUEST",
+            "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "DKIM_FAIL",
+            "DMARC_FAIL",
+            "QR_ANALYSIS",
+            "RECEIVED_CHAIN_ANOMALY",
+            "REPLY_TO_MISMATCH",
+            "RETURN_PATH_MISMATCH",
+            "SPF_FAIL",
+            "URL_ANALYSIS"
+          ],
+          "missing": [],
+          "unknown": [],
+          "ratio": 1.0,
+          "complete": true
+        },
+        "contributions": [],
+        "analysis_scope": "static_enriched",
+        "analyzer_runs": [
+          {
+            "analyzer": "attachment",
+            "status": "OK"
+          },
+          {
+            "analyzer": "content_bec",
+            "status": "OK"
+          },
+          {
+            "analyzer": "header",
+            "status": "OK"
+          },
+          {
+            "analyzer": "qr",
+            "status": "OK"
+          },
+          {
+            "analyzer": "url",
+            "status": "OK"
+          }
+        ],
+        "reasons": [],
+        "risk_score": 0.0,
+        "risk_level": "low",
+        "verdict": "pending_review",
+        "requires_review": true,
+        "claims": [
+          {
+            "claim_type": "AUTHENTICATION",
+            "text": "DMARC_FAIL: PASS.",
+            "evidence_ids": [
+              "ev_99a9a3686fba16e3f84865ca3f97ad9accc239187a888f9e68c58842b9c6b887"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_99a9a3686fba16e3f84865ca3f97ad9accc239187a888f9e68c58842b9c6b887",
+                "path": "indicator",
+                "value": "Authentication-Results:dmarc"
+              }
+            ]
+          },
+          {
+            "claim_type": "AUTHENTICATION",
+            "text": "DKIM_FAIL: PASS.",
+            "evidence_ids": [
+              "ev_cb09925b2d01ba22c7f13834eeab1f450677b94919d8703d627fee029a1fe2fb"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_cb09925b2d01ba22c7f13834eeab1f450677b94919d8703d627fee029a1fe2fb",
+                "path": "indicator",
+                "value": "Authentication-Results:dkim"
+              }
+            ]
+          },
+          {
+            "claim_type": "AUTHENTICATION",
+            "text": "SPF_FAIL: PASS.",
+            "evidence_ids": [
+              "ev_dcd4455893ce8172eed179dab94c2ce76aea3b5732dc15620dbc202e417e33ae"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_dcd4455893ce8172eed179dab94c2ce76aea3b5732dc15620dbc202e417e33ae",
+                "path": "indicator",
+                "value": "Authentication-Results:spf"
+              }
+            ]
+          }
+        ],
+        "recommended_actions": [
+          "REVIEW_EVIDENCE"
+        ],
+        "analyst_summary": "Risk Engine: SAFE; score 0; coverage complete. 3 grounded claims. Analyst review required.",
+        "assessment_label": "SAFE",
+        "claim_validation_status": "PASS",
+        "trust_warnings": [],
+        "guardrail_signals": [],
+        "pii_redaction_counts": {
+          "EMAIL": 2
+        },
+        "verdict_attempts": 1,
+        "review_status": "PENDING"
+      }
+    },
+    {
+      "scenario": "success",
+      "fixture": "href_mismatch.eml",
+      "http_status": 200,
+      "case_http_status": 200,
+      "response": {
+        "case_id": "ff654f8b-d8ac-441c-8b4a-0e4920b14d39",
+        "status": "PENDING",
+        "evidence": [
+          {
+            "evidence_id": "ev_0e38a82a53261eef3d3345e807239b2b7e18fed7048bf77ff5865338df833c43",
+            "analyzer": "url",
+            "tool": "exact_match_ioc",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://example.test/login:url",
+            "value": {
+              "kind": "url",
+              "indicator": "https://example.test/login",
+              "error_code": null,
+              "scope": "configured_snapshot_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:exact_match_ioc:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.848975Z"
+          },
+          {
+            "evidence_id": "ev_18080408c847d4f75c4c60c088d59b9146daec73d09643b0c1ec94c62c708a59",
+            "analyzer": "url",
+            "tool": "exact_match_ioc",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://other.test/login:domain",
+            "value": {
+              "kind": "domain",
+              "indicator": "other.test",
+              "error_code": null,
+              "scope": "configured_snapshot_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:exact_match_ioc:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.849970Z"
+          },
+          {
+            "evidence_id": "ev_1ff05eb365567763d6a544ddbe0531a466600e984f290dea36fcabfc4ba68928",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_ANALYSIS",
+            "family": "attachment",
+            "indicator": "attachment:static_checks",
+            "value": {
+              "checked": 0
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.847877Z"
+          },
+          {
+            "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+            "analyzer": "url",
+            "tool": "static_rules",
+            "signal_type": "HREF_MISMATCH",
+            "family": "url_deception",
+            "indicator": "https://other.test/login",
+            "value": {
+              "raw_url": "https://other.test/login",
+              "canonical_url": "https://other.test/login",
+              "displayed_url": "https://example.test/login"
+            },
+            "result": "FAIL",
+            "tool_status": "OK",
+            "severity": "medium",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.848975Z"
+          },
+          {
+            "evidence_id": "ev_4b5670e7882a48da4ce58b55337bfaad535fbb2472e6ba765347d3a92dce49f9",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "RECEIVED_CHAIN_ANOMALY",
+            "family": "identity",
+            "indicator": "Received",
+            "value": {
+              "hop_count": 1,
+              "parsed_timestamp_count": 1,
+              "basic_anomaly": false
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 0.8,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.847877Z"
+          },
+          {
+            "evidence_id": "ev_5d44420f561cba6436c997c9faa4dde6f4247d9396d4dd43aa528fb4a14b0ac8",
+            "analyzer": "url",
+            "tool": "exact_match_ioc",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://example.test/login:domain",
+            "value": {
+              "kind": "domain",
+              "indicator": "example.test",
+              "error_code": null,
+              "scope": "configured_snapshot_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:exact_match_ioc:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.848975Z"
+          },
+          {
+            "evidence_id": "ev_6ba58713223783616aa2bf363fa9ce460ad3f7a3158bac69d1044b9dea9b2f6a",
+            "analyzer": "content_bec",
+            "tool": "structured_llm",
+            "signal_type": "BEC_REQUEST",
+            "family": "content_bec",
+            "indicator": "redacted:content_bec",
+            "value": {
+              "signals": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "llm",
+              "reference": "structured_bec:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.852388Z"
+          },
+          {
+            "evidence_id": "ev_714db54335a8c0f22e2fbd6042e8a0e6f238ceb395da22b3d2bf5f61d24d2ff1",
+            "analyzer": "urlscan",
+            "tool": "urlscan",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://other.test/login",
+            "value": {
+              "scanned_url": "https://other.test/login",
+              "final_url": "https://other.test/login",
+              "redirect_chain": [],
+              "malicious": false,
+              "domains": [],
+              "ips": [],
+              "source_reference": "urlscan:result/3552d475-bb65-5c5d-b858-b6b82cfbcdce"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "external",
+              "reference": "urlscan:lookup:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.851970Z"
+          },
+          {
+            "evidence_id": "ev_76c93a3838094027911f79447d1a2aa107f18af3ac87af8b6581031937759b9b",
+            "analyzer": "urlscan",
+            "tool": "urlscan",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://example.test/login",
+            "value": {
+              "scanned_url": "https://example.test/login",
+              "final_url": "https://example.test/login",
+              "redirect_chain": [],
+              "malicious": false,
+              "domains": [],
+              "ips": [],
+              "source_reference": "urlscan:result/356e86bb-b660-5a45-8a14-c30fd82810b6"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "external",
+              "reference": "urlscan:lookup:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.850976Z"
+          },
+          {
+            "evidence_id": "ev_8b7af3514f3f3677c7e20ea261447ad7852843aa035611c07b3242aff386d158",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "RETURN_PATH_MISMATCH",
+            "family": "identity",
+            "indicator": "return_path",
+            "value": {
+              "from_domain": "example.test",
+              "observed_domains": [
+                "example.test"
+              ]
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.847877Z"
+          },
+          {
+            "evidence_id": "ev_99a9a3686fba16e3f84865ca3f97ad9accc239187a888f9e68c58842b9c6b887",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DMARC_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:dmarc",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.847877Z"
+          },
+          {
+            "evidence_id": "ev_9a43898352506e1689b1c8a883347abf5de619146e857b8ff7c278ff0a03d181",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "family": "identity",
+            "indicator": "From:display-name",
+            "value": {
+              "from_domain": "example.test",
+              "displayed_domains": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.847877Z"
+          },
+          {
+            "evidence_id": "ev_a5ab9ef59ed9751b71b627c429333701a6f741dd5a66f4a51675de0c1474ca44",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "REPLY_TO_MISMATCH",
+            "family": "identity",
+            "indicator": "reply_to",
+            "value": {
+              "from_domain": "example.test",
+              "observed_domains": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.847877Z"
+          },
+          {
+            "evidence_id": "ev_be788775d500e02161bae9c4d0599554e606f6fd0667fd4286063c1bd2081b83",
+            "analyzer": "url",
+            "tool": "exact_match_ioc",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://other.test/login:url",
+            "value": {
+              "kind": "url",
+              "indicator": "https://other.test/login",
+              "error_code": null,
+              "scope": "configured_snapshot_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:exact_match_ioc:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.849970Z"
+          },
+          {
+            "evidence_id": "ev_be8852534b40ee10b0fc612b1334ca0421958195f66ab4c2f03129e3963c70ad",
+            "analyzer": "qr",
+            "tool": "local_qr_decoder",
+            "signal_type": "QR_ANALYSIS",
+            "family": "qr",
+            "indicator": "qr:local_checks",
+            "value": {
+              "images": 0
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:local_qr_decoder:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.848975Z"
+          },
+          {
+            "evidence_id": "ev_cb09925b2d01ba22c7f13834eeab1f450677b94919d8703d627fee029a1fe2fb",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DKIM_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:dkim",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.847877Z"
+          },
+          {
+            "evidence_id": "ev_dcd4455893ce8172eed179dab94c2ce76aea3b5732dc15620dbc202e417e33ae",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "SPF_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:spf",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.847877Z"
+          },
+          {
+            "evidence_id": "ev_f7bd9d78372388ba65477c8ce354f30d7734ec9fb78680fcbad10f4d6389b232",
+            "analyzer": "url",
+            "tool": "static_rules",
+            "signal_type": "URL_ANALYSIS",
+            "family": "url_deception",
+            "indicator": "url:url_checks",
+            "value": {
+              "checked": 2,
+              "scope": "local_static"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.849970Z"
+          }
+        ],
+        "score": 60.0,
+        "label_candidate": "SUSPICIOUS",
+        "coverage": {
+          "required": [
+            "DKIM_FAIL",
+            "DMARC_FAIL",
+            "SPF_FAIL"
+          ],
+          "applicable": [
+            "ATTACHMENT_ANALYSIS",
+            "BEC_REQUEST",
+            "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "HREF_MISMATCH",
+            "QR_ANALYSIS",
+            "RECEIVED_CHAIN_ANOMALY",
+            "REPLY_TO_MISMATCH",
+            "RETURN_PATH_MISMATCH",
+            "URL_ANALYSIS",
+            "URL_IOC_CHECK"
+          ],
+          "completed": [
+            "ATTACHMENT_ANALYSIS",
+            "BEC_REQUEST",
+            "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "DKIM_FAIL",
+            "DMARC_FAIL",
+            "HREF_MISMATCH",
+            "QR_ANALYSIS",
+            "RECEIVED_CHAIN_ANOMALY",
+            "REPLY_TO_MISMATCH",
+            "RETURN_PATH_MISMATCH",
+            "SPF_FAIL",
+            "URL_ANALYSIS",
+            "URL_IOC_CHECK"
+          ],
+          "missing": [],
+          "unknown": [],
+          "ratio": 1.0,
+          "complete": true
+        },
+        "contributions": [
+          {
+            "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+            "signal_type": "HREF_MISMATCH",
+            "family": "url_deception",
+            "strength": 0.6,
+            "applied_strength": 0.6
+          }
+        ],
+        "analysis_scope": "static_enriched",
+        "analyzer_runs": [
+          {
+            "analyzer": "attachment",
+            "status": "OK"
+          },
+          {
+            "analyzer": "content_bec",
+            "status": "OK"
+          },
+          {
+            "analyzer": "header",
+            "status": "OK"
+          },
+          {
+            "analyzer": "qr",
+            "status": "OK"
+          },
+          {
+            "analyzer": "url",
+            "status": "OK"
+          },
+          {
+            "analyzer": "urlscan",
+            "status": "OK"
+          }
+        ],
+        "reasons": [],
+        "risk_score": 60.0,
+        "risk_level": "medium",
+        "verdict": "pending_review",
+        "requires_review": true,
+        "claims": [
+          {
+            "claim_type": "URL",
+            "text": "HREF_MISMATCH: FAIL.",
+            "evidence_ids": [
+              "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+                "path": "indicator",
+                "value": "https://other.test/login"
+              },
+              {
+                "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+                "path": "value.canonical_url",
+                "value": "https://other.test/login"
+              },
+              {
+                "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+                "path": "value.displayed_url",
+                "value": "https://example.test/login"
+              }
+            ]
+          }
+        ],
+        "recommended_actions": [
+          "REVIEW_EVIDENCE"
+        ],
+        "analyst_summary": "Risk Engine: SUSPICIOUS; score 60; coverage complete. 1 grounded claims. Analyst review required.",
+        "assessment_label": "SUSPICIOUS",
+        "claim_validation_status": "PASS",
+        "trust_warnings": [],
+        "guardrail_signals": [],
+        "pii_redaction_counts": {
+          "EMAIL": 2
+        },
+        "verdict_attempts": 1,
+        "review_status": "PENDING"
+      }
+    },
+    {
+      "scenario": "success",
+      "fixture": "suspicious_attachment.eml",
+      "http_status": 200,
+      "case_http_status": 200,
+      "response": {
+        "case_id": "c839616d-0c4f-4d29-a3fb-a766c322a3e3",
+        "status": "PENDING",
+        "evidence": [
+          {
+            "evidence_id": "ev_1e58aab24c3c43c27e5bb904733d60727f1e2d808f431e34333324adbbb1b930",
+            "analyzer": "attachment",
+            "tool": "exact_match_ioc",
+            "signal_type": "ATTACHMENT_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9:hash",
+            "value": {
+              "kind": "hash",
+              "indicator": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+              "error_code": null,
+              "scope": "configured_snapshot_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:exact_match_ioc:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          },
+          {
+            "evidence_id": "ev_2b620bfcf9f93a2de1266c989a8a7b6d49d9a8909af12e18a149176863167728",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_METADATA",
+            "family": "attachment",
+            "indicator": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+            "value": {
+              "filename": "invoice.pdf.exe",
+              "extension": ".exe",
+              "mime": "image/png",
+              "magic": "pe",
+              "sha256": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+              "size": 29
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          },
+          {
+            "evidence_id": "ev_3081fdc0e14bea251224ce82385770395dee78a0faf6573f4184f1fcd6569376",
+            "analyzer": "url",
+            "tool": "static_rules",
+            "signal_type": "URL_ANALYSIS",
+            "family": "url_deception",
+            "indicator": "url:url_checks",
+            "value": {
+              "checked": 0,
+              "scope": "local_static"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          },
+          {
+            "evidence_id": "ev_344f15e4c683d18e3a9be4398430a8177d5f4b7f34735e9f9cc8c0c7e3180ebd",
+            "analyzer": "qr",
+            "tool": "local_qr_decoder",
+            "signal_type": "QR_ANALYSIS",
+            "family": "qr",
+            "indicator": "qr:local_checks",
+            "value": {
+              "images": 1
+            },
+            "result": "UNKNOWN",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:local_qr_decoder:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.999475Z"
+          },
+          {
+            "evidence_id": "ev_3dfd836a7de4ab64375e1d2caafbcc066be5642c673203c31b92fcc88079f43a",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_EXECUTABLE",
+            "family": "attachment",
+            "indicator": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+            "value": {
+              "filename": "invoice.pdf.exe",
+              "extension": ".exe",
+              "mime": "image/png",
+              "magic": "pe",
+              "sha256": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+              "size": 29
+            },
+            "result": "FAIL",
+            "tool_status": "OK",
+            "severity": "medium",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          },
+          {
+            "evidence_id": "ev_44901a9626c02ee4f11d78b0260000c251e83e446c866d2a4840ec3cf1677178",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_MIME_MISMATCH",
+            "family": "attachment",
+            "indicator": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+            "value": {
+              "filename": "invoice.pdf.exe",
+              "extension": ".exe",
+              "mime": "image/png",
+              "magic": "pe",
+              "sha256": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+              "size": 29
+            },
+            "result": "FAIL",
+            "tool_status": "OK",
+            "severity": "medium",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          },
+          {
+            "evidence_id": "ev_4b5670e7882a48da4ce58b55337bfaad535fbb2472e6ba765347d3a92dce49f9",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "RECEIVED_CHAIN_ANOMALY",
+            "family": "identity",
+            "indicator": "Received",
+            "value": {
+              "hop_count": 1,
+              "parsed_timestamp_count": 1,
+              "basic_anomaly": false
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 0.8,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          },
+          {
+            "evidence_id": "ev_6ba58713223783616aa2bf363fa9ce460ad3f7a3158bac69d1044b9dea9b2f6a",
+            "analyzer": "content_bec",
+            "tool": "structured_llm",
+            "signal_type": "BEC_REQUEST",
+            "family": "content_bec",
+            "indicator": "redacted:content_bec",
+            "value": {
+              "signals": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "llm",
+              "reference": "structured_bec:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.999475Z"
+          },
+          {
+            "evidence_id": "ev_8b7af3514f3f3677c7e20ea261447ad7852843aa035611c07b3242aff386d158",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "RETURN_PATH_MISMATCH",
+            "family": "identity",
+            "indicator": "return_path",
+            "value": {
+              "from_domain": "example.test",
+              "observed_domains": [
+                "example.test"
+              ]
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          },
+          {
+            "evidence_id": "ev_99a9a3686fba16e3f84865ca3f97ad9accc239187a888f9e68c58842b9c6b887",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DMARC_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:dmarc",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          },
+          {
+            "evidence_id": "ev_9a43898352506e1689b1c8a883347abf5de619146e857b8ff7c278ff0a03d181",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "family": "identity",
+            "indicator": "From:display-name",
+            "value": {
+              "from_domain": "example.test",
+              "displayed_domains": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          },
+          {
+            "evidence_id": "ev_a5ab9ef59ed9751b71b627c429333701a6f741dd5a66f4a51675de0c1474ca44",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "REPLY_TO_MISMATCH",
+            "family": "identity",
+            "indicator": "reply_to",
+            "value": {
+              "from_domain": "example.test",
+              "observed_domains": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          },
+          {
+            "evidence_id": "ev_c956e6980489179fecefc40fddc4a0d6b36e479245b508293e68b66f8409e3e1",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_ANALYSIS",
+            "family": "attachment",
+            "indicator": "attachment:static_checks",
+            "value": {
+              "checked": 1
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          },
+          {
+            "evidence_id": "ev_cb09925b2d01ba22c7f13834eeab1f450677b94919d8703d627fee029a1fe2fb",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DKIM_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:dkim",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          },
+          {
+            "evidence_id": "ev_cfa15b108c2e377a814be4de697f604370300e78ddb133693213cf90500cf23e",
+            "analyzer": "qr",
+            "tool": "local_qr_decoder",
+            "signal_type": "QR_DECODE",
+            "family": "qr",
+            "indicator": "image:attachment:0",
+            "value": {
+              "error_code": "QR_DECODE_FAILED"
+            },
+            "result": "UNKNOWN",
+            "tool_status": "ERROR",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:local_qr_decoder:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.999475Z"
+          },
+          {
+            "evidence_id": "ev_db0ab16b8d4980d9ec9ad406ad27b28626820440ff60e2e84a49f70794e5f96c",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_DOUBLE_EXTENSION",
+            "family": "attachment",
+            "indicator": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+            "value": {
+              "filename": "invoice.pdf.exe",
+              "extension": ".exe",
+              "mime": "image/png",
+              "magic": "pe",
+              "sha256": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+              "size": 29
+            },
+            "result": "FAIL",
+            "tool_status": "OK",
+            "severity": "medium",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          },
+          {
+            "evidence_id": "ev_dcd4455893ce8172eed179dab94c2ce76aea3b5732dc15620dbc202e417e33ae",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "SPF_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:spf",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          },
+          {
+            "evidence_id": "ev_e1563c855988725869fbfcbe7a2d8c163616f91ede753836e5ca6354d207efa6",
+            "analyzer": "virustotal",
+            "tool": "virustotal",
+            "signal_type": "ATTACHMENT_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+            "value": {
+              "sha256": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+              "malicious": 0,
+              "suspicious": 0,
+              "harmless": 1,
+              "undetected": 9,
+              "last_analysis_at": "2023-11-14T22:13:20Z",
+              "source_reference": "virustotal:files/3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "external",
+              "reference": "virustotal:lookup:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.999475Z"
+          },
+          {
+            "evidence_id": "ev_e9ee416e9e4c184bc72fc9ca28525ac795357d1551edb1aa2d04cae786b5d972",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_MAGIC_MISMATCH",
+            "family": "attachment",
+            "indicator": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+            "value": {
+              "filename": "invoice.pdf.exe",
+              "extension": ".exe",
+              "mime": "image/png",
+              "magic": "pe",
+              "sha256": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+              "size": 29
+            },
+            "result": "FAIL",
+            "tool_status": "OK",
+            "severity": "medium",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:48.907945Z"
+          }
+        ],
+        "score": 50.0,
+        "label_candidate": "NEEDS_ANALYST_REVIEW",
+        "coverage": {
+          "required": [
+            "DKIM_FAIL",
+            "DMARC_FAIL",
+            "SPF_FAIL"
+          ],
+          "applicable": [
+            "ATTACHMENT_ANALYSIS",
+            "ATTACHMENT_DOUBLE_EXTENSION",
+            "ATTACHMENT_EXECUTABLE",
+            "ATTACHMENT_IOC_CHECK",
+            "ATTACHMENT_MAGIC_MISMATCH",
+            "ATTACHMENT_METADATA",
+            "ATTACHMENT_MIME_MISMATCH",
+            "BEC_REQUEST",
+            "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "QR_ANALYSIS",
+            "QR_DECODE",
+            "RECEIVED_CHAIN_ANOMALY",
+            "REPLY_TO_MISMATCH",
+            "RETURN_PATH_MISMATCH",
+            "URL_ANALYSIS"
+          ],
+          "completed": [
+            "ATTACHMENT_ANALYSIS",
+            "ATTACHMENT_DOUBLE_EXTENSION",
+            "ATTACHMENT_EXECUTABLE",
+            "ATTACHMENT_IOC_CHECK",
+            "ATTACHMENT_MAGIC_MISMATCH",
+            "ATTACHMENT_METADATA",
+            "ATTACHMENT_MIME_MISMATCH",
+            "BEC_REQUEST",
+            "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "DKIM_FAIL",
+            "DMARC_FAIL",
+            "RECEIVED_CHAIN_ANOMALY",
+            "REPLY_TO_MISMATCH",
+            "RETURN_PATH_MISMATCH",
+            "SPF_FAIL",
+            "URL_ANALYSIS"
+          ],
+          "missing": [
+            "QR_ANALYSIS",
+            "QR_DECODE"
+          ],
+          "unknown": [
+            "QR_ANALYSIS",
+            "QR_DECODE"
+          ],
+          "ratio": 0.8888888888888888,
+          "complete": false
+        },
+        "contributions": [
+          {
+            "evidence_id": "ev_3dfd836a7de4ab64375e1d2caafbcc066be5642c673203c31b92fcc88079f43a",
+            "signal_type": "ATTACHMENT_EXECUTABLE",
+            "family": "attachment",
+            "strength": 0.5,
+            "applied_strength": 0.5
+          },
+          {
+            "evidence_id": "ev_44901a9626c02ee4f11d78b0260000c251e83e446c866d2a4840ec3cf1677178",
+            "signal_type": "ATTACHMENT_MIME_MISMATCH",
+            "family": "attachment",
+            "strength": 0.35,
+            "applied_strength": 0.0
+          },
+          {
+            "evidence_id": "ev_db0ab16b8d4980d9ec9ad406ad27b28626820440ff60e2e84a49f70794e5f96c",
+            "signal_type": "ATTACHMENT_DOUBLE_EXTENSION",
+            "family": "attachment",
+            "strength": 0.45,
+            "applied_strength": 0.0
+          },
+          {
+            "evidence_id": "ev_e9ee416e9e4c184bc72fc9ca28525ac795357d1551edb1aa2d04cae786b5d972",
+            "signal_type": "ATTACHMENT_MAGIC_MISMATCH",
+            "family": "attachment",
+            "strength": 0.45,
+            "applied_strength": 0.0
+          }
+        ],
+        "analysis_scope": "static_enriched_partial",
+        "analyzer_runs": [
+          {
+            "analyzer": "attachment",
+            "status": "OK"
+          },
+          {
+            "analyzer": "content_bec",
+            "status": "OK"
+          },
+          {
+            "analyzer": "header",
+            "status": "OK"
+          },
+          {
+            "analyzer": "qr",
+            "status": "PARTIAL"
+          },
+          {
+            "analyzer": "url",
+            "status": "OK"
+          },
+          {
+            "analyzer": "virustotal",
+            "status": "OK"
+          }
+        ],
+        "reasons": [
+          "MISSING_COVERAGE",
+          "UNKNOWN_EVIDENCE"
+        ],
+        "risk_score": 50.0,
+        "risk_level": "unknown",
+        "verdict": "pending_review",
+        "requires_review": true,
+        "claims": [
+          {
+            "claim_type": "UNCERTAINTY",
+            "text": "QR_ANALYSIS: UNKNOWN.",
+            "evidence_ids": [
+              "ev_344f15e4c683d18e3a9be4398430a8177d5f4b7f34735e9f9cc8c0c7e3180ebd"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_344f15e4c683d18e3a9be4398430a8177d5f4b7f34735e9f9cc8c0c7e3180ebd",
+                "path": "indicator",
+                "value": "qr:local_checks"
+              }
+            ]
+          },
+          {
+            "claim_type": "ATTACHMENT",
+            "text": "ATTACHMENT_EXECUTABLE: FAIL.",
+            "evidence_ids": [
+              "ev_3dfd836a7de4ab64375e1d2caafbcc066be5642c673203c31b92fcc88079f43a"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_3dfd836a7de4ab64375e1d2caafbcc066be5642c673203c31b92fcc88079f43a",
+                "path": "indicator",
+                "value": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              },
+              {
+                "evidence_id": "ev_3dfd836a7de4ab64375e1d2caafbcc066be5642c673203c31b92fcc88079f43a",
+                "path": "value.sha256",
+                "value": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              }
+            ]
+          },
+          {
+            "claim_type": "ATTACHMENT",
+            "text": "ATTACHMENT_MIME_MISMATCH: FAIL.",
+            "evidence_ids": [
+              "ev_44901a9626c02ee4f11d78b0260000c251e83e446c866d2a4840ec3cf1677178"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_44901a9626c02ee4f11d78b0260000c251e83e446c866d2a4840ec3cf1677178",
+                "path": "indicator",
+                "value": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              },
+              {
+                "evidence_id": "ev_44901a9626c02ee4f11d78b0260000c251e83e446c866d2a4840ec3cf1677178",
+                "path": "value.sha256",
+                "value": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              }
+            ]
+          },
+          {
+            "claim_type": "UNCERTAINTY",
+            "text": "QR_DECODE: UNKNOWN.",
+            "evidence_ids": [
+              "ev_cfa15b108c2e377a814be4de697f604370300e78ddb133693213cf90500cf23e"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_cfa15b108c2e377a814be4de697f604370300e78ddb133693213cf90500cf23e",
+                "path": "indicator",
+                "value": "image:attachment:0"
+              }
+            ]
+          },
+          {
+            "claim_type": "ATTACHMENT",
+            "text": "ATTACHMENT_DOUBLE_EXTENSION: FAIL.",
+            "evidence_ids": [
+              "ev_db0ab16b8d4980d9ec9ad406ad27b28626820440ff60e2e84a49f70794e5f96c"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_db0ab16b8d4980d9ec9ad406ad27b28626820440ff60e2e84a49f70794e5f96c",
+                "path": "indicator",
+                "value": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              },
+              {
+                "evidence_id": "ev_db0ab16b8d4980d9ec9ad406ad27b28626820440ff60e2e84a49f70794e5f96c",
+                "path": "value.sha256",
+                "value": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              }
+            ]
+          },
+          {
+            "claim_type": "ATTACHMENT",
+            "text": "ATTACHMENT_MAGIC_MISMATCH: FAIL.",
+            "evidence_ids": [
+              "ev_e9ee416e9e4c184bc72fc9ca28525ac795357d1551edb1aa2d04cae786b5d972"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_e9ee416e9e4c184bc72fc9ca28525ac795357d1551edb1aa2d04cae786b5d972",
+                "path": "indicator",
+                "value": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              },
+              {
+                "evidence_id": "ev_e9ee416e9e4c184bc72fc9ca28525ac795357d1551edb1aa2d04cae786b5d972",
+                "path": "value.sha256",
+                "value": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              }
+            ]
+          }
+        ],
+        "recommended_actions": [
+          "REVIEW_EVIDENCE"
+        ],
+        "analyst_summary": "Risk Engine: NEEDS_ANALYST_REVIEW; score 50; coverage incomplete. 6 grounded claims. Analyst review required.",
+        "assessment_label": "NEEDS_ANALYST_REVIEW",
+        "claim_validation_status": "PASS",
+        "trust_warnings": [],
+        "guardrail_signals": [],
+        "pii_redaction_counts": {
+          "EMAIL": 2
+        },
+        "verdict_attempts": 1,
+        "review_status": "PENDING"
+      }
+    },
+    {
+      "scenario": "success",
+      "fixture": "qr_url.eml",
+      "http_status": 200,
+      "case_http_status": 200,
+      "response": {
+        "case_id": "6899b3bb-adea-4afa-8acd-eb2930d0c3fd",
+        "status": "PENDING",
+        "evidence": [
+          {
+            "evidence_id": "ev_1b4a32cfa7db36b97074550b9e537cee50a8092e36924bd257e57664e83f41cf",
+            "analyzer": "qr",
+            "tool": "static_rules",
+            "signal_type": "URL_IP_LITERAL",
+            "family": "url_deception",
+            "indicator": "https://192.0.2.10/login",
+            "value": {
+              "raw_url": "https://192.0.2.10/login",
+              "canonical_url": "https://192.0.2.10/login"
+            },
+            "result": "FAIL",
+            "tool_status": "OK",
+            "severity": "medium",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.171117Z"
+          },
+          {
+            "evidence_id": "ev_1e1095819578e7e12d05f7d35ecb45172f307f04ad8303f2b729dfa2db1db796",
+            "analyzer": "qr",
+            "tool": "local_qr_decoder",
+            "signal_type": "QR_ANALYSIS",
+            "family": "qr",
+            "indicator": "qr:local_checks",
+            "value": {
+              "images": 1
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:local_qr_decoder:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.171117Z"
+          },
+          {
+            "evidence_id": "ev_3081fdc0e14bea251224ce82385770395dee78a0faf6573f4184f1fcd6569376",
+            "analyzer": "url",
+            "tool": "static_rules",
+            "signal_type": "URL_ANALYSIS",
+            "family": "url_deception",
+            "indicator": "url:url_checks",
+            "value": {
+              "checked": 0,
+              "scope": "local_static"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.146086Z"
+          },
+          {
+            "evidence_id": "ev_36ab9e167045bc33489916605fa648c3f0c5dab800987f49402c698f6e7b30ad",
+            "analyzer": "qr",
+            "tool": "static_rules",
+            "signal_type": "URL_ANALYSIS",
+            "family": "url_deception",
+            "indicator": "qr:url_checks",
+            "value": {
+              "checked": 1,
+              "scope": "local_static"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.171117Z"
+          },
+          {
+            "evidence_id": "ev_3c272c9436072f6bb298f615c3423ecd95137dd014f741926faad00daaa9fa30",
+            "analyzer": "qr",
+            "tool": "exact_match_ioc",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://192.0.2.10/login:ip",
+            "value": {
+              "kind": "ip",
+              "indicator": "192.0.2.10",
+              "error_code": null,
+              "scope": "configured_snapshot_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:exact_match_ioc:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.171117Z"
+          },
+          {
+            "evidence_id": "ev_4b5670e7882a48da4ce58b55337bfaad535fbb2472e6ba765347d3a92dce49f9",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "RECEIVED_CHAIN_ANOMALY",
+            "family": "identity",
+            "indicator": "Received",
+            "value": {
+              "hop_count": 1,
+              "parsed_timestamp_count": 1,
+              "basic_anomaly": false
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 0.8,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.141919Z"
+          },
+          {
+            "evidence_id": "ev_6ba58713223783616aa2bf363fa9ce460ad3f7a3158bac69d1044b9dea9b2f6a",
+            "analyzer": "content_bec",
+            "tool": "structured_llm",
+            "signal_type": "BEC_REQUEST",
+            "family": "content_bec",
+            "indicator": "redacted:content_bec",
+            "value": {
+              "signals": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "llm",
+              "reference": "structured_bec:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.174669Z"
+          },
+          {
+            "evidence_id": "ev_6f9aafd13c5ad4aa191912d3cc9cfab977b59aafa19a0d675de5b754a3a72e3f",
+            "analyzer": "urlscan",
+            "tool": "urlscan",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://192.0.2.10/login",
+            "value": {
+              "scanned_url": "https://192.0.2.10/login",
+              "final_url": "https://192.0.2.10/login",
+              "redirect_chain": [],
+              "malicious": false,
+              "domains": [],
+              "ips": [],
+              "source_reference": "urlscan:result/7c5c12ad-92c2-508d-8587-c1f9d879d218"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "external",
+              "reference": "urlscan:lookup:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.174669Z"
+          },
+          {
+            "evidence_id": "ev_70fe8c09b2c9749dc2ff8cfb4f5e201a51162b89b4cf3ee24af8817da100e3b7",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_METADATA",
+            "family": "attachment",
+            "indicator": "attachment:0:0c505603a206f7797ffab77174bdb3412c45845742e71ce3ec6b501046927aa2",
+            "value": {
+              "filename": "qr.png",
+              "extension": ".png",
+              "mime": "image/png",
+              "magic": "png",
+              "sha256": "0c505603a206f7797ffab77174bdb3412c45845742e71ce3ec6b501046927aa2",
+              "size": 551
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.141919Z"
+          },
+          {
+            "evidence_id": "ev_7150cc97052473ed103415e3faff29604e1aaebe7444d970e27e06e94fc1868e",
+            "analyzer": "virustotal",
+            "tool": "virustotal",
+            "signal_type": "ATTACHMENT_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "0c505603a206f7797ffab77174bdb3412c45845742e71ce3ec6b501046927aa2",
+            "value": {
+              "sha256": "0c505603a206f7797ffab77174bdb3412c45845742e71ce3ec6b501046927aa2",
+              "malicious": 0,
+              "suspicious": 0,
+              "harmless": 1,
+              "undetected": 9,
+              "last_analysis_at": "2023-11-14T22:13:20Z",
+              "source_reference": "virustotal:files/0c505603a206f7797ffab77174bdb3412c45845742e71ce3ec6b501046927aa2"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "external",
+              "reference": "virustotal:lookup:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.173119Z"
+          },
+          {
+            "evidence_id": "ev_8b7af3514f3f3677c7e20ea261447ad7852843aa035611c07b3242aff386d158",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "RETURN_PATH_MISMATCH",
+            "family": "identity",
+            "indicator": "return_path",
+            "value": {
+              "from_domain": "example.test",
+              "observed_domains": [
+                "example.test"
+              ]
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.141919Z"
+          },
+          {
+            "evidence_id": "ev_90a8b302e33c1cbf238402d7a8de8c0d6862d2dcd4f3aa45e3104aa58ba76021",
+            "analyzer": "attachment",
+            "tool": "exact_match_ioc",
+            "signal_type": "ATTACHMENT_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "attachment:0:0c505603a206f7797ffab77174bdb3412c45845742e71ce3ec6b501046927aa2:hash",
+            "value": {
+              "kind": "hash",
+              "indicator": "0c505603a206f7797ffab77174bdb3412c45845742e71ce3ec6b501046927aa2",
+              "error_code": null,
+              "scope": "configured_snapshot_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:exact_match_ioc:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.141919Z"
+          },
+          {
+            "evidence_id": "ev_96218fea5097096504af885490a50480ab9984ae3013c4c0beae79ce3c591dbe",
+            "analyzer": "qr",
+            "tool": "local_qr_decoder",
+            "signal_type": "QR_DECODE",
+            "family": "qr",
+            "indicator": "image:attachment:0",
+            "value": {
+              "decoded_payloads": [
+                "https://192.0.2.10/login"
+              ],
+              "payload_count": 1
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:local_qr_decoder:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.170117Z"
+          },
+          {
+            "evidence_id": "ev_99a9a3686fba16e3f84865ca3f97ad9accc239187a888f9e68c58842b9c6b887",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DMARC_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:dmarc",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.141919Z"
+          },
+          {
+            "evidence_id": "ev_9a43898352506e1689b1c8a883347abf5de619146e857b8ff7c278ff0a03d181",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "family": "identity",
+            "indicator": "From:display-name",
+            "value": {
+              "from_domain": "example.test",
+              "displayed_domains": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.141919Z"
+          },
+          {
+            "evidence_id": "ev_a5ab9ef59ed9751b71b627c429333701a6f741dd5a66f4a51675de0c1474ca44",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "REPLY_TO_MISMATCH",
+            "family": "identity",
+            "indicator": "reply_to",
+            "value": {
+              "from_domain": "example.test",
+              "observed_domains": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.141919Z"
+          },
+          {
+            "evidence_id": "ev_c956e6980489179fecefc40fddc4a0d6b36e479245b508293e68b66f8409e3e1",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_ANALYSIS",
+            "family": "attachment",
+            "indicator": "attachment:static_checks",
+            "value": {
+              "checked": 1
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.141919Z"
+          },
+          {
+            "evidence_id": "ev_cb09925b2d01ba22c7f13834eeab1f450677b94919d8703d627fee029a1fe2fb",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DKIM_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:dkim",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.141919Z"
+          },
+          {
+            "evidence_id": "ev_d90aadd3286e97c6924be0287333c2b67a540681395d29b50099bf98bfd92915",
+            "analyzer": "qr",
+            "tool": "exact_match_ioc",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://192.0.2.10/login:url",
+            "value": {
+              "kind": "url",
+              "indicator": "https://192.0.2.10/login",
+              "error_code": null,
+              "scope": "configured_snapshot_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:exact_match_ioc:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.171117Z"
+          },
+          {
+            "evidence_id": "ev_dcd4455893ce8172eed179dab94c2ce76aea3b5732dc15620dbc202e417e33ae",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "SPF_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:spf",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.141919Z"
+          },
+          {
+            "evidence_id": "ev_e84ae87991634c36bd0484275de4e8d34fef1226c13bae1a70dca15f53255d1b",
+            "analyzer": "qr",
+            "tool": "static_rules",
+            "signal_type": "URL_OBFUSCATED",
+            "family": "url_deception",
+            "indicator": "https://192.0.2.10/login",
+            "value": {
+              "raw_url": "https://192.0.2.10/login",
+              "canonical_url": "https://192.0.2.10/login"
+            },
+            "result": "FAIL",
+            "tool_status": "OK",
+            "severity": "medium",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:49.171117Z"
+          }
+        ],
+        "score": 40.0,
+        "label_candidate": "SUSPICIOUS",
+        "coverage": {
+          "required": [
+            "DKIM_FAIL",
+            "DMARC_FAIL",
+            "SPF_FAIL"
+          ],
+          "applicable": [
+            "ATTACHMENT_ANALYSIS",
+            "ATTACHMENT_IOC_CHECK",
+            "ATTACHMENT_METADATA",
+            "BEC_REQUEST",
+            "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "QR_ANALYSIS",
+            "QR_DECODE",
+            "RECEIVED_CHAIN_ANOMALY",
+            "REPLY_TO_MISMATCH",
+            "RETURN_PATH_MISMATCH",
+            "URL_ANALYSIS",
+            "URL_IOC_CHECK",
+            "URL_IP_LITERAL",
+            "URL_OBFUSCATED"
+          ],
+          "completed": [
+            "ATTACHMENT_ANALYSIS",
+            "ATTACHMENT_IOC_CHECK",
+            "ATTACHMENT_METADATA",
+            "BEC_REQUEST",
+            "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "DKIM_FAIL",
+            "DMARC_FAIL",
+            "QR_ANALYSIS",
+            "QR_DECODE",
+            "RECEIVED_CHAIN_ANOMALY",
+            "REPLY_TO_MISMATCH",
+            "RETURN_PATH_MISMATCH",
+            "SPF_FAIL",
+            "URL_ANALYSIS",
+            "URL_IOC_CHECK",
+            "URL_IP_LITERAL",
+            "URL_OBFUSCATED"
+          ],
+          "missing": [],
+          "unknown": [],
+          "ratio": 1.0,
+          "complete": true
+        },
+        "contributions": [
+          {
+            "evidence_id": "ev_1b4a32cfa7db36b97074550b9e537cee50a8092e36924bd257e57664e83f41cf",
+            "signal_type": "URL_IP_LITERAL",
+            "family": "url_deception",
+            "strength": 0.4,
+            "applied_strength": 0.4
+          },
+          {
+            "evidence_id": "ev_e84ae87991634c36bd0484275de4e8d34fef1226c13bae1a70dca15f53255d1b",
+            "signal_type": "URL_OBFUSCATED",
+            "family": "url_deception",
+            "strength": 0.35,
+            "applied_strength": 0.0
+          }
+        ],
+        "analysis_scope": "static_enriched",
+        "analyzer_runs": [
+          {
+            "analyzer": "attachment",
+            "status": "OK"
+          },
+          {
+            "analyzer": "content_bec",
+            "status": "OK"
+          },
+          {
+            "analyzer": "header",
+            "status": "OK"
+          },
+          {
+            "analyzer": "qr",
+            "status": "OK"
+          },
+          {
+            "analyzer": "url",
+            "status": "OK"
+          },
+          {
+            "analyzer": "urlscan",
+            "status": "OK"
+          },
+          {
+            "analyzer": "virustotal",
+            "status": "OK"
+          }
+        ],
+        "reasons": [],
+        "risk_score": 40.0,
+        "risk_level": "medium",
+        "verdict": "pending_review",
+        "requires_review": true,
+        "claims": [
+          {
+            "claim_type": "URL",
+            "text": "URL_IP_LITERAL: FAIL.",
+            "evidence_ids": [
+              "ev_1b4a32cfa7db36b97074550b9e537cee50a8092e36924bd257e57664e83f41cf"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_1b4a32cfa7db36b97074550b9e537cee50a8092e36924bd257e57664e83f41cf",
+                "path": "indicator",
+                "value": "https://192.0.2.10/login"
+              },
+              {
+                "evidence_id": "ev_1b4a32cfa7db36b97074550b9e537cee50a8092e36924bd257e57664e83f41cf",
+                "path": "value.canonical_url",
+                "value": "https://192.0.2.10/login"
+              }
+            ]
+          },
+          {
+            "claim_type": "URL",
+            "text": "URL_OBFUSCATED: FAIL.",
+            "evidence_ids": [
+              "ev_e84ae87991634c36bd0484275de4e8d34fef1226c13bae1a70dca15f53255d1b"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_e84ae87991634c36bd0484275de4e8d34fef1226c13bae1a70dca15f53255d1b",
+                "path": "indicator",
+                "value": "https://192.0.2.10/login"
+              },
+              {
+                "evidence_id": "ev_e84ae87991634c36bd0484275de4e8d34fef1226c13bae1a70dca15f53255d1b",
+                "path": "value.canonical_url",
+                "value": "https://192.0.2.10/login"
+              }
+            ]
+          }
+        ],
+        "recommended_actions": [
+          "REVIEW_EVIDENCE"
+        ],
+        "analyst_summary": "Risk Engine: SUSPICIOUS; score 40; coverage complete. 2 grounded claims. Analyst review required.",
+        "assessment_label": "SUSPICIOUS",
+        "claim_validation_status": "PASS",
+        "trust_warnings": [],
+        "guardrail_signals": [],
+        "pii_redaction_counts": {
+          "EMAIL": 2
+        },
+        "verdict_attempts": 1,
+        "review_status": "PENDING"
+      }
+    },
+    {
+      "scenario": "bec",
+      "fixture": "clean.eml",
+      "http_status": 200,
+      "case_http_status": 200,
+      "response": {
+        "case_id": "241d6ad3-088f-440a-9fe0-44209f0896a8",
+        "status": "PENDING",
+        "evidence": [
+          {
+            "evidence_id": "ev_1ff05eb365567763d6a544ddbe0531a466600e984f290dea36fcabfc4ba68928",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_ANALYSIS",
+            "family": "attachment",
+            "indicator": "attachment:static_checks",
+            "value": {
+              "checked": 0
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:52.421165Z"
+          },
+          {
+            "evidence_id": "ev_3081fdc0e14bea251224ce82385770395dee78a0faf6573f4184f1fcd6569376",
+            "analyzer": "url",
+            "tool": "static_rules",
+            "signal_type": "URL_ANALYSIS",
+            "family": "url_deception",
+            "indicator": "url:url_checks",
+            "value": {
+              "checked": 0,
+              "scope": "local_static"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:52.424617Z"
+          },
+          {
+            "evidence_id": "ev_4b5670e7882a48da4ce58b55337bfaad535fbb2472e6ba765347d3a92dce49f9",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "RECEIVED_CHAIN_ANOMALY",
+            "family": "identity",
+            "indicator": "Received",
+            "value": {
+              "hop_count": 1,
+              "parsed_timestamp_count": 1,
+              "basic_anomaly": false
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 0.8,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:52.421165Z"
+          },
+          {
+            "evidence_id": "ev_8b7af3514f3f3677c7e20ea261447ad7852843aa035611c07b3242aff386d158",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "RETURN_PATH_MISMATCH",
+            "family": "identity",
+            "indicator": "return_path",
+            "value": {
+              "from_domain": "example.test",
+              "observed_domains": [
+                "example.test"
+              ]
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:52.421165Z"
+          },
+          {
+            "evidence_id": "ev_99a9a3686fba16e3f84865ca3f97ad9accc239187a888f9e68c58842b9c6b887",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DMARC_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:dmarc",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:52.421165Z"
+          },
+          {
+            "evidence_id": "ev_9a43898352506e1689b1c8a883347abf5de619146e857b8ff7c278ff0a03d181",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "family": "identity",
+            "indicator": "From:display-name",
+            "value": {
+              "from_domain": "example.test",
+              "displayed_domains": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:52.421165Z"
+          },
+          {
+            "evidence_id": "ev_a5ab9ef59ed9751b71b627c429333701a6f741dd5a66f4a51675de0c1474ca44",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "REPLY_TO_MISMATCH",
+            "family": "identity",
+            "indicator": "reply_to",
+            "value": {
+              "from_domain": "example.test",
+              "observed_domains": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:52.421165Z"
+          },
+          {
+            "evidence_id": "ev_be8852534b40ee10b0fc612b1334ca0421958195f66ab4c2f03129e3963c70ad",
+            "analyzer": "qr",
+            "tool": "local_qr_decoder",
+            "signal_type": "QR_ANALYSIS",
+            "family": "qr",
+            "indicator": "qr:local_checks",
+            "value": {
+              "images": 0
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:local_qr_decoder:v1"
+            },
+            "collected_at": "2026-10-09T16:24:52.424617Z"
+          },
+          {
+            "evidence_id": "ev_c088c255c2101282d514477fd1d122e564a8a23bde10fbcc4b97570989f73824",
+            "analyzer": "content_bec",
+            "tool": "structured_llm",
+            "signal_type": "BEC_REQUEST",
+            "family": "content_bec",
+            "indicator": "redacted:content_bec",
+            "value": {
+              "signals": [
+                {
+                  "kind": "payment_request",
+                  "confidence": 0.9
+                }
+              ]
+            },
+            "result": "FAIL",
+            "tool_status": "OK",
+            "severity": "low",
+            "confidence": 0.9,
+            "provenance": {
+              "source": "llm",
+              "reference": "structured_bec:v1"
+            },
+            "collected_at": "2026-10-09T16:24:52.426198Z"
+          },
+          {
+            "evidence_id": "ev_cb09925b2d01ba22c7f13834eeab1f450677b94919d8703d627fee029a1fe2fb",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DKIM_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:dkim",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:52.421165Z"
+          },
+          {
+            "evidence_id": "ev_dcd4455893ce8172eed179dab94c2ce76aea3b5732dc15620dbc202e417e33ae",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "SPF_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:spf",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:52.421165Z"
+          }
+        ],
+        "score": 9.0,
+        "label_candidate": "SAFE",
+        "coverage": {
+          "required": [
+            "DKIM_FAIL",
+            "DMARC_FAIL",
+            "SPF_FAIL"
+          ],
+          "applicable": [
+            "ATTACHMENT_ANALYSIS",
+            "BEC_REQUEST",
+            "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "QR_ANALYSIS",
+            "RECEIVED_CHAIN_ANOMALY",
+            "REPLY_TO_MISMATCH",
+            "RETURN_PATH_MISMATCH",
+            "URL_ANALYSIS"
+          ],
+          "completed": [
+            "ATTACHMENT_ANALYSIS",
+            "BEC_REQUEST",
+            "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "DKIM_FAIL",
+            "DMARC_FAIL",
+            "QR_ANALYSIS",
+            "RECEIVED_CHAIN_ANOMALY",
+            "REPLY_TO_MISMATCH",
+            "RETURN_PATH_MISMATCH",
+            "SPF_FAIL",
+            "URL_ANALYSIS"
+          ],
+          "missing": [],
+          "unknown": [],
+          "ratio": 1.0,
+          "complete": true
+        },
+        "contributions": [
+          {
+            "evidence_id": "ev_c088c255c2101282d514477fd1d122e564a8a23bde10fbcc4b97570989f73824",
+            "signal_type": "BEC_REQUEST",
+            "family": "content_bec",
+            "strength": 0.09000000000000001,
+            "applied_strength": 0.09000000000000001
+          }
+        ],
+        "analysis_scope": "static_enriched",
+        "analyzer_runs": [
+          {
+            "analyzer": "attachment",
+            "status": "OK"
+          },
+          {
+            "analyzer": "content_bec",
+            "status": "OK"
+          },
+          {
+            "analyzer": "header",
+            "status": "OK"
+          },
+          {
+            "analyzer": "qr",
+            "status": "OK"
+          },
+          {
+            "analyzer": "url",
+            "status": "OK"
+          }
+        ],
+        "reasons": [],
+        "risk_score": 9.0,
+        "risk_level": "low",
+        "verdict": "pending_review",
+        "requires_review": true,
+        "claims": [
+          {
+            "claim_type": "CONTENT_BEC",
+            "text": "BEC_REQUEST: FAIL.",
+            "evidence_ids": [
+              "ev_c088c255c2101282d514477fd1d122e564a8a23bde10fbcc4b97570989f73824"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_c088c255c2101282d514477fd1d122e564a8a23bde10fbcc4b97570989f73824",
+                "path": "indicator",
+                "value": "redacted:content_bec"
+              }
+            ]
+          }
+        ],
+        "recommended_actions": [
+          "REVIEW_EVIDENCE"
+        ],
+        "analyst_summary": "Risk Engine: SAFE; score 9; coverage complete. 1 grounded claims. Analyst review required.",
+        "assessment_label": "SAFE",
+        "claim_validation_status": "PASS",
+        "trust_warnings": [],
+        "guardrail_signals": [],
+        "pii_redaction_counts": {
+          "EMAIL": 2
+        },
+        "verdict_attempts": 1,
+        "review_status": "PENDING"
+      }
+    },
+    {
+      "scenario": "timeout",
+      "fixture": "href_mismatch.eml",
+      "http_status": 200,
+      "case_http_status": 200,
+      "response": {
+        "case_id": "6cf1a572-78a0-46f3-83ed-34fb88a5fb80",
+        "status": "PENDING",
+        "evidence": [
+          {
+            "evidence_id": "ev_02ba76c572097ab797abef4c31de9cd0503df326e24388e3e1b878fe9f55d79b",
+            "analyzer": "urlscan",
+            "tool": "urlscan",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://example.test/login",
+            "value": {
+              "error_code": "URLSCAN_TIMEOUT"
+            },
+            "result": "UNKNOWN",
+            "tool_status": "TIMEOUT",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "external",
+              "reference": "urlscan:lookup:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.679245Z"
+          },
+          {
+            "evidence_id": "ev_0e38a82a53261eef3d3345e807239b2b7e18fed7048bf77ff5865338df833c43",
+            "analyzer": "url",
+            "tool": "exact_match_ioc",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://example.test/login:url",
+            "value": {
+              "kind": "url",
+              "indicator": "https://example.test/login",
+              "error_code": null,
+              "scope": "configured_snapshot_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:exact_match_ioc:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.675417Z"
+          },
+          {
+            "evidence_id": "ev_0e567756e4775fb93eb909fa55db9bdfaa80f39422d989d2c6ae0a7b61c7f4b3",
+            "analyzer": "urlscan",
+            "tool": "urlscan",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://other.test/login",
+            "value": {
+              "error_code": "URLSCAN_TIMEOUT"
+            },
+            "result": "UNKNOWN",
+            "tool_status": "TIMEOUT",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "external",
+              "reference": "urlscan:lookup:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.679245Z"
+          },
+          {
+            "evidence_id": "ev_18080408c847d4f75c4c60c088d59b9146daec73d09643b0c1ec94c62c708a59",
+            "analyzer": "url",
+            "tool": "exact_match_ioc",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://other.test/login:domain",
+            "value": {
+              "kind": "domain",
+              "indicator": "other.test",
+              "error_code": null,
+              "scope": "configured_snapshot_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:exact_match_ioc:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.676459Z"
+          },
+          {
+            "evidence_id": "ev_1ff05eb365567763d6a544ddbe0531a466600e984f290dea36fcabfc4ba68928",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_ANALYSIS",
+            "family": "attachment",
+            "indicator": "attachment:static_checks",
+            "value": {
+              "checked": 0
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.671909Z"
+          },
+          {
+            "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+            "analyzer": "url",
+            "tool": "static_rules",
+            "signal_type": "HREF_MISMATCH",
+            "family": "url_deception",
+            "indicator": "https://other.test/login",
+            "value": {
+              "raw_url": "https://other.test/login",
+              "canonical_url": "https://other.test/login",
+              "displayed_url": "https://example.test/login"
+            },
+            "result": "FAIL",
+            "tool_status": "OK",
+            "severity": "medium",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.676459Z"
+          },
+          {
+            "evidence_id": "ev_4b5670e7882a48da4ce58b55337bfaad535fbb2472e6ba765347d3a92dce49f9",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "RECEIVED_CHAIN_ANOMALY",
+            "family": "identity",
+            "indicator": "Received",
+            "value": {
+              "hop_count": 1,
+              "parsed_timestamp_count": 1,
+              "basic_anomaly": false
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 0.8,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.672910Z"
+          },
+          {
+            "evidence_id": "ev_5d44420f561cba6436c997c9faa4dde6f4247d9396d4dd43aa528fb4a14b0ac8",
+            "analyzer": "url",
+            "tool": "exact_match_ioc",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://example.test/login:domain",
+            "value": {
+              "kind": "domain",
+              "indicator": "example.test",
+              "error_code": null,
+              "scope": "configured_snapshot_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:exact_match_ioc:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.675417Z"
+          },
+          {
+            "evidence_id": "ev_6ba58713223783616aa2bf363fa9ce460ad3f7a3158bac69d1044b9dea9b2f6a",
+            "analyzer": "content_bec",
+            "tool": "structured_llm",
+            "signal_type": "BEC_REQUEST",
+            "family": "content_bec",
+            "indicator": "redacted:content_bec",
+            "value": {
+              "signals": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "llm",
+              "reference": "structured_bec:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.679245Z"
+          },
+          {
+            "evidence_id": "ev_8b7af3514f3f3677c7e20ea261447ad7852843aa035611c07b3242aff386d158",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "RETURN_PATH_MISMATCH",
+            "family": "identity",
+            "indicator": "return_path",
+            "value": {
+              "from_domain": "example.test",
+              "observed_domains": [
+                "example.test"
+              ]
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.672910Z"
+          },
+          {
+            "evidence_id": "ev_99a9a3686fba16e3f84865ca3f97ad9accc239187a888f9e68c58842b9c6b887",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DMARC_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:dmarc",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.672910Z"
+          },
+          {
+            "evidence_id": "ev_9a43898352506e1689b1c8a883347abf5de619146e857b8ff7c278ff0a03d181",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "family": "identity",
+            "indicator": "From:display-name",
+            "value": {
+              "from_domain": "example.test",
+              "displayed_domains": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.672910Z"
+          },
+          {
+            "evidence_id": "ev_a5ab9ef59ed9751b71b627c429333701a6f741dd5a66f4a51675de0c1474ca44",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "REPLY_TO_MISMATCH",
+            "family": "identity",
+            "indicator": "reply_to",
+            "value": {
+              "from_domain": "example.test",
+              "observed_domains": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.672910Z"
+          },
+          {
+            "evidence_id": "ev_be788775d500e02161bae9c4d0599554e606f6fd0667fd4286063c1bd2081b83",
+            "analyzer": "url",
+            "tool": "exact_match_ioc",
+            "signal_type": "URL_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "https://other.test/login:url",
+            "value": {
+              "kind": "url",
+              "indicator": "https://other.test/login",
+              "error_code": null,
+              "scope": "configured_snapshot_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:exact_match_ioc:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.676459Z"
+          },
+          {
+            "evidence_id": "ev_be8852534b40ee10b0fc612b1334ca0421958195f66ab4c2f03129e3963c70ad",
+            "analyzer": "qr",
+            "tool": "local_qr_decoder",
+            "signal_type": "QR_ANALYSIS",
+            "family": "qr",
+            "indicator": "qr:local_checks",
+            "value": {
+              "images": 0
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:local_qr_decoder:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.674241Z"
+          },
+          {
+            "evidence_id": "ev_cb09925b2d01ba22c7f13834eeab1f450677b94919d8703d627fee029a1fe2fb",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DKIM_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:dkim",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.672910Z"
+          },
+          {
+            "evidence_id": "ev_dcd4455893ce8172eed179dab94c2ce76aea3b5732dc15620dbc202e417e33ae",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "SPF_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:spf",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.672910Z"
+          },
+          {
+            "evidence_id": "ev_f7bd9d78372388ba65477c8ce354f30d7734ec9fb78680fcbad10f4d6389b232",
+            "analyzer": "url",
+            "tool": "static_rules",
+            "signal_type": "URL_ANALYSIS",
+            "family": "url_deception",
+            "indicator": "url:url_checks",
+            "value": {
+              "checked": 2,
+              "scope": "local_static"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:24:56.676459Z"
+          }
+        ],
+        "score": 60.0,
+        "label_candidate": "NEEDS_ANALYST_REVIEW",
+        "coverage": {
+          "required": [
+            "DKIM_FAIL",
+            "DMARC_FAIL",
+            "SPF_FAIL"
+          ],
+          "applicable": [
+            "ATTACHMENT_ANALYSIS",
+            "BEC_REQUEST",
+            "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "HREF_MISMATCH",
+            "QR_ANALYSIS",
+            "RECEIVED_CHAIN_ANOMALY",
+            "REPLY_TO_MISMATCH",
+            "RETURN_PATH_MISMATCH",
+            "URL_ANALYSIS",
+            "URL_IOC_CHECK"
+          ],
+          "completed": [
+            "ATTACHMENT_ANALYSIS",
+            "BEC_REQUEST",
+            "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "DKIM_FAIL",
+            "DMARC_FAIL",
+            "HREF_MISMATCH",
+            "QR_ANALYSIS",
+            "RECEIVED_CHAIN_ANOMALY",
+            "REPLY_TO_MISMATCH",
+            "RETURN_PATH_MISMATCH",
+            "SPF_FAIL",
+            "URL_ANALYSIS"
+          ],
+          "missing": [
+            "URL_IOC_CHECK"
+          ],
+          "unknown": [
+            "URL_IOC_CHECK"
+          ],
+          "ratio": 0.9230769230769231,
+          "complete": false
+        },
+        "contributions": [
+          {
+            "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+            "signal_type": "HREF_MISMATCH",
+            "family": "url_deception",
+            "strength": 0.6,
+            "applied_strength": 0.6
+          }
+        ],
+        "analysis_scope": "static_enriched_partial",
+        "analyzer_runs": [
+          {
+            "analyzer": "attachment",
+            "status": "OK"
+          },
+          {
+            "analyzer": "content_bec",
+            "status": "OK"
+          },
+          {
+            "analyzer": "header",
+            "status": "OK"
+          },
+          {
+            "analyzer": "qr",
+            "status": "OK"
+          },
+          {
+            "analyzer": "url",
+            "status": "OK"
+          },
+          {
+            "analyzer": "urlscan",
+            "status": "PARTIAL"
+          }
+        ],
+        "reasons": [
+          "MISSING_COVERAGE",
+          "UNKNOWN_EVIDENCE"
+        ],
+        "risk_score": 60.0,
+        "risk_level": "unknown",
+        "verdict": "pending_review",
+        "requires_review": true,
+        "claims": [
+          {
+            "claim_type": "UNCERTAINTY",
+            "text": "URL_IOC_CHECK: UNKNOWN.",
+            "evidence_ids": [
+              "ev_02ba76c572097ab797abef4c31de9cd0503df326e24388e3e1b878fe9f55d79b"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_02ba76c572097ab797abef4c31de9cd0503df326e24388e3e1b878fe9f55d79b",
+                "path": "indicator",
+                "value": "https://example.test/login"
+              }
+            ]
+          },
+          {
+            "claim_type": "UNCERTAINTY",
+            "text": "URL_IOC_CHECK: UNKNOWN.",
+            "evidence_ids": [
+              "ev_0e567756e4775fb93eb909fa55db9bdfaa80f39422d989d2c6ae0a7b61c7f4b3"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_0e567756e4775fb93eb909fa55db9bdfaa80f39422d989d2c6ae0a7b61c7f4b3",
+                "path": "indicator",
+                "value": "https://other.test/login"
+              }
+            ]
+          },
+          {
+            "claim_type": "URL",
+            "text": "HREF_MISMATCH: FAIL.",
+            "evidence_ids": [
+              "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+                "path": "indicator",
+                "value": "https://other.test/login"
+              },
+              {
+                "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+                "path": "value.canonical_url",
+                "value": "https://other.test/login"
+              },
+              {
+                "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+                "path": "value.displayed_url",
+                "value": "https://example.test/login"
+              }
+            ]
+          }
+        ],
+        "recommended_actions": [
+          "REVIEW_EVIDENCE"
+        ],
+        "analyst_summary": "Risk Engine: NEEDS_ANALYST_REVIEW; score 60; coverage incomplete. 3 grounded claims. Analyst review required.",
+        "assessment_label": "NEEDS_ANALYST_REVIEW",
+        "claim_validation_status": "PASS",
+        "trust_warnings": [],
+        "guardrail_signals": [],
+        "pii_redaction_counts": {
+          "EMAIL": 2
+        },
+        "verdict_attempts": 1,
+        "review_status": "PENDING"
+      }
+    },
+    {
+      "scenario": "unavailable",
+      "fixture": "suspicious_attachment.eml",
+      "http_status": 200,
+      "case_http_status": 200,
+      "response": {
+        "case_id": "a73a4bce-315b-486d-8c5e-99a2ea108df8",
+        "status": "PENDING",
+        "evidence": [
+          {
+            "evidence_id": "ev_2b620bfcf9f93a2de1266c989a8a7b6d49d9a8909af12e18a149176863167728",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_METADATA",
+            "family": "attachment",
+            "indicator": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+            "value": {
+              "filename": "invoice.pdf.exe",
+              "extension": ".exe",
+              "mime": "image/png",
+              "magic": "pe",
+              "sha256": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+              "size": 29
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.269580Z"
+          },
+          {
+            "evidence_id": "ev_3081fdc0e14bea251224ce82385770395dee78a0faf6573f4184f1fcd6569376",
+            "analyzer": "url",
+            "tool": "static_rules",
+            "signal_type": "URL_ANALYSIS",
+            "family": "url_deception",
+            "indicator": "url:url_checks",
+            "value": {
+              "checked": 0,
+              "scope": "local_static"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "url:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.274091Z"
+          },
+          {
+            "evidence_id": "ev_344f15e4c683d18e3a9be4398430a8177d5f4b7f34735e9f9cc8c0c7e3180ebd",
+            "analyzer": "qr",
+            "tool": "local_qr_decoder",
+            "signal_type": "QR_ANALYSIS",
+            "family": "qr",
+            "indicator": "qr:local_checks",
+            "value": {
+              "images": 1
+            },
+            "result": "UNKNOWN",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:local_qr_decoder:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.618437Z"
+          },
+          {
+            "evidence_id": "ev_3dfd836a7de4ab64375e1d2caafbcc066be5642c673203c31b92fcc88079f43a",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_EXECUTABLE",
+            "family": "attachment",
+            "indicator": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+            "value": {
+              "filename": "invoice.pdf.exe",
+              "extension": ".exe",
+              "mime": "image/png",
+              "magic": "pe",
+              "sha256": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+              "size": 29
+            },
+            "result": "FAIL",
+            "tool_status": "OK",
+            "severity": "medium",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.269580Z"
+          },
+          {
+            "evidence_id": "ev_44901a9626c02ee4f11d78b0260000c251e83e446c866d2a4840ec3cf1677178",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_MIME_MISMATCH",
+            "family": "attachment",
+            "indicator": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+            "value": {
+              "filename": "invoice.pdf.exe",
+              "extension": ".exe",
+              "mime": "image/png",
+              "magic": "pe",
+              "sha256": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+              "size": 29
+            },
+            "result": "FAIL",
+            "tool_status": "OK",
+            "severity": "medium",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.269580Z"
+          },
+          {
+            "evidence_id": "ev_4b5670e7882a48da4ce58b55337bfaad535fbb2472e6ba765347d3a92dce49f9",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "RECEIVED_CHAIN_ANOMALY",
+            "family": "identity",
+            "indicator": "Received",
+            "value": {
+              "hop_count": 1,
+              "parsed_timestamp_count": 1,
+              "basic_anomaly": false
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 0.8,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.270621Z"
+          },
+          {
+            "evidence_id": "ev_6ba4d01de30ffa342fd12ca22535227417eeefe3b59aac26393915c0e2fbf6ec",
+            "analyzer": "attachment",
+            "tool": "exact_match_ioc",
+            "signal_type": "ATTACHMENT_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9:hash",
+            "value": {
+              "kind": "hash",
+              "indicator": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+              "error_code": "IOC_NOT_CONFIGURED",
+              "scope": "configured_snapshot_only"
+            },
+            "result": "UNKNOWN",
+            "tool_status": "ERROR",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:exact_match_ioc:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.269580Z"
+          },
+          {
+            "evidence_id": "ev_7632d3f35eebbaf44aaf7390c5110987e73c6745adee993dc86584dee0dca9bc",
+            "analyzer": "virustotal",
+            "tool": "virustotal",
+            "signal_type": "ATTACHMENT_IOC_CHECK",
+            "family": "threat_intel",
+            "indicator": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+            "value": {
+              "error_code": "VT_NOT_CONFIGURED"
+            },
+            "result": "UNKNOWN",
+            "tool_status": "ERROR",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "external",
+              "reference": "virustotal:lookup:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.619614Z"
+          },
+          {
+            "evidence_id": "ev_7dc5fed61102287bbfe9ce6c56480cd11f9984567a6e6832fb0cccf791b3ada6",
+            "analyzer": "content_bec",
+            "tool": "content_bec",
+            "signal_type": "BEC_REQUEST",
+            "family": "content_bec",
+            "indicator": "redacted:content_bec",
+            "value": {
+              "error_code": "LLM_NOT_CONFIGURED"
+            },
+            "result": "UNKNOWN",
+            "tool_status": "ERROR",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "llm",
+              "reference": "content_bec:lookup:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.619614Z"
+          },
+          {
+            "evidence_id": "ev_8b7af3514f3f3677c7e20ea261447ad7852843aa035611c07b3242aff386d158",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "RETURN_PATH_MISMATCH",
+            "family": "identity",
+            "indicator": "return_path",
+            "value": {
+              "from_domain": "example.test",
+              "observed_domains": [
+                "example.test"
+              ]
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.270621Z"
+          },
+          {
+            "evidence_id": "ev_99a9a3686fba16e3f84865ca3f97ad9accc239187a888f9e68c58842b9c6b887",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DMARC_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:dmarc",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.270621Z"
+          },
+          {
+            "evidence_id": "ev_9a43898352506e1689b1c8a883347abf5de619146e857b8ff7c278ff0a03d181",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "family": "identity",
+            "indicator": "From:display-name",
+            "value": {
+              "from_domain": "example.test",
+              "displayed_domains": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.270621Z"
+          },
+          {
+            "evidence_id": "ev_a5ab9ef59ed9751b71b627c429333701a6f741dd5a66f4a51675de0c1474ca44",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "REPLY_TO_MISMATCH",
+            "family": "identity",
+            "indicator": "reply_to",
+            "value": {
+              "from_domain": "example.test",
+              "observed_domains": []
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.270621Z"
+          },
+          {
+            "evidence_id": "ev_c956e6980489179fecefc40fddc4a0d6b36e479245b508293e68b66f8409e3e1",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_ANALYSIS",
+            "family": "attachment",
+            "indicator": "attachment:static_checks",
+            "value": {
+              "checked": 1
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.270621Z"
+          },
+          {
+            "evidence_id": "ev_cb09925b2d01ba22c7f13834eeab1f450677b94919d8703d627fee029a1fe2fb",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "DKIM_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:dkim",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.270621Z"
+          },
+          {
+            "evidence_id": "ev_cfa15b108c2e377a814be4de697f604370300e78ddb133693213cf90500cf23e",
+            "analyzer": "qr",
+            "tool": "local_qr_decoder",
+            "signal_type": "QR_DECODE",
+            "family": "qr",
+            "indicator": "image:attachment:0",
+            "value": {
+              "error_code": "QR_DECODE_FAILED"
+            },
+            "result": "UNKNOWN",
+            "tool_status": "ERROR",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "qr:local_qr_decoder:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.617447Z"
+          },
+          {
+            "evidence_id": "ev_db0ab16b8d4980d9ec9ad406ad27b28626820440ff60e2e84a49f70794e5f96c",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_DOUBLE_EXTENSION",
+            "family": "attachment",
+            "indicator": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+            "value": {
+              "filename": "invoice.pdf.exe",
+              "extension": ".exe",
+              "mime": "image/png",
+              "magic": "pe",
+              "sha256": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+              "size": 29
+            },
+            "result": "FAIL",
+            "tool_status": "OK",
+            "severity": "medium",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.269580Z"
+          },
+          {
+            "evidence_id": "ev_dcd4455893ce8172eed179dab94c2ce76aea3b5732dc15620dbc202e417e33ae",
+            "analyzer": "header",
+            "tool": "local_header_rules",
+            "signal_type": "SPF_FAIL",
+            "family": "email_auth",
+            "indicator": "Authentication-Results:spf",
+            "value": {
+              "reported_results": [
+                "pass"
+              ],
+              "authserv_id": "mx.recipient.test",
+              "trusted_receiver": true,
+              "verification": "reported_header_only"
+            },
+            "result": "PASS",
+            "tool_status": "OK",
+            "severity": "info",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "header_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.270621Z"
+          },
+          {
+            "evidence_id": "ev_e9ee416e9e4c184bc72fc9ca28525ac795357d1551edb1aa2d04cae786b5d972",
+            "analyzer": "attachment",
+            "tool": "static_rules",
+            "signal_type": "ATTACHMENT_MAGIC_MISMATCH",
+            "family": "attachment",
+            "indicator": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+            "value": {
+              "filename": "invoice.pdf.exe",
+              "extension": ".exe",
+              "mime": "image/png",
+              "magic": "pe",
+              "sha256": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9",
+              "size": 29
+            },
+            "result": "FAIL",
+            "tool_status": "OK",
+            "severity": "medium",
+            "confidence": 1.0,
+            "provenance": {
+              "source": "local",
+              "reference": "attachment:static_rules:v1"
+            },
+            "collected_at": "2026-10-09T16:25:01.269580Z"
+          }
+        ],
+        "score": 50.0,
+        "label_candidate": "NEEDS_ANALYST_REVIEW",
+        "coverage": {
+          "required": [
+            "DKIM_FAIL",
+            "DMARC_FAIL",
+            "SPF_FAIL"
+          ],
+          "applicable": [
+            "ATTACHMENT_ANALYSIS",
+            "ATTACHMENT_DOUBLE_EXTENSION",
+            "ATTACHMENT_EXECUTABLE",
+            "ATTACHMENT_IOC_CHECK",
+            "ATTACHMENT_MAGIC_MISMATCH",
+            "ATTACHMENT_METADATA",
+            "ATTACHMENT_MIME_MISMATCH",
+            "BEC_REQUEST",
+            "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "QR_ANALYSIS",
+            "QR_DECODE",
+            "RECEIVED_CHAIN_ANOMALY",
+            "REPLY_TO_MISMATCH",
+            "RETURN_PATH_MISMATCH",
+            "URL_ANALYSIS"
+          ],
+          "completed": [
+            "ATTACHMENT_ANALYSIS",
+            "ATTACHMENT_DOUBLE_EXTENSION",
+            "ATTACHMENT_EXECUTABLE",
+            "ATTACHMENT_MAGIC_MISMATCH",
+            "ATTACHMENT_METADATA",
+            "ATTACHMENT_MIME_MISMATCH",
+            "DISPLAY_NAME_DOMAIN_MISMATCH",
+            "DKIM_FAIL",
+            "DMARC_FAIL",
+            "RECEIVED_CHAIN_ANOMALY",
+            "REPLY_TO_MISMATCH",
+            "RETURN_PATH_MISMATCH",
+            "SPF_FAIL",
+            "URL_ANALYSIS"
+          ],
+          "missing": [
+            "ATTACHMENT_IOC_CHECK",
+            "BEC_REQUEST",
+            "QR_ANALYSIS",
+            "QR_DECODE"
+          ],
+          "unknown": [
+            "ATTACHMENT_IOC_CHECK",
+            "BEC_REQUEST",
+            "QR_ANALYSIS",
+            "QR_DECODE"
+          ],
+          "ratio": 0.7777777777777778,
+          "complete": false
+        },
+        "contributions": [
+          {
+            "evidence_id": "ev_3dfd836a7de4ab64375e1d2caafbcc066be5642c673203c31b92fcc88079f43a",
+            "signal_type": "ATTACHMENT_EXECUTABLE",
+            "family": "attachment",
+            "strength": 0.5,
+            "applied_strength": 0.5
+          },
+          {
+            "evidence_id": "ev_44901a9626c02ee4f11d78b0260000c251e83e446c866d2a4840ec3cf1677178",
+            "signal_type": "ATTACHMENT_MIME_MISMATCH",
+            "family": "attachment",
+            "strength": 0.35,
+            "applied_strength": 0.0
+          },
+          {
+            "evidence_id": "ev_db0ab16b8d4980d9ec9ad406ad27b28626820440ff60e2e84a49f70794e5f96c",
+            "signal_type": "ATTACHMENT_DOUBLE_EXTENSION",
+            "family": "attachment",
+            "strength": 0.45,
+            "applied_strength": 0.0
+          },
+          {
+            "evidence_id": "ev_e9ee416e9e4c184bc72fc9ca28525ac795357d1551edb1aa2d04cae786b5d972",
+            "signal_type": "ATTACHMENT_MAGIC_MISMATCH",
+            "family": "attachment",
+            "strength": 0.45,
+            "applied_strength": 0.0
+          }
+        ],
+        "analysis_scope": "static_enriched_partial",
+        "analyzer_runs": [
+          {
+            "analyzer": "attachment",
+            "status": "PARTIAL"
+          },
+          {
+            "analyzer": "content_bec",
+            "status": "PARTIAL"
+          },
+          {
+            "analyzer": "header",
+            "status": "OK"
+          },
+          {
+            "analyzer": "qr",
+            "status": "PARTIAL"
+          },
+          {
+            "analyzer": "url",
+            "status": "OK"
+          },
+          {
+            "analyzer": "virustotal",
+            "status": "PARTIAL"
+          }
+        ],
+        "reasons": [
+          "MISSING_COVERAGE",
+          "UNKNOWN_EVIDENCE"
+        ],
+        "risk_score": 50.0,
+        "risk_level": "unknown",
+        "verdict": "pending_review",
+        "requires_review": true,
+        "claims": [
+          {
+            "claim_type": "UNCERTAINTY",
+            "text": "QR_ANALYSIS: UNKNOWN.",
+            "evidence_ids": [
+              "ev_344f15e4c683d18e3a9be4398430a8177d5f4b7f34735e9f9cc8c0c7e3180ebd"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_344f15e4c683d18e3a9be4398430a8177d5f4b7f34735e9f9cc8c0c7e3180ebd",
+                "path": "indicator",
+                "value": "qr:local_checks"
+              }
+            ]
+          },
+          {
+            "claim_type": "ATTACHMENT",
+            "text": "ATTACHMENT_EXECUTABLE: FAIL.",
+            "evidence_ids": [
+              "ev_3dfd836a7de4ab64375e1d2caafbcc066be5642c673203c31b92fcc88079f43a"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_3dfd836a7de4ab64375e1d2caafbcc066be5642c673203c31b92fcc88079f43a",
+                "path": "indicator",
+                "value": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              },
+              {
+                "evidence_id": "ev_3dfd836a7de4ab64375e1d2caafbcc066be5642c673203c31b92fcc88079f43a",
+                "path": "value.sha256",
+                "value": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              }
+            ]
+          },
+          {
+            "claim_type": "ATTACHMENT",
+            "text": "ATTACHMENT_MIME_MISMATCH: FAIL.",
+            "evidence_ids": [
+              "ev_44901a9626c02ee4f11d78b0260000c251e83e446c866d2a4840ec3cf1677178"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_44901a9626c02ee4f11d78b0260000c251e83e446c866d2a4840ec3cf1677178",
+                "path": "indicator",
+                "value": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              },
+              {
+                "evidence_id": "ev_44901a9626c02ee4f11d78b0260000c251e83e446c866d2a4840ec3cf1677178",
+                "path": "value.sha256",
+                "value": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              }
+            ]
+          },
+          {
+            "claim_type": "UNCERTAINTY",
+            "text": "ATTACHMENT_IOC_CHECK: UNKNOWN.",
+            "evidence_ids": [
+              "ev_6ba4d01de30ffa342fd12ca22535227417eeefe3b59aac26393915c0e2fbf6ec"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_6ba4d01de30ffa342fd12ca22535227417eeefe3b59aac26393915c0e2fbf6ec",
+                "path": "indicator",
+                "value": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9:hash"
+              },
+              {
+                "evidence_id": "ev_6ba4d01de30ffa342fd12ca22535227417eeefe3b59aac26393915c0e2fbf6ec",
+                "path": "value.indicator",
+                "value": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              }
+            ]
+          },
+          {
+            "claim_type": "UNCERTAINTY",
+            "text": "ATTACHMENT_IOC_CHECK: UNKNOWN.",
+            "evidence_ids": [
+              "ev_7632d3f35eebbaf44aaf7390c5110987e73c6745adee993dc86584dee0dca9bc"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_7632d3f35eebbaf44aaf7390c5110987e73c6745adee993dc86584dee0dca9bc",
+                "path": "indicator",
+                "value": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              }
+            ]
+          },
+          {
+            "claim_type": "UNCERTAINTY",
+            "text": "BEC_REQUEST: UNKNOWN.",
+            "evidence_ids": [
+              "ev_7dc5fed61102287bbfe9ce6c56480cd11f9984567a6e6832fb0cccf791b3ada6"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_7dc5fed61102287bbfe9ce6c56480cd11f9984567a6e6832fb0cccf791b3ada6",
+                "path": "indicator",
+                "value": "redacted:content_bec"
+              }
+            ]
+          },
+          {
+            "claim_type": "UNCERTAINTY",
+            "text": "QR_DECODE: UNKNOWN.",
+            "evidence_ids": [
+              "ev_cfa15b108c2e377a814be4de697f604370300e78ddb133693213cf90500cf23e"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_cfa15b108c2e377a814be4de697f604370300e78ddb133693213cf90500cf23e",
+                "path": "indicator",
+                "value": "image:attachment:0"
+              }
+            ]
+          },
+          {
+            "claim_type": "ATTACHMENT",
+            "text": "ATTACHMENT_DOUBLE_EXTENSION: FAIL.",
+            "evidence_ids": [
+              "ev_db0ab16b8d4980d9ec9ad406ad27b28626820440ff60e2e84a49f70794e5f96c"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_db0ab16b8d4980d9ec9ad406ad27b28626820440ff60e2e84a49f70794e5f96c",
+                "path": "indicator",
+                "value": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              },
+              {
+                "evidence_id": "ev_db0ab16b8d4980d9ec9ad406ad27b28626820440ff60e2e84a49f70794e5f96c",
+                "path": "value.sha256",
+                "value": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              }
+            ]
+          },
+          {
+            "claim_type": "ATTACHMENT",
+            "text": "ATTACHMENT_MAGIC_MISMATCH: FAIL.",
+            "evidence_ids": [
+              "ev_e9ee416e9e4c184bc72fc9ca28525ac795357d1551edb1aa2d04cae786b5d972"
+            ],
+            "indicators": [
+              {
+                "evidence_id": "ev_e9ee416e9e4c184bc72fc9ca28525ac795357d1551edb1aa2d04cae786b5d972",
+                "path": "indicator",
+                "value": "attachment:0:3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              },
+              {
+                "evidence_id": "ev_e9ee416e9e4c184bc72fc9ca28525ac795357d1551edb1aa2d04cae786b5d972",
+                "path": "value.sha256",
+                "value": "3b0e61a66c48c54efffa7574e1ec399790a98c2154dd64105c74ee3ee59ec3e9"
+              }
+            ]
+          }
+        ],
+        "recommended_actions": [
+          "REVIEW_EVIDENCE"
+        ],
+        "analyst_summary": "Risk Engine: NEEDS_ANALYST_REVIEW; score 50; coverage incomplete. 9 grounded claims. Analyst review required.",
+        "assessment_label": "NEEDS_ANALYST_REVIEW",
+        "claim_validation_status": "PASS",
+        "trust_warnings": [],
+        "guardrail_signals": [],
+        "pii_redaction_counts": {
+          "EMAIL": 2
+        },
+        "verdict_attempts": 1,
+        "review_status": "PENDING"
+      }
+    }
+  ]
+}

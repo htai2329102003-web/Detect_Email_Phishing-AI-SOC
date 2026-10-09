@@ -1,0 +1,420 @@
+{
+  "case_id": "30c4e7f5-315e-4260-9540-8eb05300bfb3",
+  "status": "pending",
+  "evidence": [
+    {
+      "evidence_id": "ev_1ff05eb365567763d6a544ddbe0531a466600e984f290dea36fcabfc4ba68928",
+      "analyzer": "attachment",
+      "tool": "static_rules",
+      "signal_type": "ATTACHMENT_ANALYSIS",
+      "family": "attachment",
+      "indicator": "attachment:static_checks",
+      "value": {
+        "checked": 0
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "attachment:static_rules:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    },
+    {
+      "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+      "analyzer": "url",
+      "tool": "static_rules",
+      "signal_type": "HREF_MISMATCH",
+      "family": "url_deception",
+      "indicator": "https://other.test/login",
+      "value": {
+        "raw_url": "https://other.test/login",
+        "canonical_url": "https://other.test/login",
+        "displayed_url": "https://example.test/login"
+      },
+      "result": "FAIL",
+      "tool_status": "OK",
+      "severity": "medium",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "url:static_rules:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    },
+    {
+      "evidence_id": "ev_4b5670e7882a48da4ce58b55337bfaad535fbb2472e6ba765347d3a92dce49f9",
+      "analyzer": "header",
+      "tool": "local_header_rules",
+      "signal_type": "RECEIVED_CHAIN_ANOMALY",
+      "family": "identity",
+      "indicator": "Received",
+      "value": {
+        "hop_count": 1,
+        "parsed_timestamp_count": 1,
+        "basic_anomaly": false
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 0.8,
+      "provenance": {
+        "source": "local",
+        "reference": "header_rules:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    },
+    {
+      "evidence_id": "ev_4bd882a46465e7c817cd87cd0999f13324be4221c4a4790b0ce3593ef513724b",
+      "analyzer": "url",
+      "tool": "exact_match_ioc",
+      "signal_type": "URL_IOC_CHECK",
+      "family": "threat_intel",
+      "indicator": "https://example.test/login:domain",
+      "value": {
+        "kind": "domain",
+        "indicator": "example.test",
+        "error_code": "IOC_NOT_CONFIGURED",
+        "scope": "configured_snapshot_only"
+      },
+      "result": "UNKNOWN",
+      "tool_status": "ERROR",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "url:exact_match_ioc:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    },
+    {
+      "evidence_id": "ev_4dfcd2c8cbda889d128172b2af0d9448441a662a94034014cfe79e82364c1a56",
+      "analyzer": "url",
+      "tool": "exact_match_ioc",
+      "signal_type": "URL_IOC_CHECK",
+      "family": "threat_intel",
+      "indicator": "https://other.test/login:domain",
+      "value": {
+        "kind": "domain",
+        "indicator": "other.test",
+        "error_code": "IOC_NOT_CONFIGURED",
+        "scope": "configured_snapshot_only"
+      },
+      "result": "UNKNOWN",
+      "tool_status": "ERROR",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "url:exact_match_ioc:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    },
+    {
+      "evidence_id": "ev_77598ebb445d4d03d4291bae79673c84e13df9dd4f66c1cdea2a2d6887b3a86c",
+      "analyzer": "url",
+      "tool": "exact_match_ioc",
+      "signal_type": "URL_IOC_CHECK",
+      "family": "threat_intel",
+      "indicator": "https://other.test/login:url",
+      "value": {
+        "kind": "url",
+        "indicator": "https://other.test/login",
+        "error_code": "IOC_NOT_CONFIGURED",
+        "scope": "configured_snapshot_only"
+      },
+      "result": "UNKNOWN",
+      "tool_status": "ERROR",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "url:exact_match_ioc:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    },
+    {
+      "evidence_id": "ev_8b7af3514f3f3677c7e20ea261447ad7852843aa035611c07b3242aff386d158",
+      "analyzer": "header",
+      "tool": "local_header_rules",
+      "signal_type": "RETURN_PATH_MISMATCH",
+      "family": "identity",
+      "indicator": "return_path",
+      "value": {
+        "from_domain": "example.test",
+        "observed_domains": [
+          "example.test"
+        ]
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "header_rules:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    },
+    {
+      "evidence_id": "ev_99a9a3686fba16e3f84865ca3f97ad9accc239187a888f9e68c58842b9c6b887",
+      "analyzer": "header",
+      "tool": "local_header_rules",
+      "signal_type": "DMARC_FAIL",
+      "family": "email_auth",
+      "indicator": "Authentication-Results:dmarc",
+      "value": {
+        "reported_results": [
+          "pass"
+        ],
+        "authserv_id": "mx.recipient.test",
+        "trusted_receiver": true,
+        "verification": "reported_header_only"
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "header_rules:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    },
+    {
+      "evidence_id": "ev_9a43898352506e1689b1c8a883347abf5de619146e857b8ff7c278ff0a03d181",
+      "analyzer": "header",
+      "tool": "local_header_rules",
+      "signal_type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+      "family": "identity",
+      "indicator": "From:display-name",
+      "value": {
+        "from_domain": "example.test",
+        "displayed_domains": []
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "header_rules:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    },
+    {
+      "evidence_id": "ev_a5ab9ef59ed9751b71b627c429333701a6f741dd5a66f4a51675de0c1474ca44",
+      "analyzer": "header",
+      "tool": "local_header_rules",
+      "signal_type": "REPLY_TO_MISMATCH",
+      "family": "identity",
+      "indicator": "reply_to",
+      "value": {
+        "from_domain": "example.test",
+        "observed_domains": []
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "header_rules:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    },
+    {
+      "evidence_id": "ev_be8852534b40ee10b0fc612b1334ca0421958195f66ab4c2f03129e3963c70ad",
+      "analyzer": "qr",
+      "tool": "local_qr_decoder",
+      "signal_type": "QR_ANALYSIS",
+      "family": "qr",
+      "indicator": "qr:local_checks",
+      "value": {
+        "images": 0
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "qr:local_qr_decoder:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    },
+    {
+      "evidence_id": "ev_c58852b48bdba38fa5680121f04135bf58beb3c6524bc19ffa771c8c7a9650d2",
+      "analyzer": "url",
+      "tool": "exact_match_ioc",
+      "signal_type": "URL_IOC_CHECK",
+      "family": "threat_intel",
+      "indicator": "https://example.test/login:url",
+      "value": {
+        "kind": "url",
+        "indicator": "https://example.test/login",
+        "error_code": "IOC_NOT_CONFIGURED",
+        "scope": "configured_snapshot_only"
+      },
+      "result": "UNKNOWN",
+      "tool_status": "ERROR",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "url:exact_match_ioc:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    },
+    {
+      "evidence_id": "ev_cb09925b2d01ba22c7f13834eeab1f450677b94919d8703d627fee029a1fe2fb",
+      "analyzer": "header",
+      "tool": "local_header_rules",
+      "signal_type": "DKIM_FAIL",
+      "family": "email_auth",
+      "indicator": "Authentication-Results:dkim",
+      "value": {
+        "reported_results": [
+          "pass"
+        ],
+        "authserv_id": "mx.recipient.test",
+        "trusted_receiver": true,
+        "verification": "reported_header_only"
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "header_rules:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    },
+    {
+      "evidence_id": "ev_dcd4455893ce8172eed179dab94c2ce76aea3b5732dc15620dbc202e417e33ae",
+      "analyzer": "header",
+      "tool": "local_header_rules",
+      "signal_type": "SPF_FAIL",
+      "family": "email_auth",
+      "indicator": "Authentication-Results:spf",
+      "value": {
+        "reported_results": [
+          "pass"
+        ],
+        "authserv_id": "mx.recipient.test",
+        "trusted_receiver": true,
+        "verification": "reported_header_only"
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "header_rules:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    },
+    {
+      "evidence_id": "ev_f7bd9d78372388ba65477c8ce354f30d7734ec9fb78680fcbad10f4d6389b232",
+      "analyzer": "url",
+      "tool": "static_rules",
+      "signal_type": "URL_ANALYSIS",
+      "family": "url_deception",
+      "indicator": "url:url_checks",
+      "value": {
+        "checked": 2,
+        "scope": "local_static"
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "url:static_rules:v1"
+      },
+      "collected_at": "2026-10-09T15:06:59.546331Z"
+    }
+  ],
+  "score": 60.0,
+  "label_candidate": "NEEDS_ANALYST_REVIEW",
+  "coverage": {
+    "required": [
+      "DKIM_FAIL",
+      "DMARC_FAIL",
+      "SPF_FAIL"
+    ],
+    "applicable": [
+      "ATTACHMENT_ANALYSIS",
+      "DISPLAY_NAME_DOMAIN_MISMATCH",
+      "HREF_MISMATCH",
+      "QR_ANALYSIS",
+      "RECEIVED_CHAIN_ANOMALY",
+      "REPLY_TO_MISMATCH",
+      "RETURN_PATH_MISMATCH",
+      "URL_ANALYSIS",
+      "URL_IOC_CHECK"
+    ],
+    "completed": [
+      "ATTACHMENT_ANALYSIS",
+      "DISPLAY_NAME_DOMAIN_MISMATCH",
+      "DKIM_FAIL",
+      "DMARC_FAIL",
+      "HREF_MISMATCH",
+      "QR_ANALYSIS",
+      "RECEIVED_CHAIN_ANOMALY",
+      "REPLY_TO_MISMATCH",
+      "RETURN_PATH_MISMATCH",
+      "SPF_FAIL",
+      "URL_ANALYSIS"
+    ],
+    "missing": [
+      "URL_IOC_CHECK"
+    ],
+    "unknown": [
+      "URL_IOC_CHECK"
+    ],
+    "ratio": 0.9166666666666666,
+    "complete": false
+  },
+  "contributions": [
+    {
+      "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+      "signal_type": "HREF_MISMATCH",
+      "family": "url_deception",
+      "strength": 0.6,
+      "applied_strength": 0.6
+    }
+  ],
+  "analysis_scope": "static_local_partial",
+  "analyzer_runs": [
+    {
+      "analyzer": "attachment",
+      "status": "OK"
+    },
+    {
+      "analyzer": "header",
+      "status": "OK"
+    },
+    {
+      "analyzer": "qr",
+      "status": "OK"
+    },
+    {
+      "analyzer": "url",
+      "status": "PARTIAL"
+    }
+  ],
+  "reasons": [
+    "MISSING_COVERAGE",
+    "UNKNOWN_EVIDENCE"
+  ],
+  "risk_score": 60.0,
+  "risk_level": "unknown",
+  "verdict": "pending_review",
+  "requires_review": true
+}

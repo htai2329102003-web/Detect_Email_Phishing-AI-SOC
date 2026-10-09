@@ -1,0 +1,28 @@
+From: Example Support <support@example.test>
+To: Analyst <analyst@recipient.test>
+Return-Path: <support@example.test>
+Received: from sender.example.test by mx.recipient.test; Fri, 09 Oct 2026
+ 08:00:00 +0700
+Authentication-Results: mx.recipient.test; spf=pass
+ smtp.mailfrom=example.test; dkim=pass header.d=example.test; dmarc=pass
+ header.from=example.test
+Subject: Synthetic fixture: inert executable signature
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============2939241321769405705=="
+
+--===============2939241321769405705==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Attachment is only an inert MZ prefix plus development text, not a runnable p=
+rogram.
+
+--===============2939241321769405705==
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="invoice.pdf.exe"
+MIME-Version: 1.0
+
+TVoAAGluZXJ0IGRldmVsb3BtZW50IGZpeHR1cmU=
+
+--===============2939241321769405705==--

@@ -1,0 +1,14 @@
+From: Example Support <support@example.test>
+To: Analyst <analyst@recipient.test>
+Return-Path: <support@example.test>
+Received: from sender.example.test by mx.recipient.test; Fri, 09 Oct 2026
+ 08:00:00 +0700
+Authentication-Results: mx.recipient.test; spf=pass
+ smtp.mailfrom=example.test; dkim=pass header.d=example.test; dmarc=pass
+ header.from=example.test
+Subject: Synthetic fixture: Unicode confusable domain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+Synthetic URL: https://раypal.test/login

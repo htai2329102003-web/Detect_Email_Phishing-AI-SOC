@@ -1,0 +1,37 @@
+From: Example Support <support@example.test>
+To: Analyst <analyst@recipient.test>
+Return-Path: <support@example.test>
+Received: from sender.example.test by mx.recipient.test; Fri, 09 Oct 2026
+ 08:00:00 +0700
+Authentication-Results: mx.recipient.test; spf=pass
+ smtp.mailfrom=example.test; dkim=pass header.d=example.test; dmarc=pass
+ header.from=example.test
+Subject: Synthetic fixture: inline QR with documentation IP URL
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============7769852180198722554=="
+
+--===============7769852180198722554==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Synthetic inline QR. Do not open the encoded URL.
+
+--===============7769852180198722554==
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Disposition: inline; filename="qr.png"
+Content-ID: <fixture-qr>
+MIME-Version: 1.0
+
+iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAAB7klEQVR4nO2a0YrDIBBFz1z2/3/Z
+ZaGFIGqSvuyx5LykkWjL9TaO41Tj/wkCgoAgIAgIAoKAICAICAKCgCAgCAgCgoAg4KdvqMXDo9ij
+Xu3VPXNnHIUSQUAwemI19/39WXx6ZRyNEkFAsHqin7u28MLxHXFnHJ0SQUAwe4KL83xcM+ri+0Op
+RBAQdvVEG/z/V++KLZQIAoLZE+0DX3wyjkaJICBYPVEXOvb7jeP9lb2HTokgIAiou2t/Lea87axE
+EBCMnqhFfDDyQv9uOI4z669UIggIVk+MPNB/nq0Loz5vZnsShRJBQLDvO+o1h70HRrnL0f70+Hnl
+FYUSQUCwxhM1yVfTtc28sYorHk/sf97RBt7o/XC2rpzlLxRKBAFhh5xVncz5at3ox3jiiX090brr
+aA1ZrRmrOPRZO/b0BBdylFfiy77vzCcKJYKAYM9t1yInMWt7M8tvPnvR781j1sI3s32KWokgIOxY
+Z9UGbaN+R6+cnZcplAgCwo51VtU9M9uDjOpwyqxEEBB2jjF7+jPSnic/sb8nrnKsrzq2vblSu6tQ
+IggIu3uiXtc7Z6taJYKAsGOdVfvAD20HJYKAsGOdVZ3U5M788MQT35uf+FolgoAgIAgIAoKAICAI
+CAKCgCAgCAgCgoD89w/4+/5fHBB3KmFEGoQAAAAASUVORK5CYII=
+
+--===============7769852180198722554==--

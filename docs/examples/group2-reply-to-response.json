@@ -1,0 +1,213 @@
+{
+  "case_id": "d280df56-7db5-4609-83c5-0b516298b02d",
+  "status": "pending",
+  "evidence": [
+    {
+      "evidence_id": "ev_4b5670e7882a48da4ce58b55337bfaad535fbb2472e6ba765347d3a92dce49f9",
+      "analyzer": "header",
+      "tool": "local_header_rules",
+      "signal_type": "RECEIVED_CHAIN_ANOMALY",
+      "family": "identity",
+      "indicator": "Received",
+      "value": {
+        "hop_count": 1,
+        "parsed_timestamp_count": 1,
+        "basic_anomaly": false
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 0.8,
+      "provenance": {
+        "source": "local",
+        "reference": "header_rules:v1"
+      },
+      "collected_at": "2026-10-09T14:54:47.645208Z"
+    },
+    {
+      "evidence_id": "ev_618ba682d80ef2ce7bc9335bec54c265375c77cbbd36fbcf745cc822ab0c27a5",
+      "analyzer": "header",
+      "tool": "local_header_rules",
+      "signal_type": "REPLY_TO_MISMATCH",
+      "family": "identity",
+      "indicator": "reply_to",
+      "value": {
+        "from_domain": "example.test",
+        "observed_domains": [
+          "other.test"
+        ]
+      },
+      "result": "FAIL",
+      "tool_status": "OK",
+      "severity": "medium",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "header_rules:v1"
+      },
+      "collected_at": "2026-10-09T14:54:47.645208Z"
+    },
+    {
+      "evidence_id": "ev_8b7af3514f3f3677c7e20ea261447ad7852843aa035611c07b3242aff386d158",
+      "analyzer": "header",
+      "tool": "local_header_rules",
+      "signal_type": "RETURN_PATH_MISMATCH",
+      "family": "identity",
+      "indicator": "return_path",
+      "value": {
+        "from_domain": "example.test",
+        "observed_domains": [
+          "example.test"
+        ]
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "header_rules:v1"
+      },
+      "collected_at": "2026-10-09T14:54:47.645208Z"
+    },
+    {
+      "evidence_id": "ev_99a9a3686fba16e3f84865ca3f97ad9accc239187a888f9e68c58842b9c6b887",
+      "analyzer": "header",
+      "tool": "local_header_rules",
+      "signal_type": "DMARC_FAIL",
+      "family": "email_auth",
+      "indicator": "Authentication-Results:dmarc",
+      "value": {
+        "reported_results": [
+          "pass"
+        ],
+        "authserv_id": "mx.recipient.test",
+        "trusted_receiver": true,
+        "verification": "reported_header_only"
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "header_rules:v1"
+      },
+      "collected_at": "2026-10-09T14:54:47.645208Z"
+    },
+    {
+      "evidence_id": "ev_9a43898352506e1689b1c8a883347abf5de619146e857b8ff7c278ff0a03d181",
+      "analyzer": "header",
+      "tool": "local_header_rules",
+      "signal_type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+      "family": "identity",
+      "indicator": "From:display-name",
+      "value": {
+        "from_domain": "example.test",
+        "displayed_domains": []
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "header_rules:v1"
+      },
+      "collected_at": "2026-10-09T14:54:47.645208Z"
+    },
+    {
+      "evidence_id": "ev_cb09925b2d01ba22c7f13834eeab1f450677b94919d8703d627fee029a1fe2fb",
+      "analyzer": "header",
+      "tool": "local_header_rules",
+      "signal_type": "DKIM_FAIL",
+      "family": "email_auth",
+      "indicator": "Authentication-Results:dkim",
+      "value": {
+        "reported_results": [
+          "pass"
+        ],
+        "authserv_id": "mx.recipient.test",
+        "trusted_receiver": true,
+        "verification": "reported_header_only"
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "header_rules:v1"
+      },
+      "collected_at": "2026-10-09T14:54:47.645208Z"
+    },
+    {
+      "evidence_id": "ev_dcd4455893ce8172eed179dab94c2ce76aea3b5732dc15620dbc202e417e33ae",
+      "analyzer": "header",
+      "tool": "local_header_rules",
+      "signal_type": "SPF_FAIL",
+      "family": "email_auth",
+      "indicator": "Authentication-Results:spf",
+      "value": {
+        "reported_results": [
+          "pass"
+        ],
+        "authserv_id": "mx.recipient.test",
+        "trusted_receiver": true,
+        "verification": "reported_header_only"
+      },
+      "result": "PASS",
+      "tool_status": "OK",
+      "severity": "info",
+      "confidence": 1.0,
+      "provenance": {
+        "source": "local",
+        "reference": "header_rules:v1"
+      },
+      "collected_at": "2026-10-09T14:54:47.645208Z"
+    }
+  ],
+  "score": 40.0,
+  "label_candidate": "SUSPICIOUS",
+  "coverage": {
+    "required": [
+      "DKIM_FAIL",
+      "DMARC_FAIL",
+      "SPF_FAIL"
+    ],
+    "applicable": [
+      "DISPLAY_NAME_DOMAIN_MISMATCH",
+      "RECEIVED_CHAIN_ANOMALY",
+      "REPLY_TO_MISMATCH",
+      "RETURN_PATH_MISMATCH"
+    ],
+    "completed": [
+      "DISPLAY_NAME_DOMAIN_MISMATCH",
+      "DKIM_FAIL",
+      "DMARC_FAIL",
+      "RECEIVED_CHAIN_ANOMALY",
+      "REPLY_TO_MISMATCH",
+      "RETURN_PATH_MISMATCH",
+      "SPF_FAIL"
+    ],
+    "missing": [],
+    "unknown": [],
+    "ratio": 1.0,
+    "complete": true
+  },
+  "contributions": [
+    {
+      "evidence_id": "ev_618ba682d80ef2ce7bc9335bec54c265375c77cbbd36fbcf745cc822ab0c27a5",
+      "signal_type": "REPLY_TO_MISMATCH",
+      "family": "identity",
+      "strength": 0.4,
+      "applied_strength": 0.4
+    }
+  ],
+  "analysis_scope": "header_only",
+  "reasons": [],
+  "risk_score": 40.0,
+  "risk_level": "medium",
+  "verdict": "pending_review",
+  "requires_review": true
+}

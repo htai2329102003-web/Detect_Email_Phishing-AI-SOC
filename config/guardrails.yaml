@@ -1,0 +1,4 @@
+version: 1
+backend: local
+email_trust: untrusted
+max_verdict_retries: 1

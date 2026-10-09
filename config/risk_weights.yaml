@@ -1,0 +1,53 @@
+version: 1
+# Development policy; not calibrated against a production dataset.
+thresholds:
+  suspicious: 30
+  phishing: 70
+required_signals: [SPF_FAIL, DKIM_FAIL, DMARC_FAIL]
+llm_weight_cap: 0.10
+families:
+  email_auth: {cap: 0.45}
+  identity: {cap: 0.45}
+  url_deception: {cap: 0.60}
+  attachment: {cap: 0.50}
+  qr: {cap: 0.0}
+  threat_intel: {cap: 0.95}
+  content_bec: {cap: 0.15}
+weights:
+  SPF_FAIL: {family: email_auth, weight: 0.25}
+  DKIM_FAIL: {family: email_auth, weight: 0.35}
+  DMARC_FAIL: {family: email_auth, weight: 0.45}
+  REPLY_TO_MISMATCH: {family: identity, weight: 0.40}
+  RETURN_PATH_MISMATCH: {family: identity, weight: 0.25}
+  DISPLAY_NAME_DOMAIN_MISMATCH: {family: identity, weight: 0.25}
+  RECEIVED_CHAIN_ANOMALY: {family: identity, weight: 0.20}
+  HREF_MISMATCH: {family: url_deception, weight: 0.60}
+  URL_IP_LITERAL: {family: url_deception, weight: 0.40}
+  URL_PUNYCODE: {family: url_deception, weight: 0.20}
+  URL_LOOKALIKE: {family: url_deception, weight: 0.50}
+  URL_EXCESSIVE_SUBDOMAIN: {family: url_deception, weight: 0.25}
+  URL_SHORTENER: {family: url_deception, weight: 0.20}
+  URL_SUSPICIOUS_PORT: {family: url_deception, weight: 0.25}
+  URL_OBFUSCATED: {family: url_deception, weight: 0.35}
+  # Completion/coverage markers do not contribute risk weight.
+  HEADER_ANALYSIS: {family: identity, weight: 0.0}
+  URL_ANALYSIS: {family: url_deception, weight: 0.0}
+  ATTACHMENT_ANALYSIS: {family: attachment, weight: 0.0}
+  ATTACHMENT_METADATA: {family: attachment, weight: 0.0}
+  ATTACHMENT_EXECUTABLE: {family: attachment, weight: 0.50}
+  ATTACHMENT_DOUBLE_EXTENSION: {family: attachment, weight: 0.45}
+  ATTACHMENT_FILENAME_DECEPTION: {family: attachment, weight: 0.40}
+  ATTACHMENT_MIME_MISMATCH: {family: attachment, weight: 0.35}
+  ATTACHMENT_MAGIC_MISMATCH: {family: attachment, weight: 0.45}
+  PDF_ACTIVE_METADATA: {family: attachment, weight: 0.40}
+  ARCHIVE_INSPECTION: {family: attachment, weight: 0.0}
+  ARCHIVE_DANGEROUS_MEMBER: {family: attachment, weight: 0.50}
+  OFFICE_MACRO_MEMBER: {family: attachment, weight: 0.50}
+  QR_ANALYSIS: {family: qr, weight: 0.0}
+  QR_DECODE: {family: qr, weight: 0.0}
+  URL_IOC_CHECK: {family: threat_intel, weight: 0.0}
+  ATTACHMENT_IOC_CHECK: {family: threat_intel, weight: 0.0}
+  IOC_MATCH: {family: threat_intel, weight: 0.95}
+  BEC_REQUEST: {family: content_bec, weight: 0.10}
+overrides:
+  IOC_MATCH: {min_score: 95, min_confidence: 0.90}

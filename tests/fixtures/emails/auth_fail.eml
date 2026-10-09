@@ -1,0 +1,12 @@
+From: Example Support <support@example.test>
+To: Analyst <analyst@recipient.test>
+Return-Path: <support@example.test>
+Received: from sender.example.test by mx.recipient.test; Fri, 09 Oct 2026 08:00:00 +0700
+Authentication-Results: mx.recipient.test;
+ spf=fail smtp.mailfrom=example.test;
+ dkim=fail header.d=example.test;
+ dmarc=fail header.from=example.test
+Subject: Development fixture: authentication failures
+Content-Type: text/plain; charset=utf-8
+
+Synthetic development email. All reported auth checks fail.
