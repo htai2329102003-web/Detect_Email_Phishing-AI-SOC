@@ -38,6 +38,8 @@ class RiskPolicy(Contract):
     families: dict[NonEmpty, FamilyPolicy]
     weights: dict[NonEmpty, SignalPolicy]
     overrides: dict[NonEmpty, OverridePolicy] = Field(default_factory=dict)
+    allow_partial_suspicious: bool = False
+    allow_partial_header_suspicious: bool = False
 
     @model_validator(mode="after")
     def check_policy(self) -> Self:
@@ -153,9 +155,46 @@ def score_evidence(
             score = max(score, override.min_score)
             overrides.add(item.evidence_id)
     score = round(score, 6)
-    # Coverage takes precedence over overrides; strong evidence still retains its score.
+    # Positive conclusions need sufficient independent deterministic risk, whereas
+    # SAFE needs complete coverage. LLM contributions cannot unlock this exception.
+    deterministic: dict[str, float] = {}
+    deterministic_score = 0.0
+    for item in failures:
+        if item.provenance.source == "llm":
+            continue
+        deterministic[item.family] = max(deterministic.get(item.family, 0.0), strengths[item.evidence_id])
+        if item.evidence_id in overrides:
+            deterministic_score = max(deterministic_score, policy.overrides[item.signal_type].min_score)
+    deterministic_score = max(deterministic_score, 100.0 * (1.0 - prod(1.0 - s for s in deterministic.values())))
+    integrity_blocked = bool(reasons & {"EVIDENCE_REJECTED", "UNCONFIGURED_SIGNAL_OR_FAMILY", "CONFLICTING_EVIDENCE"})
+    strong_phishing = round(deterministic_score, 6) >= policy.thresholds.phishing and not integrity_blocked
+    # A missing header marker may coexist with a completed independent static
+    # scan. Only a substantial local positive from that scan can unlock triage.
+    static_positive = any(
+        item.provenance.source == "local"
+        and item.family in {"url_deception", "attachment"}
+        and strengths[item.evidence_id] >= .35
+        and {"url_deception": "URL_ANALYSIS", "attachment": "ATTACHMENT_ANALYSIS"}[item.family]
+        in coverage.completed
+        for item in failures
+    )
+    header_eligible = "HEADER_ANALYSIS" not in coverage.missing or (
+        policy.allow_partial_header_suspicious and static_positive
+    )
+    partial_suspicious = (
+        policy.allow_partial_suspicious
+        and not integrity_blocked
+        and round(deterministic_score, 6) >= policy.thresholds.suspicious
+        and header_eligible
+        and all(policy.weights[signal].family in {"email_auth", "identity"} for signal in coverage.missing)
+        and all(item.tool_status == "OK" for item in usable)
+    )
     if not coverage.complete:
-        label = "NEEDS_ANALYST_REVIEW"
+        # Missing identity/auth checks can leave a positive risk actionable, but
+        # critical static-check gaps and tool failures cannot unlock SUSPICIOUS.
+        # Partial header data needs the opt-in completed-static-scan exception.
+        # LLM strength never unlocks either partial decision.
+        label = "PHISHING" if strong_phishing else "SUSPICIOUS" if partial_suspicious else "NEEDS_ANALYST_REVIEW"
     elif score >= policy.thresholds.phishing:
         label = "PHISHING"
     elif score >= policy.thresholds.suspicious:

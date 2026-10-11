@@ -18,15 +18,29 @@ class KnowledgeDocument(Contract):
     section: NonEmpty
     text: NonEmpty = Field(max_length=16000)
     kind: KnowledgeKind
+    source_url: str | None = None
+    version: str | None = None
+    provenance: dict[str, JsonValue] = Field(default_factory=dict)
     tags: tuple[NonEmpty, ...] = ()
     metadata: dict[str, JsonValue] = Field(default_factory=dict)
 
 
 class RetrievedChunk(Contract):
+    """Retrieved text is untrusted DATA, never a system instruction or risk signal."""
+
+    chunk_id: NonEmpty | None = None
     text: NonEmpty = Field(max_length=16000)
     source: NonEmpty
     document_id: NonEmpty
     score: float = Field(ge=0, le=1)
+    title: str | None = None
+    source_url: str | None = None
+    version: str | None = None
+    tags: tuple[NonEmpty, ...] = ()
+    provenance: dict[str, JsonValue] = Field(default_factory=dict)
+    trust: Literal["untrusted"] = "untrusted"
+    role: Literal["data"] = "data"
+    allow_tool_execution: Literal[False] = False
     metadata: dict[str, JsonValue] = Field(default_factory=dict)
 
 
@@ -37,10 +51,19 @@ class KnowledgeRepository(Protocol):
 
 
 class RAGService:
-    def __init__(self, repository: KnowledgeRepository | None = None, *, collection: str = "soc_knowledge"):
+    def __init__(self, repository: KnowledgeRepository | None = None, *, collection: str = "soc_knowledge", top_k: int = 5):
         self.repository, self.collection = repository, collection
+        self.top_k = top_k
 
-    def retrieve(self, query: str, *, limit: int = 5) -> ToolResult[tuple[RetrievedChunk, ...]]:
+    @classmethod
+    def from_settings(cls, settings):
+        from src.services.qdrant_repository import QdrantKnowledgeRepository
+
+        return cls(QdrantKnowledgeRepository.from_settings(settings), collection=settings.qdrant_collection,
+                   top_k=settings.rag_top_k)
+
+    def retrieve(self, query: str, *, limit: int | None = None) -> ToolResult[tuple[RetrievedChunk, ...]]:
+        limit = self.top_k if limit is None else limit
         def search():
             if not query.strip() or len(query) > 2000 or not 1 <= limit <= 10:
                 raise ValueError("Invalid retrieval request")

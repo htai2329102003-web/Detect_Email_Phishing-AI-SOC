@@ -119,7 +119,8 @@ def analyze_headers(
     for field, signal in (("reply_to", "REPLY_TO_MISMATCH"), ("return_path", "RETURN_PATH_MISMATCH")):
         addresses = parsed_email.get(field, [])
         domains = [address["domain"] for address in addresses]
-        if not domain or (field == "return_path" and not domains):
+        unavailable = field.replace("_", "-") in parsed_email.get("unavailable_headers", [])
+        if unavailable or not domain or (field == "return_path" and not domains):
             result = "UNKNOWN"
         else:
             # An absent Reply-To uses From. Compare exact domains; no PSL guessing.

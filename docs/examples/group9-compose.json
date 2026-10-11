@@ -1,0 +1,69 @@
+{
+  "compose_config": "PASS",
+  "temporary_env": true,
+  "services": {
+    "backend": {
+      "image": null,
+      "ports": [
+        {
+          "host_ip": null,
+          "published": "8000",
+          "target": 8000
+        }
+      ],
+      "healthcheck": true,
+      "depends_on": {
+        "postgres": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "qdrant": {
+          "condition": "service_started",
+          "required": true
+        }
+      },
+      "mounts": [
+        "/app/data"
+      ]
+    },
+    "postgres": {
+      "image": "postgres:16",
+      "ports": [
+        {
+          "host_ip": "127.0.0.1",
+          "published": "5432",
+          "target": 5432
+        }
+      ],
+      "healthcheck": true,
+      "depends_on": {},
+      "mounts": [
+        "/var/lib/postgresql/data"
+      ]
+    },
+    "qdrant": {
+      "image": "qdrant/qdrant:v1.12.5",
+      "ports": [
+        {
+          "host_ip": "127.0.0.1",
+          "published": "6333",
+          "target": 6333
+        },
+        {
+          "host_ip": "127.0.0.1",
+          "published": "6334",
+          "target": 6334
+        }
+      ],
+      "healthcheck": false,
+      "depends_on": {},
+      "mounts": [
+        "/qdrant/storage"
+      ]
+    }
+  },
+  "volumes": [
+    "postgres_data",
+    "qdrant_data"
+  ]
+}

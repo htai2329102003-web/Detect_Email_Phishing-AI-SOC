@@ -1,0 +1,2078 @@
+{
+  "parser_rejections": {
+    "MALFORMED_HEADER": 100,
+    "DUPLICATE_HEADER": 30,
+    "MALFORMED_EMAIL": 9,
+    "INVALID_ADDRESS": 10,
+    "INVALID_FROM": 1
+  },
+  "parser_rejections_by_ground_truth": {
+    "SAFE": 37,
+    "PHISHING": 113
+  },
+  "parser_error_sample": [
+    {
+      "sample_id": "sa_easy_cea159bb",
+      "expected_label": "SAFE",
+      "predicted_label": null,
+      "error_code": "MALFORMED_HEADER"
+    },
+    {
+      "sample_id": "sa_easy_5c0f756a",
+      "expected_label": "SAFE",
+      "predicted_label": null,
+      "error_code": "MALFORMED_HEADER"
+    },
+    {
+      "sample_id": "sa_easy_0efbc6fa",
+      "expected_label": "SAFE",
+      "predicted_label": null,
+      "error_code": "MALFORMED_HEADER"
+    },
+    {
+      "sample_id": "sa_hard_96ff7649",
+      "expected_label": "SAFE",
+      "predicted_label": null,
+      "error_code": "DUPLICATE_HEADER"
+    },
+    {
+      "sample_id": "sa_hard_00fd61a1",
+      "expected_label": "SAFE",
+      "predicted_label": null,
+      "error_code": "MALFORMED_HEADER"
+    },
+    {
+      "sample_id": "sa_hard_0d97cbc3",
+      "expected_label": "SAFE",
+      "predicted_label": null,
+      "error_code": "DUPLICATE_HEADER"
+    },
+    {
+      "sample_id": "sa_hard_b4faf6a9",
+      "expected_label": "SAFE",
+      "predicted_label": null,
+      "error_code": "DUPLICATE_HEADER"
+    },
+    {
+      "sample_id": "sa_hard_ae5bb11a",
+      "expected_label": "SAFE",
+      "predicted_label": null,
+      "error_code": "DUPLICATE_HEADER"
+    },
+    {
+      "sample_id": "sa_hard_d20607a2",
+      "expected_label": "SAFE",
+      "predicted_label": null,
+      "error_code": "DUPLICATE_HEADER"
+    },
+    {
+      "sample_id": "sa_hard_64b4e8dd",
+      "expected_label": "SAFE",
+      "predicted_label": null,
+      "error_code": "DUPLICATE_HEADER"
+    }
+  ],
+  "positive_abstention_count": 595,
+  "positive_abstention_sample": [
+    {
+      "sample_id": "e2a_bfc1d6de",
+      "expected_label": "PHISHING",
+      "predicted_label": "NEEDS_ANALYST_REVIEW",
+      "risk_score": 37.0,
+      "evidence": [
+        {
+          "id": "ev_0fca1887f92dd0ccf9e2256b33cf9be1e9dcb64a6c79252d7f59409d18ef1d39",
+          "type": "SPF_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_12e1dcaf6edaf12cf22b1eec735e8c729ef6f28e03b3103bf508cda5357affb1",
+          "type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_193f566cedbb2655fbff510500cc0a4e73f60f0f8751f8380176392885d9eb33",
+          "type": "URL_EXCESSIVE_SUBDOMAIN",
+          "family": "url_deception",
+          "result": "FAIL",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1e1095819578e7e12d05f7d35ecb45172f307f04ad8303f2b729dfa2db1db796",
+          "type": "QR_ANALYSIS",
+          "family": "qr",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_60ab0f0fcde7da382fde9439b2c78f33cdf43030b5a44f290724286e6043465a",
+          "type": "DMARC_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_66cbca6f19b4951c358860a6de6e6ca054226e168428925b837801776a8e4497",
+          "type": "REPLY_TO_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_70780208308593af6fc5a472d050c85565525ed9216d5d14203dbf75772d915c",
+          "type": "RECEIVED_CHAIN_ANOMALY",
+          "family": "identity",
+          "result": "FAIL",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_70adafe3e5effbec74d0143082659d41ae65e3803d5cb0b50de3aa7c6c59fef6",
+          "type": "ATTACHMENT_METADATA",
+          "family": "attachment",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_84c426509fbc643ad369d2238f5b3d930cc216bd89f970e7325da73f464076f7",
+          "type": "DKIM_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_8b7914bc75d5209e822fca70143c08a0040f1e615958de19f80cdf7233dacc0a",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_9b6ce7ab218166f2ca3bef9b960bf26d61d877e924bda3b1007b507da9db1744",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_9d80027b00da021e05ddfa777be6daee328531e73c574015190230649788e738",
+          "type": "ATTACHMENT_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c1103adc3c04cfc5922bc68b65419a8990fb7e9ec769efdae605b618fc5f5732",
+          "type": "QR_DECODE",
+          "family": "qr",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c956e6980489179fecefc40fddc4a0d6b36e479245b508293e68b66f8409e3e1",
+          "type": "ATTACHMENT_ANALYSIS",
+          "family": "attachment",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_d34e6780a60b0d346fc61d47eb99a958456bc7d115adfb5d4105e9cbf7c686ac",
+          "type": "URL_ANALYSIS",
+          "family": "url_deception",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_fd5b37f1f1078f81fffed8bd8730d39976fbfedf07e802ae5908156f93041725",
+          "type": "RETURN_PATH_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        }
+      ]
+    },
+    {
+      "sample_id": "e2a_ff8bb49b",
+      "expected_label": "PHISHING",
+      "predicted_label": "NEEDS_ANALYST_REVIEW",
+      "risk_score": 0.0,
+      "evidence": [
+        {
+          "id": "ev_09a507fd5ec12f47ea62bf053c5947396564aedb50adddec26d3f711a7994276",
+          "type": "RETURN_PATH_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_29f00b09270efe0feb75022a5ed428d5e5a3c9a630d050a103149be2502f4893",
+          "type": "DKIM_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_3081fdc0e14bea251224ce82385770395dee78a0faf6573f4184f1fcd6569376",
+          "type": "URL_ANALYSIS",
+          "family": "url_deception",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_8867e470d07d202510afd73448c6b1a0c9462bf93836328168adc552e1421057",
+          "type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_9c83cac8e6b8c4b7efa174f498e7b93347e5de1d9faea96692acdccebb70135e",
+          "type": "RECEIVED_CHAIN_ANOMALY",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_ada05fedcbe82181b30e27f8257de8978c5a9d06a8f67ed21fb15e723f7ccc61",
+          "type": "SPF_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_b38c9165a67685d1dafeb3bd5ad216d2b0395c5d6f7afa26020bb450f4accf82",
+          "type": "ATTACHMENT_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_be8852534b40ee10b0fc612b1334ca0421958195f66ab4c2f03129e3963c70ad",
+          "type": "QR_ANALYSIS",
+          "family": "qr",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c304edd967b48108bceccd46b72f67360228b8cc88ad222fb64ab900ed4a2b8f",
+          "type": "REPLY_TO_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c956e6980489179fecefc40fddc4a0d6b36e479245b508293e68b66f8409e3e1",
+          "type": "ATTACHMENT_ANALYSIS",
+          "family": "attachment",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_cfd97ace520458dccc7ad17f2e9b2fe98575ce81486bf7f6f8479fbcfed2b17d",
+          "type": "DMARC_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_f1b6a11b8584013dee00426b10cdb60dc31c340d99cbfe736d9515d89e97c446",
+          "type": "ATTACHMENT_METADATA",
+          "family": "attachment",
+          "result": "PASS",
+          "tool_status": "OK"
+        }
+      ]
+    },
+    {
+      "sample_id": "e2a_a8d5d446",
+      "expected_label": "PHISHING",
+      "predicted_label": "NEEDS_ANALYST_REVIEW",
+      "risk_score": 97.27,
+      "evidence": [
+        {
+          "id": "ev_07a2bdbe26c453ec53cadab27b221b071c72ec5e0d502e9268f2bf475e716431",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_0fca1887f92dd0ccf9e2256b33cf9be1e9dcb64a6c79252d7f59409d18ef1d39",
+          "type": "SPF_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_10c821da1b6aace367a90fe019c32390a5da7d4bac3efae8209125dfed85d313",
+          "type": "REPLY_TO_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1d967b906b7945ca10b4468c6a26c6c6766813ae2dc14c10a334a947fcca6375",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1ff05eb365567763d6a544ddbe0531a466600e984f290dea36fcabfc4ba68928",
+          "type": "ATTACHMENT_ANALYSIS",
+          "family": "attachment",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_47aa414c8677914379b02d9df275483ac16249522cb23f2b994089b8f6361396",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_4fa8e0a39e0b244809ddd54002057f02abf36d38e7a39ab992b4913dde481285",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_5245d5d79b4ffe1674e62eb59a39c440f9d32b69125013033b34557a576ce697",
+          "type": "URL_OBFUSCATED",
+          "family": "url_deception",
+          "result": "FAIL",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_57b793fc981c2f0d4202aa68f795c452b60ead0ff3cf4427067262d484490b31",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_5910a30cd9a7538f693b247297c1d456ba342f79c4e546c306a395478d0052a0",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_5cb7069228b7a63242a9c1a88bbd19f82ce9b2aac3d738511765e80e33a55578",
+          "type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_60ab0f0fcde7da382fde9439b2c78f33cdf43030b5a44f290724286e6043465a",
+          "type": "DMARC_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_76d0ca069cc60f9c28ab69b7a0adf4bb2f4c0bed0283a6f5e403d3e0d4f9f9c9",
+          "type": "URL_ANALYSIS",
+          "family": "url_deception",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_84c426509fbc643ad369d2238f5b3d930cc216bd89f970e7325da73f464076f7",
+          "type": "DKIM_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_9e587aa217c59b7181fa508b9b0c42e9f2f724068e1d1d3748133fb6a3a7185e",
+          "type": "IOC_MATCH",
+          "family": "threat_intel",
+          "result": "FAIL",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_b01179f19b1f7b661871368aee5979d84b09b1ffceb79dfdd5367b032e3a1c50",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_bb2db698d2d58dc8c61b0a1cf0ccc8570fd562697e7a13a26c277447da6ec5b6",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_be8852534b40ee10b0fc612b1334ca0421958195f66ab4c2f03129e3963c70ad",
+          "type": "QR_ANALYSIS",
+          "family": "qr",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_d4eb15b3f93bdeb0c1a292763b9f13b8bcbe39743102ce56f9f75cf93dd503b3",
+          "type": "RECEIVED_CHAIN_ANOMALY",
+          "family": "identity",
+          "result": "FAIL",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_d6dfe6d3d7bfedd533c9035b39cc1b2d3469ba54bd03be30b92f644dd98fa29f",
+          "type": "RETURN_PATH_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_d73ec71d558f960f2d4791c5f9de706af263f03349d1eaeff4109334b8afa129",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_dd3c102d9643840886d0b8cb620515ec98d3d705474b0bf2d13803e1f273483b",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_e27d09f954c66bb4916982556789299e4c081cd2d6ab5cf280314aaf08ba3a1d",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_e750081366c4af95b3e9b1ea8906f06418f70cee951f37ddf3f8983af1e96a4d",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        }
+      ]
+    },
+    {
+      "sample_id": "e2a_5a2e609f",
+      "expected_label": "PHISHING",
+      "predicted_label": "NEEDS_ANALYST_REVIEW",
+      "risk_score": 35.0,
+      "evidence": [
+        {
+          "id": "ev_0469a94bad90f9520dd06657496cf5cdefd45e75dec5cd6cfc4b654152064c08",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_0b3eabcdcbaab9e0592807df29a3fa97c53e59ea6fd4dc0e9e59dbfb438428fd",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_0c04f5753bb598d9f06ab6da0a2a8b3031d357efa8a60a3103ca1cab35a29db9",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_0d841d9b507466a61ccba2e2f21fbda60e0ac5387a4611302ac2102ca7442791",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_0f789c99e14991f17fb3c8ed4f5283285370a2af525e0deadebcfd9700430546",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_0fca1887f92dd0ccf9e2256b33cf9be1e9dcb64a6c79252d7f59409d18ef1d39",
+          "type": "SPF_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_12186c70dc85bed8300b62748770689e78fc69158ce6f2180be4064c869aec18",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1427938de9ae0dac92049258dc9d5900481bafdc50e8612a90f27ec7aa365046",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_16620d95364b792855841c2d2748ebe2b5ef413c3599df60760652f6042a4d0d",
+          "type": "RECEIVED_CHAIN_ANOMALY",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_16c5d3173d839ab4fd63227b1dee3bbfdda573d1abe5c9406add0a95947e7207",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1913231a7619707c572a2e6557ada10a7bc59472bc8e3c09dd4d0bf0106d521f",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1a453a91ba524d9cf967005b13c02633783a3104ae4c88bb6a350a975aa2f0c4",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1de6fb5ed95ba0cfd733316741ecbe629ad26fd0a8d87f0611fa957f20aef51a",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1ff05eb365567763d6a544ddbe0531a466600e984f290dea36fcabfc4ba68928",
+          "type": "ATTACHMENT_ANALYSIS",
+          "family": "attachment",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_20e3a53205f8b678f0441019677972707436d9263d95b6cac38bb2c49a4cfdb6",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_24d275125877485d31f04c4c23f809eec6aee9f168b403ea66491d5735a5f969",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_2df49bf28cf10363710beadb22ad44fad24b8df25b028db80be21ca2766490d6",
+          "type": "URL_ANALYSIS",
+          "family": "url_deception",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_2f09bf9d0ee4ac4282d46af00d5f7edd7f98c2acd963115ffdef600f0045556c",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_30ffe7fdc5333dd185890edda85fec12a9c13b41394f4ab385a2bccba9487a31",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_32c8c7a0ebbe4d2f5e1c04959dc1e6dd3cc0e9c5b790b51fe90ab08b4e7ae9cf",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_347a6f2289f01350b686436b8fdbd0eee20d21ab27f4137e23aa2cff60494140",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_37b2baab0215ece90905e90a2ae045964f82847802d3c4b940dadfa62d01570d",
+          "type": "URL_OBFUSCATED",
+          "family": "url_deception",
+          "result": "FAIL",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_3a13a5fea83073db18bdf283582a1501301ab03bab7315f5b25ca1792f61edb4",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_3ae30fc71a15fefd483516f55b7cb8759240da77d867f02b88935fdd53750fe9",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_3bd398dedd9ac642d2a6f5e44888a9364ac247f2fb42130c080b0bbf8c65e73d",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_40c218e5cc6a65f50b189a4ce74a3c1dc795188fab4ed72869312a5855a8ff06",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_41487fa4fbf675f3a3fe27508682e0ec17b2b023f5c750e910e28c9317a389ee",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_4192881df34a8fd6d5fef40c35fde1a562cde1cf5bc08d81ffcef0ff52f6fdaa",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_51b702a7e3745bd45285ea2ed0eb7aea65358f5b2da0a18f7bc52041acb65614",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_55b0857bec2d9b7ee4b85137bdb87f12a1f4f64143abcd078a04215cc3855e83",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_5793f57b24590363788e34ccd88053b0fe15b9b88a6dae2c71d1a724e9e7643e",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_59c31b9b9c586d3e4e2267f1829e61cfe40192553f1c11e80a6bb004dfbc26ac",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_5e4ed079c868970520baec784c0ae92e7aef6ffbe9f883844790d92b241208c7",
+          "type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_60ab0f0fcde7da382fde9439b2c78f33cdf43030b5a44f290724286e6043465a",
+          "type": "DMARC_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_63285cf7e9b2b2b00a19b76a1132608c7e39cea2b6c2c136db86049ac40675d7",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_6c2a263b6aa9d36efd31c93acf7756199ea3e54e8b898cfb312b405cf0141b1d",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_70e046d610d60c8ff091cd8bb10d2b494f889bc114476b652f63d535350c64de",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_7327ff4bf17d0e5524de9b2fb69021b0b9b0a4c0bdf28d9b7a2bf1080aa1ebf8",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_7ad2ccf6bf7bffb5db7b4555965fe9a49156ba06fac5aea87ef4cf8fedf14702",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_7b8c1766f3bb6a90cb99480201345c87cbfa1188660f68aa0522cc81bc0fef2c",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_83a7cef0a6c46b3da07e411ffa1f039425d134f8fbd251b0266876327e88dbb3",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_8407a1df15f115c5b793d912f42f698baf90f529bd64fc359ee9877bdae517b0",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_84c426509fbc643ad369d2238f5b3d930cc216bd89f970e7325da73f464076f7",
+          "type": "DKIM_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_862d9b32ddd4d97169f074bd8a5233295af5b3bf45106e4548d017399206e862",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_86b837f09a45de916d8b07e961bf796abe53ee309cb74eb58d57d06e88c2b4b5",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_86ce5065725f3023c6fb484dcb5e1dc58909be837a5eb8fbe2f5b1985db9db8a",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_87e6949f5e570b9e9e91038bbc2e32c4a79a718bbfa04caa5c6c9b28a7aee8ca",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_8e8eb2dc613b7c8ca6996eb9e5a018dac9c79dccd5fbeed6f0140e8b992fa36f",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_9198cf50bbe7a59500d2a6abb3a1ddfa475beefa6b57b60e4496faf9dc20641e",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_91fa0ad0b3d35c55e319c9227bdf96fbff287e0d27f5f763bdba2a75631b0738",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_961650ce5710acdd62ab1463ad01833c0c9dac32fbfb0bad6335a63d9ab8ac40",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_98fe38aae234d174b899496265d682d886a8ec9ab92b6c1053983dece577c05b",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_99a36be4edc53ba837c38ec65d0aecc707f4d0a978eebc117b3d03fbceed55f9",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_9a8e05b3e5948bdf302f86e2624a85fc6a09a9d9e03f1777946ce85639086593",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_9c3ca6f9ea45015820f33add197f56ab70fff55ffdaee5259c20f480659f6656",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_9f681c0c175686e8d718a63182f15b2f98ebf8d3c9197c19be0cbe919d5f3372",
+          "type": "REPLY_TO_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_a082e30229bd6e582c24d0821858e666d6c339ce4303553b36f27973104f5566",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_b554fcb2c6046242a339170d17fe61d89ef63c970a2e01d5d32a68e1845e87c9",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_b856f95c1e37c8b9769802b912ee4b82d11320c1a07aee3f9989350ef08ada5a",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_bab2ee32d8898fdc267ea7bd47df22ffb2386eb4f7476ec2fd309838489ab94a",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_bd78e0359aed54679ed86e978b122c5250214b9bee402ed69c844d8c10aebbe5",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_be8852534b40ee10b0fc612b1334ca0421958195f66ab4c2f03129e3963c70ad",
+          "type": "QR_ANALYSIS",
+          "family": "qr",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c057014b9aed2d8c32d4b9935a75c69295d5a6cfce9606624665534de574fdb5",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c3aa307f33607291c3eeb9ab574f04f72fbbbd09a89318e66297ada89b9663df",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c6664f780e8c1c31263939c388fdf086a614f3812d7b9c77b774c07c5b4e6f48",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c747a81c56b69f3a515aa2ae82a27407ea3f47d3577da63ad68aa0b2b06a7ddf",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c9c3422f85edced82e827b760297e86a4f208ab6d6a0d4d6fc32222b4fba07bd",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_cb2e4e6d5b08d2759dfe5aa10b206e8c894499820454047c0dadc1da641146f0",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_d5714def83568898dc6399281458a2de452b7d162972b01844fd3b0bc95472d6",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_d9cdbb4c9873e13f50a61875c9daf047503ccae2d594c5af694bf78e828a26ed",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_daa606e491d0f297546b1496238e71329cf9733b78d5dbd27643af54593e9868",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_dc2ae321208217c1845d0bda0e3b398323c3386064119223cb258280d52ad4a9",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_e806b7626d1f524463d5deafdfea94704ea78e8a655a9c529829db7d526f8cf6",
+          "type": "RETURN_PATH_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_eaf111d8316bd99dd5826665a5bfb2015a1093d511f550192f3c99a4d89041ad",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_f17a690d35313f8f045fa7bb37cca7ea6297b06866b497899222abca0653c982",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_f4ee931513db5dbb382b958a3f5b1f664c96b1b6784f3e23c64ec22f37226274",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_f65df18119416cc9caa8f16659830c658cb548b88370c52c6a915c35fa19266a",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_f80a1543d8153e0ee9e68ebb1e461c9fac66e9da9ca074ebcf547b6f3170c184",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_fc964ad94cd3ff62e6e36af75bed92612f483cbd29f000a9a53d50d9828ab4f0",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        }
+      ]
+    },
+    {
+      "sample_id": "e2a_aa6a5c6f",
+      "expected_label": "PHISHING",
+      "predicted_label": "NEEDS_ANALYST_REVIEW",
+      "risk_score": 0.0,
+      "evidence": [
+        {
+          "id": "ev_0fca1887f92dd0ccf9e2256b33cf9be1e9dcb64a6c79252d7f59409d18ef1d39",
+          "type": "SPF_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_16620d95364b792855841c2d2748ebe2b5ef413c3599df60760652f6042a4d0d",
+          "type": "RECEIVED_CHAIN_ANOMALY",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1ff05eb365567763d6a544ddbe0531a466600e984f290dea36fcabfc4ba68928",
+          "type": "ATTACHMENT_ANALYSIS",
+          "family": "attachment",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_238ab21c166f69a1c9e7653e1d01ec5b47cce15455aac8a6289aa6448fe55fad",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_2e67598ea4e1af6a8903d9b15a0dd7d9787cdda99a42171554857dcefaf847a1",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_3e01b4e0e847aca6a9e7f61847be70d0e20cfc0396e82b12233e723678736751",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_587b0b74bb3c803ca1c49d707cf3af1430a73172037c92f3dadade75db88f83f",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_60ab0f0fcde7da382fde9439b2c78f33cdf43030b5a44f290724286e6043465a",
+          "type": "DMARC_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_7c6318fba8adebbab639c6b7ec8fe7f1033eb5aeee62b3a57406f26f309b1c41",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_80bcc1e2d110a6e2045eb8093ea297b0b95ea13185fc402db0aa26ddc8ff41f7",
+          "type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_84c426509fbc643ad369d2238f5b3d930cc216bd89f970e7325da73f464076f7",
+          "type": "DKIM_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_89a4b9333ebbdaed5a278143ead973ef9248a39d674c102258b79b707b677903",
+          "type": "RETURN_PATH_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_baaba2a409b8c8532370ae0f0558fb3e47ebfcf9f09a8d808e520328c0717d29",
+          "type": "REPLY_TO_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_be8852534b40ee10b0fc612b1334ca0421958195f66ab4c2f03129e3963c70ad",
+          "type": "QR_ANALYSIS",
+          "family": "qr",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c138858da4ac00f5101c19fe6bfb9f4351c09ffc69f2db9f4874e72ee94777e8",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_cae005e30c7a20c3d1ad095dc8480864db979b788ad50a7e8025e49894afa39b",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_db61cccea315a3e7ee43a5d0dffb54103dba44e8c0117ea72992602019968a43",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_fe14ee252d98f8fcbb0c9a20de8b33f1a695a6bd92b5ffc5f3c898a75cec6625",
+          "type": "URL_ANALYSIS",
+          "family": "url_deception",
+          "result": "PASS",
+          "tool_status": "OK"
+        }
+      ]
+    },
+    {
+      "sample_id": "e2a_57288738",
+      "expected_label": "PHISHING",
+      "predicted_label": "NEEDS_ANALYST_REVIEW",
+      "risk_score": 66.4,
+      "evidence": [
+        {
+          "id": "ev_02157ac10469a9318d36c5640ded6499a4abdf59635780d60d5c5396a28711c9",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_0536ac1bdbbdcd717f4c39f6a230b3d585a74c7a30225bfc97947e390d4d0855",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_069d095bc9f887a00e54227ba68ca6b3536f0f5816ad29000d182a95075d3516",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_0f42d0490007f33ee50c6e36c1f0646001716a50b5c9a59a171ce2e81475e436",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_0fca1887f92dd0ccf9e2256b33cf9be1e9dcb64a6c79252d7f59409d18ef1d39",
+          "type": "SPF_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1ff05eb365567763d6a544ddbe0531a466600e984f290dea36fcabfc4ba68928",
+          "type": "ATTACHMENT_ANALYSIS",
+          "family": "attachment",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_2881f1dee4cb8649a508bfe90b26bf1da5082538c678c2d05d3de4c2de6cad6e",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_28b634ef4bbefb6b6a11357deca6067744863f517915f6e32b88f9924b1b903c",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_324ead1df702b8b4c1e43cd4168129399490317ecde2cd92b2c345743ef3d5b8",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_366cefcd25c9bf15e2b3bd4b61d3b95ebb665dd944f97f1c87a8f953003cbd2c",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_386094df10bf297dbb514d46ed4995939feae64dd1f62efcd81ac397bb6c8250",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_3ca7ff2cf39406f2d54f2912282bfaae2a05f98a7efedd15697631579f2df16b",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_470f9eb416cc62f92600decf06abe7be450045d5cf0fc759a7d4e97d9ac3c0d7",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_5107b9bb14314a84bc6605616a18cff6e964c1cb3a690e0928e1be4ff887716f",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_57acdf13ebf6dfa1a569a1061f7014bb474de73608f5e75ae3df1cabef481751",
+          "type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_59a4d4d28e9064061d1e498444e7b81de07a356d45b44f4fa3a23b5cd01b1d06",
+          "type": "URL_OBFUSCATED",
+          "family": "url_deception",
+          "result": "FAIL",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_60ab0f0fcde7da382fde9439b2c78f33cdf43030b5a44f290724286e6043465a",
+          "type": "DMARC_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_60f96563865306dc8f05755410c7a567460d5ae2502424a5d1085bf7c4b0e466",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_6162f3c1279115ee95f1f59e0f50d404060212daea42eaeddb2cd87ee59f8ec4",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_643dffd6b7bc3dde67a50af83e956cdfd162651119d876ea1c1ec064c81e9b93",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_6c6eb53042085bfe2ceb7a2932ea2de2e0485744d2f366500dc04b08d3d76ea0",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_6cec7ef24844b46bc792563037117446d9b0bac2d7562962acb31fb755caff58",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_74e44720d7d35236e3e3201e106694ec8412c140a0d88ce359caa569ce105c15",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_76472e14875eeba42bdff79ecebca0499ecfaca2fdb0dadb33e6552d36188b18",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_799ed24e89d12f1d4ac183806b788ae809e73c3a1379826170a37b70b4b25c79",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_7bd20645ed552159e3349f9eeca7921d03843c7b3e5365bb563219e172d91274",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_7e0e0669bb6aa41788fd84cfb14b2406240b1af9909d3141673cfd494a9a4d20",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_84c426509fbc643ad369d2238f5b3d930cc216bd89f970e7325da73f464076f7",
+          "type": "DKIM_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_8c61dbfc2fa2415e51a232553bc00230732be36e6d7a3c7d994ecc2823873a6b",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_908c34cf83b9b2a90f02238eb853823c3f4a05ee8a63f765d05125bfdf14bec5",
+          "type": "URL_ANALYSIS",
+          "family": "url_deception",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_9f0fd838f5759f50411ee133f94de8bb5059122ef574481a676e8371d7f2a99b",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_9f3c6165c294d088e9ce6c529a96ad0b5efda1fc6f8c29a28e385b55d51e120a",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_a12e7186c05ffb953d2d5d4bdc348c5f508de86ea56944f5e0316b58dfa5e3cb",
+          "type": "HREF_MISMATCH",
+          "family": "url_deception",
+          "result": "FAIL",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_a89bfec2781bd9ebf469d7adc191e9b838f14ec427d81bf1bc58bcdbb1f669ae",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_aafa83954caf3c6e998bac84a81e36295af4008e2dd1452f254b4f4953211adb",
+          "type": "RETURN_PATH_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_b0d4c82f2c01c74cfa957b9018043914cc639a6af3bd78043d487f2f56a06ce2",
+          "type": "REPLY_TO_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_b3969609780ec06d52f7b09854e188f0a5e57b8a64d4c59df968814fd443084c",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_b9d1ffbb809074d4d901c734c63ed2e0a6fbc1c3db29f4f722ad0b16118bdc08",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_bb96f8b5ba6b09a656b48360ebbe73628df7ae776f4caff5e5bf1e26f8066525",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_bdf1aae0cb950f3eb1e44265e4a2067fdbccb9e28afaa2777341b97420e748ca",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_be8852534b40ee10b0fc612b1334ca0421958195f66ab4c2f03129e3963c70ad",
+          "type": "QR_ANALYSIS",
+          "family": "qr",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c4ba93e4444ad8b2bc6367fe10953b0e86761746cb83cce038b316f3f2a404d9",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c9c8cb1b71e195fe68b4f8e7e922d802bd97fd5bfb649c2175d3066bc3ca8f28",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_d4eb15b3f93bdeb0c1a292763b9f13b8bcbe39743102ce56f9f75cf93dd503b3",
+          "type": "RECEIVED_CHAIN_ANOMALY",
+          "family": "identity",
+          "result": "FAIL",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_e34bda16d9a3a1ceb1adad5222cb25e24a6294ba8b35b1cfd52c2d25aa7d1df1",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_e413ec4f66dc1de935e3a976b1422a6b9c7a4a67adad5efb51c2f1e90a65776d",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_e7924b1fa4421370dd811fa41fd5fb2ef08a75d08d8ea957c953b56ecbff452f",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_edb185ec84208bed6630636287c9fcc9e6adcbfc14456080e12e129739da123e",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        }
+      ]
+    },
+    {
+      "sample_id": "e2a_3df376a9",
+      "expected_label": "PHISHING",
+      "predicted_label": "NEEDS_ANALYST_REVIEW",
+      "risk_score": 16.0,
+      "evidence": [
+        {
+          "id": "ev_0fca1887f92dd0ccf9e2256b33cf9be1e9dcb64a6c79252d7f59409d18ef1d39",
+          "type": "SPF_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1ff05eb365567763d6a544ddbe0531a466600e984f290dea36fcabfc4ba68928",
+          "type": "ATTACHMENT_ANALYSIS",
+          "family": "attachment",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_3081fdc0e14bea251224ce82385770395dee78a0faf6573f4184f1fcd6569376",
+          "type": "URL_ANALYSIS",
+          "family": "url_deception",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_3e90849615a1b3bae64d5bde95f5e7843dfff7d3e00f41839a4ffae8c89ab107",
+          "type": "REPLY_TO_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_60ab0f0fcde7da382fde9439b2c78f33cdf43030b5a44f290724286e6043465a",
+          "type": "DMARC_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_70780208308593af6fc5a472d050c85565525ed9216d5d14203dbf75772d915c",
+          "type": "RECEIVED_CHAIN_ANOMALY",
+          "family": "identity",
+          "result": "FAIL",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_84c426509fbc643ad369d2238f5b3d930cc216bd89f970e7325da73f464076f7",
+          "type": "DKIM_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_b7da0e77ef87d787ae0002d2c23fd8eb39c8e7055371d64327565ce92a42ca9a",
+          "type": "RETURN_PATH_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_be8852534b40ee10b0fc612b1334ca0421958195f66ab4c2f03129e3963c70ad",
+          "type": "QR_ANALYSIS",
+          "family": "qr",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_df52d131026efb012b9b9dabb8acb56b70df85befd6872bb1f1176cf2a1eebc1",
+          "type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        }
+      ]
+    },
+    {
+      "sample_id": "e2a_91b3d988",
+      "expected_label": "PHISHING",
+      "predicted_label": "NEEDS_ANALYST_REVIEW",
+      "risk_score": 0.0,
+      "evidence": [
+        {
+          "id": "ev_05ef30c1494243237aa1c9e5cd9b756a4e32a4e91f594ec9e247a4858d5b0219",
+          "type": "RETURN_PATH_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_0808f6b18c48ac493d86226530e9140ddc74ce448331031a25e0685f11952d5a",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_0fca1887f92dd0ccf9e2256b33cf9be1e9dcb64a6c79252d7f59409d18ef1d39",
+          "type": "SPF_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1ff05eb365567763d6a544ddbe0531a466600e984f290dea36fcabfc4ba68928",
+          "type": "ATTACHMENT_ANALYSIS",
+          "family": "attachment",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_359b03d0b0985a093300af412ed712300f48c9da8c9a5fd5493ecd2dbda09a4f",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_4d0fcb2892a5dc5a0c03b2e4eb5c16bb957ea462a631d613875ef1120c5d1945",
+          "type": "REPLY_TO_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_5feac7ac9a0c40560b903e329f1d8b8ea6991b80c7432d44a1c7d327fbef99cc",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_60ab0f0fcde7da382fde9439b2c78f33cdf43030b5a44f290724286e6043465a",
+          "type": "DMARC_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_84c426509fbc643ad369d2238f5b3d930cc216bd89f970e7325da73f464076f7",
+          "type": "DKIM_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_8864afff4ed95bd44466e1d6515369746e474d279667c05ff9aa6a8844592541",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_bd717b96c28f7dee8909353af958e81b0db6251dbc0e5932510f45ec1caf6856",
+          "type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_be8852534b40ee10b0fc612b1334ca0421958195f66ab4c2f03129e3963c70ad",
+          "type": "QR_ANALYSIS",
+          "family": "qr",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_ea52aa0c870414c5270eec3e737b2da45feac4ab1d84610f44c0011322f39239",
+          "type": "RECEIVED_CHAIN_ANOMALY",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_f7bd9d78372388ba65477c8ce354f30d7734ec9fb78680fcbad10f4d6389b232",
+          "type": "URL_ANALYSIS",
+          "family": "url_deception",
+          "result": "PASS",
+          "tool_status": "OK"
+        }
+      ]
+    },
+    {
+      "sample_id": "e2a_06a1433a",
+      "expected_label": "PHISHING",
+      "predicted_label": "NEEDS_ANALYST_REVIEW",
+      "risk_score": 66.4,
+      "evidence": [
+        {
+          "id": "ev_0fca1887f92dd0ccf9e2256b33cf9be1e9dcb64a6c79252d7f59409d18ef1d39",
+          "type": "SPF_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_10ae3ad96b6edb5ca33c1bc78e293c43603c552afddfd32f284c70b322005cd7",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_11429c60e26188eece89315a692c75157a70ea4e8ed4116600cc60e549b407cb",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1bc3cfefefa268c100d1f2a340b2923686d278d24769fb3ef3a9eef67df56ef2",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1ed00b4b92d1b5ccd312f14cd436f836ce895ed1d7c735c87b0d1d27fe762081",
+          "type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1ff05eb365567763d6a544ddbe0531a466600e984f290dea36fcabfc4ba68928",
+          "type": "ATTACHMENT_ANALYSIS",
+          "family": "attachment",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_31eba3e580e348feaf76ce4b1a0af7188f78a0233659b5c7cbe543339676daa1",
+          "type": "REPLY_TO_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_330427d235f08ce7628d7c367ea91b8e502ac690082814f5a2d3091716e505e8",
+          "type": "HREF_MISMATCH",
+          "family": "url_deception",
+          "result": "FAIL",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_5ef07d092ca8b07948c6d89a29bc1201790d39f79f110f2d9a58ef15c14fe7d2",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_60ab0f0fcde7da382fde9439b2c78f33cdf43030b5a44f290724286e6043465a",
+          "type": "DMARC_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_7cd0e93e49850a04bfa80902e3cc29c56a611a9ec1ec355260dbd7baad33cd38",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_7e37192690a770456fd0bba5d65f89d9cfb841c14871db29c2182c76e82aa594",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_84c426509fbc643ad369d2238f5b3d930cc216bd89f970e7325da73f464076f7",
+          "type": "DKIM_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_9c44c544e56b5c1fe455e062d962eb6ccd7074eeb1990d58bab701b90a25f544",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_a914f533fceb97cb6550dfedc47d3d7190b1251459d37540a7617919eb37712e",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_ac4ca42a2ddbbfc2a772ee5ed6aa3c6de82edcbc5295b80c72a8078e21316351",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_be8852534b40ee10b0fc612b1334ca0421958195f66ab4c2f03129e3963c70ad",
+          "type": "QR_ANALYSIS",
+          "family": "qr",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c94bae74e28d9beacd137f4ea1964992316317f4cb038fd06b7495bd06869ee3",
+          "type": "RETURN_PATH_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_ca1e357265c21423a68acb40eb9a6d139adb550969de872e081940e70e88edac",
+          "type": "URL_ANALYSIS",
+          "family": "url_deception",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_d4eb15b3f93bdeb0c1a292763b9f13b8bcbe39743102ce56f9f75cf93dd503b3",
+          "type": "RECEIVED_CHAIN_ANOMALY",
+          "family": "identity",
+          "result": "FAIL",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_ecdb0150813415b9ffb64aaf67b665c2dc35f94b55ca127a959697372f80fe48",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        }
+      ]
+    },
+    {
+      "sample_id": "e2a_53d1947a",
+      "expected_label": "PHISHING",
+      "predicted_label": "NEEDS_ANALYST_REVIEW",
+      "risk_score": 25.0,
+      "evidence": [
+        {
+          "id": "ev_0e985699ea1bbaac0af90bc681ff1dd21699602321528f7554d9608f2f1a34ae",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_0fca1887f92dd0ccf9e2256b33cf9be1e9dcb64a6c79252d7f59409d18ef1d39",
+          "type": "SPF_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_11775bbe6736ab2579a19d605d28b5efb5da4f902ad1ea9508c44447affcfc9d",
+          "type": "URL_EXCESSIVE_SUBDOMAIN",
+          "family": "url_deception",
+          "result": "FAIL",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1c44ca1edd72e50d3355d1d8eede821a3e519ac5d4351e0ef22a408de1f964a0",
+          "type": "URL_ANALYSIS",
+          "family": "url_deception",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1ed00b4b92d1b5ccd312f14cd436f836ce895ed1d7c735c87b0d1d27fe762081",
+          "type": "DISPLAY_NAME_DOMAIN_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_1ff05eb365567763d6a544ddbe0531a466600e984f290dea36fcabfc4ba68928",
+          "type": "ATTACHMENT_ANALYSIS",
+          "family": "attachment",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_31eba3e580e348feaf76ce4b1a0af7188f78a0233659b5c7cbe543339676daa1",
+          "type": "REPLY_TO_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_501e1cc7851bf14b73a5dd359598678562a370a7e7bf77539668815ac2362479",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_53bb03e34e981088482b230c1675d0cd85a7391e9e83037ee1499c5eb11b87e5",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_60ab0f0fcde7da382fde9439b2c78f33cdf43030b5a44f290724286e6043465a",
+          "type": "DMARC_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_6be1dc6f3135ce544b74d1241b650d7199695f55d8c3ede94a53b61f31088e12",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_84c426509fbc643ad369d2238f5b3d930cc216bd89f970e7325da73f464076f7",
+          "type": "DKIM_FAIL",
+          "family": "email_auth",
+          "result": "UNKNOWN",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_8eccab1d52d8caed64bc9b42483db32610853a525ee52a16bf6c205ec0e39b2b",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_9c83cac8e6b8c4b7efa174f498e7b93347e5de1d9faea96692acdccebb70135e",
+          "type": "RECEIVED_CHAIN_ANOMALY",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_9f401e169a43fae8ef7cfb435e66cd34b4f2c1e08a8745d5d05a8ebc3ff4f3e6",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_b5eda6ad19391a27727ac43b4757c227a720e78302205052db32ee5bb9a318df",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_b93f4a96f76a06eb44a0836800baaedff3140a1ccfaa5fd659713203a159fbc3",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_be8852534b40ee10b0fc612b1334ca0421958195f66ab4c2f03129e3963c70ad",
+          "type": "QR_ANALYSIS",
+          "family": "qr",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c02fc4803794751911a05f19f168e2e8376ee98bc369795dfb3bcba3089e9bd0",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_c94bae74e28d9beacd137f4ea1964992316317f4cb038fd06b7495bd06869ee3",
+          "type": "RETURN_PATH_MISMATCH",
+          "family": "identity",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_d5bc6e1505ebc08dfa5bec6b60e070b4a5b0c6ebf479cba0b9cab104a36a5303",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_e3cb908920c0e200707bb16d7721f91f1404fc2febd96d4d3897bf775b7427ce",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_ec45f2d360a433d07bf451df672ec37ae6f2d5c35cbc74e55467efdb9d89b055",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_ee6f71c5b80ffe3fa3d00dbd22de358a2064dbbbaa435b24381977d567f42617",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_fe18e2f0e62a400a6d9d6ff039fd94806da3002d2657b1ab8c113a53f2e2fc6b",
+          "type": "URL_IOC_CHECK",
+          "family": "threat_intel",
+          "result": "PASS",
+          "tool_status": "OK"
+        },
+        {
+          "id": "ev_fe29b325cdcf6c5956fe8b6f856a76d1b4c49c293dc25bbdb61cdef9e09b0340",
+          "type": "URL_EXCESSIVE_SUBDOMAIN",
+          "family": "url_deception",
+          "result": "FAIL",
+          "tool_status": "OK"
+        }
+      ]
+    }
+  ],
+  "positive_abstentions_are_not_binary_false_negatives": true,
+  "qr_decoder_error_cases": [
+    "e2a_0313356a"
+  ],
+  "top_observed_patterns": [
+    {
+      "pattern": "required SPF/DKIM/DMARC signals UNKNOWN; coverage incomplete takes precedence over score/IOC override",
+      "cases": 3308
+    },
+    {
+      "pattern": "strict Parser rejects source email headers/address syntax",
+      "cases": 150,
+      "error_codes": {
+        "MALFORMED_HEADER": 100,
+        "DUPLICATE_HEADER": 30,
+        "MALFORMED_EMAIL": 9,
+        "INVALID_ADDRESS": 10,
+        "INVALID_FROM": 1
+      }
+    },
+    {
+      "pattern": "QR decoder failure retained as UNKNOWN/ERROR evidence",
+      "cases": 1
+    }
+  ],
+  "quality_blockers": [
+    "Zero binary decision coverage; all successful predictions abstain",
+    "150 CORE parser rejections; 35 capability executions also rejected by Parser"
+  ],
+  "ready_for_dev_error_analysis": true,
+  "ready_for_dev_quality_tuning": false,
+  "ready_for_test": false,
+  "provider_failures": {
+    "ioc": 0,
+    "rag": 0,
+    "llm": 0,
+    "note": "RAG and LLM not used; QR decoder error is separate"
+  },
+  "successful_prediction_coverage": {
+    "numerator": 3308,
+    "denominator": 3462,
+    "value": 0.9555170421721548
+  },
+  "infrastructure_failure_mapped_to_SAFE_cases": 0
+}

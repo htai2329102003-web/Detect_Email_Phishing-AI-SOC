@@ -1,3 +1,6 @@
-"""Command-line entry point for the Xe X evaluation suite."""
+"""Compatibility entry point: python -m scripts.run_eval --manifest PATH."""
 
-# TODO: Delegate to eval.run_eval after its callable interface is implemented.
+from eval.run_eval import main
+
+if __name__ == "__main__":
+    raise SystemExit(main())

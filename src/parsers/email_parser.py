@@ -71,20 +71,70 @@ def parse_email(raw_email: bytes | str) -> ParsedEmail:
 
 def _parse(content: bytes) -> ParsedEmail:
     message = BytesParser(policy=policy.default).parsebytes(content)
-    if message.defects or not message.keys():
-        raise EmailParseError("MALFORMED_EMAIL", "Invalid email header or MIME structure")
+    if any(type(d).__name__ in {"NoBoundaryInMultipartDefect", "StartBoundaryNotFoundDefect",
+                               "MultipartInvariantViolationDefect"} for d in message.defects):
+        raise EmailParseError("MALFORMED_EMAIL", "Invalid MIME structure")
+    warnings: list[dict[str, str]] = []
+    unavailable: set[str] = set()
+    raw_headers = list(message.raw_items())
     headers: dict[str, list[str]] = {}
-    for name, value in message.items():
-        if getattr(value, "defects", ()):
-            raise EmailParseError("MALFORMED_HEADER", "Invalid structured email header")
-        headers.setdefault(name.lower(), []).append(str(value))
-    senders = _addresses(headers.get("from", []))
-    if len(senders) != 1 or len(headers.get("from", [])) != 1:
-        raise EmailParseError("INVALID_FROM", "Email must have exactly one From mailbox")
-    if any(len(headers.get(name, [])) > 1 for name in ("reply-to", "return-path", "subject", "content-type")):
-        raise EmailParseError("DUPLICATE_HEADER", "Ambiguous singleton email header")
-    reply_to = _addresses(headers.get("reply-to", []))
-    return_path = _addresses(headers.get("return-path", []), allow_null=True)
+
+    def warn(code: str, field: str):
+        warning = {"code": code, "field": field}
+        if warning not in warnings:
+            warnings.append(warning)
+
+    # Fetch each structured header separately: one malformed Message-ID must not
+    # prevent extraction of other headers or inert body/attachment bytes.
+    for name, value in raw_headers:
+        name = name.lower()
+        try:
+            decoded = message.policy.header_fetch_parse(name, value)
+            if getattr(decoded, "defects", ()):
+                unavailable.add(name)
+                warn("MALFORMED_HEADER", name)
+            headers.setdefault(name, []).append(str(decoded))
+        except (MessageError, ValueError, LookupError, UnicodeError, RecursionError, IndexError):
+            unavailable.add(name)
+            warn("HEADER_PARSE_ERROR", name)
+            headers.setdefault(name, []).append(value)
+    for name in ("from", "reply-to", "return-path", "subject", "content-type"):
+        if len(headers.get(name, [])) > 1:
+            if name == "content-type":
+                raise EmailParseError("MALFORMED_MIME", "Ambiguous MIME Content-Type")
+            unavailable.add(name)
+            warn("DUPLICATE_HEADER", name)
+
+    def addresses(name: str, *, allow_null: bool = False):
+        if name in unavailable:
+            return []
+        try:
+            values = _addresses(headers.get(name, []), allow_null=allow_null)
+            if name == "from" and len(values) != 1:
+                raise EmailParseError("INVALID_FROM", "Email must have exactly one From mailbox")
+            return values
+        except (ValueError, IndexError, RecursionError):
+            unavailable.add(name)
+            warn("INVALID_ADDRESS" if name != "from" else "INVALID_FROM", name)
+            return []
+
+    senders = addresses("from")
+    reply_to = addresses("reply-to")
+    return_path = addresses("return-path", allow_null=True)
+    # Unreliable semantic fields are unavailable, while raw occurrences stay intact.
+    headers = {name: values for name, values in headers.items() if name not in unavailable}
+
+    def check_mime(part):
+        for defect in part.defects:
+            code = type(defect).__name__
+            if code not in {
+                "CloseBoundaryNotFoundDefect", "MissingHeaderBodySeparatorDefect",
+                "InvalidMultipartContentTransferEncodingDefect",
+                "InvalidBase64CharactersDefect", "InvalidBase64PaddingDefect", "InvalidBase64LengthDefect",
+            }:
+                raise EmailParseError("MALFORMED_MIME", "Invalid MIME part")
+            warn(code, "mime")
+
     text_parts: list[str] = []
     html_parts: list[str] = []
     attachments: list[dict[str, Any]] = []
@@ -95,8 +145,9 @@ def _parse(content: bytes) -> ParsedEmail:
         count += 1
         if count > MAX_MIME_PARTS or depth > MAX_MIME_DEPTH:
             raise EmailParseError("MIME_LIMIT", "Email exceeds MIME nesting or part limits")
-        if part.defects:
-            raise EmailParseError("MALFORMED_MIME", "Invalid MIME part")
+        check_mime(part)
+        if len(part.get_all("Content-Type", [])) > 1:
+            raise EmailParseError("MALFORMED_MIME", "Ambiguous MIME Content-Type")
         disposition = part.get_content_disposition()
         filename = part.get_filename()
         content_type = part.get_content_type()
@@ -107,8 +158,7 @@ def _parse(content: bytes) -> ParsedEmail:
         payload = part.get_payload(decode=True)
         if payload is None:
             payload = part.as_bytes(policy=policy.default)
-        if part.defects:
-            raise EmailParseError("MALFORMED_ENCODING", "Invalid MIME transfer encoding")
+        check_mime(part)
         if is_attachment or part.get_content_maintype() != "text":
             attachments.append(
                 parse_attachment(
@@ -146,8 +196,13 @@ def _parse(content: bytes) -> ParsedEmail:
     urls = list(dict.fromkeys(url for url in candidates if url.lower().startswith(("http://", "https://"))))
     return ParsedEmail(
         raw_for_analyzers={
+            "raw_bytes": content,
+            "raw_headers": raw_headers,
+            "parser_warnings": warnings,
+            "unavailable_headers": sorted(unavailable),
+            "partial_parse": bool(warnings),
             "headers": headers,
-            "from": senders[0],
+            "from": senders[0] if senders else {},
             "reply_to": reply_to,
             "return_path": return_path,
             "received": headers.get("received", []),

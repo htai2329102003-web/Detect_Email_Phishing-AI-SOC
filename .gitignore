@@ -34,6 +34,7 @@ data/processed/*
 data/chroma/
 *.db
 *.sqlite3
+runtime/
 
 # Logs
 logs/
@@ -56,4 +57,5 @@ out/
 # Build
 *.pyc
 *.pyo
-
+# Local datasets - never commit
+/data/

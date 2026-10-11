@@ -23,7 +23,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Lint with ruff
-        run: ruff check src/ tests/
+        run: ruff check src/ tests/ eval/ scripts/run_eval.py scripts/smoke*.py
 
       - name: Run tests
         run: pytest tests/ -v --tb=short

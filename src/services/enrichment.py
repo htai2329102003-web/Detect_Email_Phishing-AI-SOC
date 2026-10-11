@@ -17,6 +17,10 @@ class ExternalServices:
     rag: RAGService = field(default_factory=RAGService)
     max_urls: int = 16
     max_hashes: int = 16
+    content_enabled: bool = True
+    virustotal_enabled: bool = True
+    urlscan_enabled: bool = True
+    rag_enabled: bool = True
 
     def __post_init__(self):
         if not 1 <= self.max_urls <= 64 or not 1 <= self.max_hashes <= 64:
@@ -33,5 +37,12 @@ class ExternalServices:
         return cls(
             virustotal=configured(VirusTotalClient),
             urlscan=configured(URLScanClient),
-            rag=RAGService(collection=settings.qdrant_collection),
+            rag=RAGService.from_settings(settings),
+            content=StructuredContentAnalyzer(LLMClient.from_settings(settings)),
+            content_enabled=settings.content_bec_enabled,
+            virustotal_enabled=settings.external_enrichment_enabled and settings.virustotal_enabled,
+            urlscan_enabled=settings.external_enrichment_enabled and settings.urlscan_enabled,
+            rag_enabled=settings.rag_enabled,
+            max_urls=settings.enrichment_max_urls,
+            max_hashes=settings.enrichment_max_hashes,
         )

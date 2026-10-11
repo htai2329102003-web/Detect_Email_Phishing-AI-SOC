@@ -80,6 +80,15 @@ class IOCRecord(Contract):
     kind: IOCKind
     value: NonEmpty
     source: NonEmpty
+    role: Literal["MALICIOUS", "BENIGN_REFERENCE"] = "MALICIOUS"
+    sources: tuple[dict[str, JsonValue], ...] = ()
+    threat_type: str | None = None
+    derived: bool = False
+    derived_from: str | None = None
+    ioc_id: str | None = None
+    raw_value: str | None = None
+    source_canonical_value: str | None = None
+    matched_records: tuple[dict[str, JsonValue], ...] = ()
     confidence: float = Field(default=1.0, ge=0, le=1)
     first_seen: datetime | None = None
     last_seen: datetime | None = None

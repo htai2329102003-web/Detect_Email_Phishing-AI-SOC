@@ -21,6 +21,7 @@ from alembic.config import Config
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
+from scripts.smoke_support import SmokeDirectory, stop_server
 from src.db.models import User
 from src.db.types import Role
 from src.services.auth import hash_password
@@ -52,7 +53,9 @@ def main():
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--test-db", action="store_true", required=True)
-    parser.parse_args()
+    parser.add_argument("--artifacts", type=Path, default=ROOT / "docs/examples")
+    args = parser.parse_args()
+    args.artifacts.mkdir(parents=True, exist_ok=True)
     if not (ROOT / "frontend/.next/BUILD_ID").exists():
         parser.error("Run npm run build in frontend first")
     # Public API URL is compiled into the browser bundle; bind to that configured port.
@@ -65,7 +68,7 @@ def main():
     front_port = free_port()
     password = secrets.token_urlsafe(24)
     processes = []
-    with tempfile.TemporaryDirectory(prefix="phishhunter-group6-") as folder:
+    with SmokeDirectory(prefix="phishhunter-group6-") as folder:
         db_path = Path(folder) / "workflow.db"
         engine = create_engine(f"sqlite:///{db_path}")
         config = Config(str(ROOT / "alembic.ini"))
@@ -96,6 +99,8 @@ def main():
             VIRUSTOTAL_API_KEY="",
             URLSCAN_API_KEY="",
             NEXT_TELEMETRY_DISABLED="1",
+            EXTERNAL_ENRICHMENT_ENABLED="false",
+            SMOKE_ARTIFACTS_DIR=str(args.artifacts.resolve()),
         )
         flags = subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0
         with tempfile.TemporaryFile(mode="w+b") as backend_logs, tempfile.TemporaryFile(mode="w+b") as front_logs:
@@ -158,8 +163,7 @@ def main():
                 print("Browser smoke PASS on explicit TEST DB; Postgres runtime NOT VERIFIED")
             finally:
                 for process in reversed(processes):
-                    process.terminate()
-                    process.wait(timeout=10)
+                    stop_server(process)
                 print("Frontend/backend stopped; temporary DB removed on exit")
 
 

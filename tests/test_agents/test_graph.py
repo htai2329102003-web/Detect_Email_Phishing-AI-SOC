@@ -2,7 +2,10 @@ from pathlib import Path
 
 import pytest
 
-from src.agents.graph import agent
+from src.agents.graph import build_graph
+
+# Unit tests must remain offline even when local production flags are enabled.
+agent = build_graph()
 
 EMAILS = Path(__file__).resolve().parents[1] / "fixtures" / "emails"
 

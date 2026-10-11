@@ -21,6 +21,7 @@ from alembic.config import Config
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
+from scripts.smoke_support import SmokeDirectory, stop_server
 from src.db.models import User
 from src.db.types import Role
 from src.services.auth import hash_password
@@ -28,39 +29,12 @@ from src.services.auth import hash_password
 ROOT = Path(__file__).resolve().parents[1]
 
 
-class SmokeDirectory(tempfile.TemporaryDirectory):
-    def cleanup(self):
-        # Windows can briefly retain a SQLite handle after a worker exits.
-        for _ in range(30):
-            try:
-                super().cleanup()
-                return
-            except PermissionError:
-                time.sleep(0.1)
-        super().cleanup()  # A persistent lock must still fail the smoke.
-
-
-def stop_server(server):
-    if server.poll() is None:
-        if os.name == "nt":
-            # The venv executable may have a Python child: stop the owned process tree.
-            subprocess.run(
-                ["taskkill", "/PID", str(server.pid), "/T", "/F"],
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-                check=False,
-                creationflags=subprocess.CREATE_NO_WINDOW,
-            )
-        else:
-            server.terminate()
-    server.wait(timeout=10)
-
-
 def main():
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--test-db", action="store_true", required=True)
-    parser.parse_args()
+    parser.add_argument("--output", type=Path, default=ROOT / "docs/examples/group7-http-smoke.json")
+    args = parser.parse_args()
     artifacts = []
     with SmokeDirectory(prefix="phishhunter-group7-") as folder:
         db_path = Path(folder) / "workflow.db"
@@ -202,7 +176,8 @@ def main():
                             )
                 finally:
                     stop_server(server)
-    target = ROOT / "docs/examples/group7-http-smoke.json"
+    target = args.output
+    target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(
         json.dumps(
             {

@@ -1,0 +1,198 @@
+{
+  "candidate": "C4",
+  "reason": "Whole-DEV recall and precision improve while FP drops, coverage improves and no unsupported SAFE is introduced. C3 sacrifices recall; C2/C5 have lower recall; C1 retains excessive abstention.",
+  "tradeoff": "C4 has 7 FP versus 2 under C2 and produces 478 SAFE-ground-truth SUSPICIOUS decisions; selective F1 decreases because SUSPICIOUS is negative in the existing binary projection.",
+  "parameters": {
+    "id": "C4",
+    "derived_correction": true,
+    "partial_suspicious": true,
+    "phishing": 65,
+    "suspicious": 30
+  },
+  "selected_before_full_graph_validation": true,
+  "policy": {
+    "version": 1,
+    "thresholds": {
+      "suspicious": 30.0,
+      "phishing": 65.0
+    },
+    "required_signals": [
+      "SPF_FAIL",
+      "DKIM_FAIL",
+      "DMARC_FAIL"
+    ],
+    "llm_weight_cap": 0.1,
+    "families": {
+      "email_auth": {
+        "cap": 0.45
+      },
+      "identity": {
+        "cap": 0.45
+      },
+      "url_deception": {
+        "cap": 0.6
+      },
+      "attachment": {
+        "cap": 0.5
+      },
+      "qr": {
+        "cap": 0.0
+      },
+      "threat_intel": {
+        "cap": 0.95
+      },
+      "content_bec": {
+        "cap": 0.15
+      }
+    },
+    "weights": {
+      "SPF_FAIL": {
+        "family": "email_auth",
+        "weight": 0.25
+      },
+      "DKIM_FAIL": {
+        "family": "email_auth",
+        "weight": 0.35
+      },
+      "DMARC_FAIL": {
+        "family": "email_auth",
+        "weight": 0.45
+      },
+      "REPLY_TO_MISMATCH": {
+        "family": "identity",
+        "weight": 0.4
+      },
+      "RETURN_PATH_MISMATCH": {
+        "family": "identity",
+        "weight": 0.25
+      },
+      "DISPLAY_NAME_DOMAIN_MISMATCH": {
+        "family": "identity",
+        "weight": 0.25
+      },
+      "RECEIVED_CHAIN_ANOMALY": {
+        "family": "identity",
+        "weight": 0.2
+      },
+      "HREF_MISMATCH": {
+        "family": "url_deception",
+        "weight": 0.6
+      },
+      "URL_IP_LITERAL": {
+        "family": "url_deception",
+        "weight": 0.4
+      },
+      "URL_PUNYCODE": {
+        "family": "url_deception",
+        "weight": 0.2
+      },
+      "URL_LOOKALIKE": {
+        "family": "url_deception",
+        "weight": 0.5
+      },
+      "URL_EXCESSIVE_SUBDOMAIN": {
+        "family": "url_deception",
+        "weight": 0.25
+      },
+      "URL_SHORTENER": {
+        "family": "url_deception",
+        "weight": 0.2
+      },
+      "URL_SUSPICIOUS_PORT": {
+        "family": "url_deception",
+        "weight": 0.25
+      },
+      "URL_OBFUSCATED": {
+        "family": "url_deception",
+        "weight": 0.35
+      },
+      "HEADER_ANALYSIS": {
+        "family": "identity",
+        "weight": 0.0
+      },
+      "URL_ANALYSIS": {
+        "family": "url_deception",
+        "weight": 0.0
+      },
+      "ATTACHMENT_ANALYSIS": {
+        "family": "attachment",
+        "weight": 0.0
+      },
+      "ATTACHMENT_METADATA": {
+        "family": "attachment",
+        "weight": 0.0
+      },
+      "ATTACHMENT_EXECUTABLE": {
+        "family": "attachment",
+        "weight": 0.5
+      },
+      "ATTACHMENT_DOUBLE_EXTENSION": {
+        "family": "attachment",
+        "weight": 0.45
+      },
+      "ATTACHMENT_FILENAME_DECEPTION": {
+        "family": "attachment",
+        "weight": 0.4
+      },
+      "ATTACHMENT_MIME_MISMATCH": {
+        "family": "attachment",
+        "weight": 0.35
+      },
+      "ATTACHMENT_MAGIC_MISMATCH": {
+        "family": "attachment",
+        "weight": 0.45
+      },
+      "PDF_ACTIVE_METADATA": {
+        "family": "attachment",
+        "weight": 0.4
+      },
+      "ARCHIVE_INSPECTION": {
+        "family": "attachment",
+        "weight": 0.0
+      },
+      "ARCHIVE_DANGEROUS_MEMBER": {
+        "family": "attachment",
+        "weight": 0.5
+      },
+      "OFFICE_MACRO_MEMBER": {
+        "family": "attachment",
+        "weight": 0.5
+      },
+      "QR_ANALYSIS": {
+        "family": "qr",
+        "weight": 0.0
+      },
+      "QR_DECODE": {
+        "family": "qr",
+        "weight": 0.0
+      },
+      "URL_IOC_CHECK": {
+        "family": "threat_intel",
+        "weight": 0.0
+      },
+      "ATTACHMENT_IOC_CHECK": {
+        "family": "threat_intel",
+        "weight": 0.0
+      },
+      "IOC_MATCH": {
+        "family": "threat_intel",
+        "weight": 0.95
+      },
+      "IOC_DERIVED_DOMAIN": {
+        "family": "threat_intel",
+        "weight": 0.2
+      },
+      "BEC_REQUEST": {
+        "family": "content_bec",
+        "weight": 0.1
+      }
+    },
+    "overrides": {
+      "IOC_MATCH": {
+        "min_score": 95.0,
+        "min_confidence": 0.9
+      }
+    },
+    "allow_partial_suspicious": true
+  }
+}

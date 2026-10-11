@@ -16,10 +16,48 @@ from src.services.auth import hash_password, issue_token
 from tests.db_support import test_engine
 
 
+@pytest.fixture(autouse=True)
+def forbid_real_provider_network(monkeypatch):
+    """Production .env opt-ins must never turn a regression into real API usage."""
+    import socket
+
+    import httpx
+
+    original = httpx.Client.send
+
+    def offline_send(client, request, *args, **kwargs):
+        if not isinstance(client._transport, httpx.MockTransport):
+            raise AssertionError("Unit tests require an explicit mock HTTP transport")
+        return original(client, request, *args, **kwargs)
+
+    monkeypatch.setattr(httpx.Client, "send", offline_send)
+
+    original_connect = socket.socket.connect
+    original_create_connection = socket.create_connection
+
+    def blocked_connect(sock, address):
+        if isinstance(address, tuple) and address[0] in {"127.0.0.1", "::1", "localhost"}:
+            return original_connect(sock, address)
+        raise AssertionError("Unit tests cannot open network sockets")
+
+    def blocked_create_connection(address, *args, **kwargs):
+        if isinstance(address, tuple) and address[0] in {"127.0.0.1", "::1", "localhost"}:
+            return original_create_connection(address, *args, **kwargs)
+        raise AssertionError("Unit tests cannot open network sockets")
+
+    monkeypatch.setattr(socket.socket, "connect", blocked_connect)
+    monkeypatch.setattr(socket, "create_connection", blocked_create_connection)
+
+
 @pytest.fixture
 def database(monkeypatch):
     """Real ORM/SQL transactions against an isolated test DB; auth is not bypassed."""
     settings = get_settings()
+    # API regressions use explicit offline dependencies, independent of local production data.
+    from src.agents.graph import build_graph
+    from src.api.routers import analysis
+
+    monkeypatch.setattr(analysis, "agent", build_graph())
     monkeypatch.setattr(settings, "jwt_secret", SecretStr(secrets.token_urlsafe(48)))
     engine = test_engine()
     factory = sessionmaker(engine, expire_on_commit=False)

@@ -2,7 +2,7 @@ import { expect, test, type Page } from "@playwright/test";
 import { resolve } from "node:path";
 
 const fixtures = resolve(process.cwd(), "../tests/fixtures/emails");
-const artifacts = resolve(process.cwd(), "../docs/examples");
+const artifacts = resolve(process.env.SMOKE_ARTIFACTS_DIR ?? resolve(process.cwd(), "../docs/examples"));
 const password = process.env.SMOKE_USER_PASSWORD;
 if (!password) throw new Error("Run through scripts.smoke_group6; no default credentials exist");
 

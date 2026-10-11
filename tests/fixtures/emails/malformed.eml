@@ -1,4 +1,4 @@
-This is deliberately not an RFC email header.
-From missing colon and mailbox
+From: fixture@example.test
+Content-Type: multipart/mixed; boundary="missing-boundary"
 
-Synthetic malformed development fixture.
+Synthetic malformed MIME fixture: the declared boundary is absent.

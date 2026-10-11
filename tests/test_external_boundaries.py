@@ -26,7 +26,8 @@ DIGEST = "a" * 64
 
 def provider_client(provider, transport=None, key="test-only-key"):
     factory = VirusTotalClient if provider == "VT" else URLScanClient
-    client = factory(api_key=key, transport=transport)
+    options = {"strict_privacy": False} if provider == "URLSCAN" else {}
+    client = factory(api_key=key, transport=transport, **options)
     return client.lookup_hash if provider == "VT" else client.lookup_url
 
 
@@ -232,8 +233,9 @@ async def test_llm_never_overrides_strong_ioc_or_vt_and_rag_only_reaches_verdict
         {"raw_email": (EMAILS / "suspicious_attachment.eml").read_bytes()}
     )
     assert vt["risk_score"] >= 95 and vt["risk_result"].overrides
-    # Existing fixture declares an inert executable as PNG: QR decode stays UNKNOWN.
-    assert vt["risk_result"].label_candidate == "NEEDS_ANALYST_REVIEW"
+    # QR stays UNKNOWN, but independent confirmed malicious evidence remains actionable.
+    assert vt["risk_result"].label_candidate == "PHISHING"
+    assert not vt["risk_result"].coverage.complete
     assert vt["rag_context"] == () and vt["claim_validation"].status == "PASS"
 
 

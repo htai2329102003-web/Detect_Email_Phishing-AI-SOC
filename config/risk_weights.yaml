@@ -2,7 +2,11 @@ version: 1
 # Development policy; not calibrated against a production dataset.
 thresholds:
   suspicious: 30
-  phishing: 70
+  phishing: 62
+# Positive triage may tolerate unavailable auth/identity; SAFE still needs full coverage.
+allow_partial_suspicious: true
+# DEV Round 2: partial header data may support positive static triage, never SAFE.
+allow_partial_header_suspicious: true
 required_signals: [SPF_FAIL, DKIM_FAIL, DMARC_FAIL]
 llm_weight_cap: 0.10
 families:
@@ -22,7 +26,7 @@ weights:
   DISPLAY_NAME_DOMAIN_MISMATCH: {family: identity, weight: 0.25}
   RECEIVED_CHAIN_ANOMALY: {family: identity, weight: 0.20}
   HREF_MISMATCH: {family: url_deception, weight: 0.60}
-  URL_IP_LITERAL: {family: url_deception, weight: 0.40}
+  URL_IP_LITERAL: {family: url_deception, weight: 0.55}
   URL_PUNYCODE: {family: url_deception, weight: 0.20}
   URL_LOOKALIKE: {family: url_deception, weight: 0.50}
   URL_EXCESSIVE_SUBDOMAIN: {family: url_deception, weight: 0.25}
@@ -48,6 +52,8 @@ weights:
   URL_IOC_CHECK: {family: threat_intel, weight: 0.0}
   ATTACHMENT_IOC_CHECK: {family: threat_intel, weight: 0.0}
   IOC_MATCH: {family: threat_intel, weight: 0.95}
+  # URL-derived domain relation does not assert that the entire host is malicious.
+  IOC_DERIVED_DOMAIN: {family: threat_intel, weight: 0.20}
   BEC_REQUEST: {family: content_bec, weight: 0.10}
 overrides:
   IOC_MATCH: {min_score: 95, min_confidence: 0.90}

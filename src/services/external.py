@@ -1,7 +1,9 @@
 """Shared, bounded GET transport and ToolResult error mapping. No automatic retry."""
 
+from collections import OrderedDict
 from collections.abc import Callable
-from time import perf_counter
+from threading import Lock
+from time import monotonic, perf_counter
 from typing import Protocol, TypeVar
 from urllib.parse import urlsplit
 
@@ -11,6 +13,38 @@ from src.schemas.tool import ToolResult
 
 T = TypeVar("T")
 MAX_RESPONSE_BYTES = 1024 * 1024
+
+
+class LookupCache:
+    """Process-local bounded TTL cache and non-blocking quota/cooldown. No retries.
+
+    A lock serializes requests per provider, preventing duplicate concurrent lookups.
+    In multi-worker deployments each worker has a separate quota budget.
+    """
+
+    def __init__(self, *, ttl=3600, min_interval=0, max_entries=512, clock=monotonic):
+        self.ttl, self.min_interval, self.max_entries, self.clock = ttl, min_interval, max_entries, clock
+        self.entries, self.next_call, self.lock = OrderedDict(), 0.0, Lock()
+
+    def call(self, provider, key, operation):
+        with self.lock:
+            now = self.clock()
+            cached = self.entries.get(key)
+            if cached and cached[0] > now:
+                self.entries.move_to_end(key)
+                return cached[1].model_copy(deep=True, update={"latency_ms": 0.0})
+            self.entries.pop(key, None)
+            if now < self.next_call:
+                return ToolResult(status="RATE_LIMITED", error_code=f"{provider}_LOCAL_RATE_LIMIT", latency_ms=0)
+            self.next_call = now + self.min_interval
+            result = operation()
+            if result.status == "OK" and self.ttl:
+                self.entries[key] = (self.clock() + self.ttl, result.model_copy(deep=True))
+                while len(self.entries) > self.max_entries:
+                    self.entries.popitem(last=False)
+            elif result.status == "RATE_LIMITED":
+                self.next_call = self.clock() + max(60, self.min_interval)
+            return result
 
 
 class HTTPTransport(Protocol):

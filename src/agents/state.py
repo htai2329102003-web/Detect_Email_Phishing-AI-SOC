@@ -31,6 +31,7 @@ class AgentState(TypedDict, total=False):
     verdict_proposal: Verdict | dict[str, Any] | None
     verdict_attempts: int
     verdict_errors: tuple[str, ...]
+    verdict_llm_status: str
     claim_validation: ClaimValidationResult
     retry_feedback: tuple[str, ...]
     retry_requested: bool
@@ -42,3 +43,5 @@ class AgentState(TypedDict, total=False):
     external_enrichment: bool
     rag_context: tuple[RetrievedChunk, ...]
     rag_status: str
+    knowledge_evidence: list[Evidence]
+    knowledge_validation: Gate1Result

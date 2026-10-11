@@ -33,6 +33,12 @@ def fact_view(item: Evidence) -> EvidenceFact:
 
 
 def compatible_claim(fact: EvidenceFact, policy: RiskPolicy) -> ClaimType | None:
+    if fact.family == "knowledge_context":
+        if fact.signal_type == "RAG_CONTEXT" and fact.result == "PASS":
+            return "KNOWLEDGE"
+        if fact.signal_type == "RAG_RETRIEVAL" and fact.result == "UNKNOWN":
+            return "UNCERTAINTY"
+        return None
     rule = policy.weights.get(fact.signal_type)
     if rule is None or rule.family != fact.family:
         return None
@@ -44,6 +50,10 @@ def canonical_indicators(item: Evidence) -> tuple[IndicatorReference, ...]:
     values = {"indicator": item.indicator}
     value = item.value
     if isinstance(value, dict):
+        if item.family == "knowledge_context" and item.signal_type == "RAG_CONTEXT":
+            for key in ("document_id", "chunk_id", "source", "title", "source_url"):
+                if isinstance(value.get(key), str) and value[key]:
+                    values[f"value.{key}"] = value[key]
         for key in ("canonical_url", "displayed_url", "protected_domain", "from_domain", "sha256"):
             if isinstance(value.get(key), str) and value[key]:
                 values[f"value.{key}"] = value[key]

@@ -1,0 +1,15 @@
+{
+  "alembic_head": "0001_group5",
+  "tables": [
+    "alembic_version",
+    "analysis_cases",
+    "audit_logs",
+    "case_actions",
+    "users"
+  ],
+  "orm_schema_differences": 0,
+  "test_adapter_upgrade": "PASS (isolated SQLite)",
+  "postgresql_offline_ddl": "PASS",
+  "postgresql_runtime": "NOT VERIFIED",
+  "database_persistence_runtime": "NOT VERIFIED"
+}

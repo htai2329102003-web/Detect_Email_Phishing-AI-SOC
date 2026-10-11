@@ -127,7 +127,7 @@ def test_family_max_then_noisy_or_is_correct_and_order_independent():
     result = score(inputs)
     # email_auth=max(.25,.35,.45), identity=.40 => 1-(1-.45)*(1-.40)
     assert result.score == pytest.approx(67)
-    assert result.label_candidate == "SUSPICIOUS"
+    assert result.label_candidate == "PHISHING"  # Round-2 threshold is 62; arithmetic remains 67.
     assert sum(c.applied_strength > 0 for c in result.contributions) == 2
     assert score(list(reversed(inputs))) == result
     assert score([*inputs, inputs[0]]) == result
@@ -137,7 +137,7 @@ def test_family_max_then_noisy_or_is_correct_and_order_independent():
     assert phishing.score == 78 and phishing.label_candidate == "PHISHING"
 
 
-def test_configured_override_requires_known_confident_failure_and_coverage():
+def test_configured_override_requires_known_confident_failure_but_not_auth_coverage():
     policy_data = load_risk_policy().model_dump()
     policy_data["weights"]["IOC_MATCH"]["weight"] = 0.2
     policy = RiskPolicy.model_validate(policy_data)
@@ -145,7 +145,8 @@ def test_configured_override_requires_known_confident_failure_and_coverage():
     result = score([*auth(), hit], policy=policy)
     assert result.score == 95 and result.label_candidate == "PHISHING"
     assert result.overrides == (hit.evidence_id,)
-    assert score([hit], policy=policy).label_candidate == "NEEDS_ANALYST_REVIEW"
+    partial = score([hit], policy=policy)
+    assert partial.label_candidate == "PHISHING" and not partial.coverage.complete
     assert score([*auth(), evidence("IOC_MATCH", confidence=0.8)], policy=policy).score == 16
     assert not score([*auth(), evidence("IOC_MATCH", "UNKNOWN")], policy=policy).overrides
 

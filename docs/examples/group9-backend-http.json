@@ -1,0 +1,25 @@
+{
+  "runtime": "host Uvicorn src.main:app, no dependency overrides",
+  "health": {
+    "status_code": 200,
+    "response": {
+      "status": "ok",
+      "service": "PhishHunter",
+      "env": "production"
+    }
+  },
+  "openapi_status": 200,
+  "openapi_path_count": 14,
+  "docs_status": 200,
+  "unauthenticated_cases": 401,
+  "login_without_database": {
+    "status_code": 503,
+    "response": {
+      "detail": {
+        "code": "DATABASE_NOT_CONFIGURED"
+      }
+    }
+  },
+  "postgresql": "NOT VERIFIED",
+  "qdrant": "NOT VERIFIED"
+}

@@ -1,0 +1,171 @@
+{
+  "complete": true,
+  "blocker": null,
+  "timestamp": "2026-10-11T15:20:22.698112+00:00",
+  "scope": "DEV classification impact only; no TEST inference; no production benchmark claim",
+  "impact_contract": {
+    "max_bec_strength": 0.1,
+    "content_family_cap": 0.15,
+    "maximum_score_formula": "score + (100 - score) * 0.10",
+    "incomplete_coverage": "LLM evidence excluded from strong PHISHING and partial SUSPICIOUS eligibility",
+    "coverage": "BEC success adds one applicable and completed signal; cannot repair prior missing/unknown checks"
+  },
+  "impact_analysis": {
+    "successful_dev_cases": 3456,
+    "categories": {
+      "BEC_CANNOT_CHANGE_RESULT": 3456,
+      "BEC_COULD_CHANGE_SCORE_THRESHOLD": 0,
+      "BEC_COULD_CHANGE_COVERAGE": 0,
+      "BEC_COULD_CHANGE_REVIEW_TO_SUSPICIOUS": 0,
+      "BEC_COULD_CHANGE_REVIEW_TO_PHISHING": 0,
+      "OTHER_POTENTIAL_IMPACT": 0
+    },
+    "potentially_impactful": 0
+  },
+  "api_budget": {
+    "estimated_bec_calls": 0,
+    "actual_real_bec_calls": 0,
+    "limit": 500,
+    "budget_exceeded": false,
+    "verdict_llm_dev_calls": 0,
+    "rag_dev_calls": 0,
+    "virustotal_calls": 0,
+    "urlscan_calls": 0
+  },
+  "bec_execution": {
+    "structured_output_pass": 0,
+    "schema_failures": 0,
+    "provider_failures": 0,
+    "unknown": 0,
+    "positive_bec_evidence": 0,
+    "no_bec_signal": 0,
+    "cache_hits": 0
+  },
+  "label_transitions": {
+    "REVIEW -> SUSPICIOUS": 0,
+    "REVIEW -> PHISHING": 0,
+    "SUSPICIOUS -> PHISHING": 0,
+    "OTHER": 0,
+    "NO CHANGE": 3456
+  },
+  "changed_ground_truth": {
+    "SAFE": 0,
+    "PHISHING": 0
+  },
+  "post_stage7_dev": {
+    "canonical": 3462,
+    "defender_skipped": 4,
+    "attempted": 3458,
+    "successful": 3456,
+    "execution_errors": 2,
+    "metrics": {
+      "attempted": 3458,
+      "successful": 3456,
+      "execution_errors": 2,
+      "labels": {
+        "SAFE": 0,
+        "SUSPICIOUS": 661,
+        "PHISHING": 149,
+        "NEEDS_ANALYST_REVIEW": 2646
+      },
+      "tp": 142,
+      "tn": 478,
+      "fp": 7,
+      "fn": 183,
+      "whole_dev": {
+        "phishing_recall": {
+          "value": 0.20056497175141244,
+          "numerator": 142,
+          "denominator": 708
+        },
+        "safe_fpr": {
+          "value": 0.0025454545454545456,
+          "numerator": 7,
+          "denominator": 2750
+        },
+        "precision": {
+          "value": 0.9530201342281879,
+          "numerator": 142,
+          "denominator": 149
+        },
+        "decision_coverage": {
+          "value": 0.234375,
+          "numerator": 810,
+          "denominator": 3456
+        },
+        "abstention": {
+          "value": 0.765625,
+          "numerator": 2646,
+          "denominator": 3456
+        },
+        "suspicious_rate": {
+          "value": 0.19126157407407407,
+          "numerator": 661,
+          "denominator": 3456
+        },
+        "execution_error_rate": {
+          "value": 0.000578368999421631,
+          "numerator": 2,
+          "denominator": 3458
+        },
+        "safe_precision": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      },
+      "selective": {
+        "precision": {
+          "value": 0.9530201342281879,
+          "numerator": 142,
+          "denominator": 149
+        },
+        "recall": {
+          "value": 0.4369230769230769,
+          "numerator": 142,
+          "denominator": 325
+        },
+        "f1": {
+          "value": 0.5991561181434599,
+          "numerator": 284,
+          "denominator": 474
+        },
+        "accuracy": {
+          "value": 0.7654320987654321,
+          "numerator": 620,
+          "denominator": 810
+        },
+        "fpr": {
+          "value": 0.01443298969072165,
+          "numerator": 7,
+          "denominator": 485
+        }
+      }
+    }
+  },
+  "cost_performance": {
+    "bec_calls": 0,
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_api_seconds": 0.0,
+    "average_latency_ms": null,
+    "p50_latency_ms": null,
+    "p95_latency_ms": null,
+    "provider_errors": 0
+  },
+  "regression": {
+    "test_network_calls": 0,
+    "stage7_smoke_reused": true,
+    "full_pass": 218,
+    "full_fail": 0,
+    "compile": "PASS",
+    "ruff": "PASS"
+  },
+  "safety": {
+    "raw_email_sent_to_llm": false,
+    "data_modified": false,
+    "c4_tuned": false,
+    "test_executed": 0
+  },
+  "case_changes": []
+}

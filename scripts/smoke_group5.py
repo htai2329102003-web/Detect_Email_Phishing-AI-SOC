@@ -21,6 +21,7 @@ from alembic.config import Config
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
+from scripts.smoke_support import SmokeDirectory, stop_server
 from src.db.models import User
 from src.db.types import Role
 from src.services.auth import hash_password
@@ -31,8 +32,9 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--test-db", action="store_true", required=True)
-    parser.parse_args()
-    with tempfile.TemporaryDirectory(prefix="phishhunter-group5-") as folder:
+    parser.add_argument("--output", type=Path, default=ROOT / "docs/examples/group5-workflow-response.json")
+    args = parser.parse_args()
+    with SmokeDirectory(prefix="phishhunter-group5-") as folder:
         db_path = Path(folder) / "workflow.db"
         engine = create_engine(f"sqlite:///{db_path}")
         config = Config(str(ROOT / "alembic.ini"))
@@ -60,6 +62,7 @@ def main():
             OPENAI_API_KEY="",
             VIRUSTOTAL_API_KEY="",
             URLSCAN_API_KEY="",
+            EXTERNAL_ENRICHMENT_ENABLED="false",
         )
         with tempfile.TemporaryFile(mode="w+b") as logs:
             server = subprocess.Popen(
@@ -93,14 +96,13 @@ def main():
                         time.sleep(0.1)
                     else:
                         raise RuntimeError("Server readiness timeout")
-                    run_flows(client, password)
+                    run_flows(client, password, output=args.output)
             finally:
-                server.terminate()
-                server.wait(timeout=10)
+                stop_server(server)
                 print("Smoke server stopped; temporary test DB removed on exit")
 
 
-def run_flows(client, password):
+def run_flows(client, password, *, output=ROOT / "docs/examples/group5-workflow-response.json"):
     assert client.get("/api/v1/cases").status_code == 401
     login = client.post("/api/v1/auth/login", json={"email": "analyst@recipient.test", "password": password})
     assert login.status_code == 200
@@ -110,7 +112,9 @@ def run_flows(client, password):
     snapshots = {}
     clean = (ROOT / "tests/fixtures/emails/clean.eml").read_bytes()
     for decision, status in (("APPROVE", "APPROVED"), ("REJECT", "REJECTED"), ("MODIFY", "MODIFIED")):
-        analyzed = client.post("/api/v1/analysis", files={"file": ("clean.eml", clean, "message/rfc822")})
+        filename = "href_mismatch.eml" if decision == "MODIFY" else "clean.eml"
+        raw = (ROOT / "tests/fixtures/emails" / filename).read_bytes() if decision == "MODIFY" else clean
+        analyzed = client.post("/api/v1/analysis", files={"file": (filename, raw, "message/rfc822")})
         assert analyzed.status_code == 200 and analyzed.json()["review_status"] == "PENDING"
         case_id = analyzed.json()["case_id"]
         base = f"/api/v1/cases/{case_id}"
@@ -130,6 +134,9 @@ def run_flows(client, password):
         assert reviewed.status_code == 200 and reviewed.json()["review_status"] == status
         after = client.get(base).json()
         assert after["ai_assessment"] == before.json()["ai_assessment"]
+        if decision == "MODIFY":
+            assert after["risk_score"] == 60 and after["label_candidate"] == "NEEDS_ANALYST_REVIEW"
+            assert after["analyst_assessment"]["label"] == "SUSPICIOUS"
         assert after["reviewer_id"] == before.json()["submitted_by"] and after["reviewed_at"]
         authorization = client.post(auth_path, json={"reason": "Explicit human authorization"})
         assert authorization.status_code == (409 if decision == "REJECT" else 200)
@@ -169,7 +176,8 @@ def run_flows(client, password):
             and response.json()["claim_validation_status"] == "PASS"
         )
     artifact = {"database": "isolated SQLite TEST adapter; PostgreSQL runtime NOT VERIFIED", "flows": snapshots}
-    (ROOT / "docs/examples/group5-workflow-response.json").write_text(
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(
         json.dumps(artifact, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     print("HTTP smoke PASS on explicit TEST adapter; PostgreSQL runtime NOT VERIFIED")

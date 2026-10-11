@@ -1,0 +1,1980 @@
+{
+  "previous_failures": 150,
+  "recovered": 148,
+  "remaining": 2,
+  "robustness_fixed": 3,
+  "genuine_mime_rejections": 2,
+  "cases": [
+    {
+      "id": "e2a_01f8cdcc",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_02ecaac5",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_05112198",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_05eb8876",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_099ce7f4",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_0bc3d762",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_0cb6d602",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "content-type"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "content-type",
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_0e652ff9",
+      "warnings": [
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_13b2632a",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_14e35c1a",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_15847a99",
+      "warnings": [
+        {
+          "code": "INVALID_FROM",
+          "field": "from"
+        },
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_1a6a3cf1",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "message-id"
+        }
+      ],
+      "unavailable_headers": [
+        "message-id"
+      ]
+    },
+    {
+      "id": "e2a_1d1fdba7",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_22e32531",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_25ab0b01",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_282a5e39",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_2e71cf73",
+      "warnings": [
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_2eb94f6c",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "message-id"
+        }
+      ],
+      "unavailable_headers": [
+        "message-id"
+      ]
+    },
+    {
+      "id": "e2a_2f497227",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "mime-version"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "content-transfer-encoding"
+        }
+      ],
+      "unavailable_headers": [
+        "content-transfer-encoding",
+        "mime-version"
+      ]
+    },
+    {
+      "id": "e2a_2fe73439",
+      "warnings": [
+        {
+          "code": "INVALID_FROM",
+          "field": "from"
+        },
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_3122ea08",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_31728e30",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_3284ef67",
+      "warnings": [
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_37e3fb88",
+      "warnings": [
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_3a8c9285",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_3c90697a",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_3d9d59b8",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "to"
+        },
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path",
+        "to"
+      ]
+    },
+    {
+      "id": "e2a_3df013ec",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_42b38bb2",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_446cdcbd",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_458bb17c",
+      "warnings": [
+        {
+          "code": "HEADER_PARSE_ERROR",
+          "field": "message-id"
+        }
+      ],
+      "unavailable_headers": [
+        "message-id"
+      ]
+    },
+    {
+      "id": "e2a_486a6440",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_4a1f0a01",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_4ce0cf8d",
+      "warnings": [
+        {
+          "code": "INVALID_FROM",
+          "field": "from"
+        },
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_521828f1",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_5223ed66",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_5477ece5",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_57976944",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_57e3ed09",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "content-type"
+        }
+      ],
+      "unavailable_headers": [
+        "content-type"
+      ]
+    },
+    {
+      "id": "e2a_5b70e7ab",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_5c10cac2",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_5c8f50b5",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_5cfd9972",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "subject"
+        }
+      ],
+      "unavailable_headers": [
+        "subject"
+      ]
+    },
+    {
+      "id": "e2a_651232fb",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_65fb67c3",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_66de2926",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_69c54075",
+      "warnings": [
+        {
+          "code": "INVALID_FROM",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_6b09a74a",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_6c89a6ba",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_6cd9783a",
+      "warnings": [
+        {
+          "code": "INVALID_FROM",
+          "field": "from"
+        },
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_6de89c27",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_70b73e14",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "message-id"
+        }
+      ],
+      "unavailable_headers": [
+        "message-id"
+      ]
+    },
+    {
+      "id": "e2a_70f21738",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_71ef8108",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_726ca674",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_732b052e",
+      "warnings": [
+        {
+          "code": "CloseBoundaryNotFoundDefect",
+          "field": "mime"
+        }
+      ],
+      "unavailable_headers": []
+    },
+    {
+      "id": "e2a_766d2eab",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_784e2021",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "content-type"
+        }
+      ],
+      "unavailable_headers": [
+        "content-type"
+      ]
+    },
+    {
+      "id": "e2a_7a8a9858",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_7dda9d44",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "mime-version"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "content-type"
+        }
+      ],
+      "unavailable_headers": [
+        "content-type",
+        "mime-version"
+      ]
+    },
+    {
+      "id": "e2a_7ea414fa",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_804f8eff",
+      "warnings": [
+        {
+          "code": "HEADER_PARSE_ERROR",
+          "field": "message-id"
+        }
+      ],
+      "unavailable_headers": [
+        "message-id"
+      ]
+    },
+    {
+      "id": "e2a_819452dc",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_84b5f8dd",
+      "warnings": [
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_84c7e752",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "message-id"
+        }
+      ],
+      "unavailable_headers": [
+        "message-id"
+      ]
+    },
+    {
+      "id": "e2a_85c1893e",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_88187911",
+      "warnings": [
+        {
+          "code": "INVALID_FROM",
+          "field": "from"
+        },
+        {
+          "code": "MissingHeaderBodySeparatorDefect",
+          "field": "mime"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_88e2fc28",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "message-id"
+        }
+      ],
+      "unavailable_headers": [
+        "message-id"
+      ]
+    },
+    {
+      "id": "e2a_8928d690",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_8a944e5e",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_8d5ac359",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_91ab9887",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_91b0b725",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_91f9c3d5",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_93457406",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_942fdd5f",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_94c10b19",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_9c1171da",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "mime-version"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "content-transfer-encoding"
+        }
+      ],
+      "unavailable_headers": [
+        "content-transfer-encoding",
+        "mime-version"
+      ]
+    },
+    {
+      "id": "e2a_9ce748fa",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "mime-version"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "content-type"
+        }
+      ],
+      "unavailable_headers": [
+        "content-type",
+        "mime-version"
+      ]
+    },
+    {
+      "id": "e2a_9d5585bd",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_a5589be5",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_ab60e69b",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_ad3286ad",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_aff69cdf",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "InvalidBase64CharactersDefect",
+          "field": "mime"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_b645b9d4",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "mime-version"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "content-type"
+        }
+      ],
+      "unavailable_headers": [
+        "content-type",
+        "mime-version"
+      ]
+    },
+    {
+      "id": "e2a_b6d9f786",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_b7582784",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "reply-to"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_b86676a7",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_bec83544",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        },
+        {
+          "code": "InvalidBase64PaddingDefect",
+          "field": "mime"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_c1e5ce8a",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_c34f7888",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "InvalidBase64CharactersDefect",
+          "field": "mime"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_c3939656",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_c68abdd3",
+      "warnings": [
+        {
+          "code": "InvalidMultipartContentTransferEncodingDefect",
+          "field": "mime"
+        }
+      ],
+      "unavailable_headers": []
+    },
+    {
+      "id": "e2a_c81b3bc5",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_cd640fbd",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_d14a6c30",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "message-id"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "message-id"
+      ]
+    },
+    {
+      "id": "e2a_d2709271",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_d58760ed",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "message-id"
+        }
+      ],
+      "unavailable_headers": [
+        "message-id"
+      ]
+    },
+    {
+      "id": "e2a_d7808f60",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_d788ef3a",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_d893ca95",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_daaa5446",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "to"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "cc"
+        },
+        {
+          "code": "InvalidBase64CharactersDefect",
+          "field": "mime"
+        }
+      ],
+      "unavailable_headers": [
+        "cc",
+        "to"
+      ]
+    },
+    {
+      "id": "e2a_df8f62e8",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_e1c29357",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_e1d81727",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_e39405d5",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_e4885d1a",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_e53682d1",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_e53c7c71",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "to"
+        }
+      ],
+      "unavailable_headers": [
+        "to"
+      ]
+    },
+    {
+      "id": "e2a_e5458d7a",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "e2a_ecc54b1a",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_efe1baf3",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_eff0d166",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "reply-to"
+        },
+        {
+          "code": "InvalidBase64LengthDefect",
+          "field": "mime"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_f26228ac",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "message-id"
+        }
+      ],
+      "unavailable_headers": [
+        "message-id"
+      ]
+    },
+    {
+      "id": "e2a_f35e62f1",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_f41fa76e",
+      "warnings": [
+        {
+          "code": "HEADER_PARSE_ERROR",
+          "field": "message-id"
+        }
+      ],
+      "unavailable_headers": [
+        "message-id"
+      ]
+    },
+    {
+      "id": "e2a_f6a4a093",
+      "warnings": [
+        {
+          "code": "INVALID_FROM",
+          "field": "from"
+        },
+        {
+          "code": "MissingHeaderBodySeparatorDefect",
+          "field": "mime"
+        }
+      ],
+      "unavailable_headers": [
+        "from"
+      ]
+    },
+    {
+      "id": "e2a_f9699f15",
+      "warnings": [
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_fca4ba60",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "INVALID_ADDRESS",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_fccf7d1d",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "reply-to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "reply-to"
+      ]
+    },
+    {
+      "id": "e2a_fd635816",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "content-type"
+        }
+      ],
+      "unavailable_headers": [
+        "content-type"
+      ]
+    },
+    {
+      "id": "e2a_ffa3e449",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "content-type"
+        }
+      ],
+      "unavailable_headers": [
+        "content-type"
+      ]
+    },
+    {
+      "id": "e2a_ffeb4f76",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "mime-version"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "content-type"
+        }
+      ],
+      "unavailable_headers": [
+        "content-type",
+        "mime-version"
+      ]
+    },
+    {
+      "id": "sa_easy_0efbc6fa",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "to"
+        }
+      ],
+      "unavailable_headers": [
+        "to"
+      ]
+    },
+    {
+      "id": "sa_easy_5c0f756a",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "cc"
+        }
+      ],
+      "unavailable_headers": [
+        "cc"
+      ]
+    },
+    {
+      "id": "sa_easy_cea159bb",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "message-id"
+        }
+      ],
+      "unavailable_headers": [
+        "message-id"
+      ]
+    },
+    {
+      "id": "sa_hard_00fd61a1",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "from"
+        },
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "to"
+        }
+      ],
+      "unavailable_headers": [
+        "from",
+        "to"
+      ]
+    },
+    {
+      "id": "sa_hard_0d97cbc3",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_0f71c56a",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_358f3999",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "content-type"
+        },
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "content-type",
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_58e73e29",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "to"
+        }
+      ],
+      "unavailable_headers": [
+        "to"
+      ]
+    },
+    {
+      "id": "sa_hard_64b4e8dd",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_6706e057",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_810c549c",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_8950c0d3",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_8eb0088e",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_8ec18f59",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_91344712",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_96714dea",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_96ff7649",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_9f2be97b",
+      "warnings": [
+        {
+          "code": "MALFORMED_HEADER",
+          "field": "message-id"
+        }
+      ],
+      "unavailable_headers": [
+        "message-id"
+      ]
+    },
+    {
+      "id": "sa_hard_ae5bb11a",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_b4faf6a9",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_bebfb889",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_d20607a2",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_dfc9acae",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_e2c56f3b",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    },
+    {
+      "id": "sa_hard_f84bfa05",
+      "warnings": [
+        {
+          "code": "DUPLICATE_HEADER",
+          "field": "return-path"
+        }
+      ],
+      "unavailable_headers": [
+        "return-path"
+      ]
+    }
+  ],
+  "failures": [
+    {
+      "id": "e2a_04809eff",
+      "code": "MALFORMED_EMAIL"
+    },
+    {
+      "id": "e2a_77e5a36b",
+      "code": "MALFORMED_EMAIL"
+    }
+  ],
+  "passed": true
+}

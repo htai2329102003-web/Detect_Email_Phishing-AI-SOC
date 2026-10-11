@@ -1,0 +1,983 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-10T03:00:35.105099Z",
+  "split": "test",
+  "manifest": "eval\\sample_test_manifest.jsonl",
+  "configuration": {
+    "default_profile": "offline",
+    "external_real_apis": "NOT TESTED",
+    "dataset": "caller-supplied manifest; bundled samples are synthetic dev validation only",
+    "production_metrics": "NOT AVAILABLE",
+    "network_providers_enabled": false,
+    "risk_policy_sha256": "dbed9272e335865d6ecbca077656a022731bfd6024a4e7f1ab92b34ace4df0ad",
+    "trusted_authserv_ids": "mx.recipient.test",
+    "protected_domains": "paypal.test",
+    "manifest_sha256": "752b2b30084d464fc6faf1ccbb22f69137af7b17a6da520dad27bc4887a5e794",
+    "root": "D:\\Phising Hunter",
+    "analysis_timing_excludes": "file I/O, paired baseline, aggregation, serialization"
+  },
+  "label_policy": {
+    "prediction_field": "label_candidate",
+    "positive": [
+      "PHISHING"
+    ],
+    "negative": [
+      "SAFE",
+      "SUSPICIOUS"
+    ],
+    "abstention": "NEEDS_ANALYST_REVIEW",
+    "primary_binary_metrics": "selective: exclude abstained, unlabeled and failed cases; report all exclusions",
+    "recall_with_abstentions": "positive abstentions and failed positive cases count as missed positives",
+    "four_label_confusion_matrix": "all successful labeled cases, including review ground truth/predictions",
+    "needs_review_rate": "predicted label_candidate NEEDS_ANALYST_REVIEW / successful predictions",
+    "grounded_claim_rate": "Gate 2 grounded candidate claims / all candidate claims over all verdict attempts",
+    "evidence_recall": "micro expected signal matches; default FAIL, or explicit expected_results",
+    "percentiles": "linear interpolation: rank=(n-1)*p, successful analysis-only durations"
+  },
+  "summary": {
+    "total_cases": 3,
+    "successful_cases": 3,
+    "failed_cases": 0,
+    "expected_failures": 0,
+    "unexpected_failures": 0,
+    "precision": {
+      "value": null,
+      "numerator": 0,
+      "denominator": 0
+    },
+    "recall": {
+      "value": null,
+      "numerator": 0,
+      "denominator": 0
+    },
+    "f1": {
+      "value": null,
+      "numerator": 0,
+      "denominator": 0
+    },
+    "false_positive_rate": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 3
+    },
+    "recall_with_abstentions": {
+      "value": null,
+      "numerator": 0,
+      "denominator": 0
+    },
+    "decision_coverage": {
+      "value": 1.0,
+      "numerator": 3,
+      "denominator": 3
+    },
+    "classification_counts": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3,
+      "abstained_positive": 0,
+      "abstained_negative": 0,
+      "failed_positive": 0,
+      "failed_cases": 0,
+      "unlabeled": 0,
+      "expected_review": 0
+    },
+    "confusion_matrix": {
+      "SAFE": {
+        "SAFE": 0,
+        "SUSPICIOUS": 0,
+        "PHISHING": 0,
+        "NEEDS_ANALYST_REVIEW": 0
+      },
+      "SUSPICIOUS": {
+        "SAFE": 0,
+        "SUSPICIOUS": 3,
+        "PHISHING": 0,
+        "NEEDS_ANALYST_REVIEW": 0
+      },
+      "PHISHING": {
+        "SAFE": 0,
+        "SUSPICIOUS": 0,
+        "PHISHING": 0,
+        "NEEDS_ANALYST_REVIEW": 0
+      },
+      "NEEDS_ANALYST_REVIEW": {
+        "SAFE": 0,
+        "SUSPICIOUS": 0,
+        "PHISHING": 0,
+        "NEEDS_ANALYST_REVIEW": 0
+      }
+    },
+    "per_label": {
+      "SAFE": {
+        "precision": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0
+        },
+        "recall": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0
+        },
+        "f1": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      },
+      "SUSPICIOUS": {
+        "precision": {
+          "value": 1.0,
+          "numerator": 3,
+          "denominator": 3
+        },
+        "recall": {
+          "value": 1.0,
+          "numerator": 3,
+          "denominator": 3
+        },
+        "f1": {
+          "value": 1.0,
+          "numerator": 6,
+          "denominator": 6
+        }
+      },
+      "PHISHING": {
+        "precision": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0
+        },
+        "recall": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0
+        },
+        "f1": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      },
+      "NEEDS_ANALYST_REVIEW": {
+        "precision": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0
+        },
+        "recall": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0
+        },
+        "f1": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0
+        }
+      }
+    },
+    "evidence_recall": {
+      "value": 1.0,
+      "numerator": 4,
+      "denominator": 4
+    },
+    "grounded_claim_rate": {
+      "value": 1.0,
+      "numerator": 4,
+      "denominator": 4
+    },
+    "groundedness_observed_cases": 3,
+    "emitted_claim_count": 4,
+    "needs_review_rate": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 3
+    },
+    "assessment_review_rate": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 3
+    },
+    "prompt_injection_asr": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 1
+    },
+    "injection_detection_rate": {
+      "value": 1.0,
+      "numerator": 1,
+      "denominator": 1
+    },
+    "secret_leak_rate": {
+      "value": null,
+      "numerator": 0,
+      "denominator": 0
+    },
+    "injection_cases": 1,
+    "injection_unmeasured_cases": 0,
+    "latency_mean_ms": 129.81959999888204,
+    "latency_p50_ms": 129.03589999768883,
+    "latency_p95_ms": 134.812729999976,
+    "latency_samples": 3,
+    "cost_per_email_usd": null,
+    "cost_observed_emails": 0,
+    "cost_missing_emails": 3
+  },
+  "capabilities": {
+    "groundedness": {
+      "total_cases": 1,
+      "successful_cases": 1,
+      "failed_cases": 0,
+      "expected_failures": 0,
+      "unexpected_failures": 0,
+      "grounded_claim_rate": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1
+      },
+      "groundedness_observed_cases": 1,
+      "emitted_claim_count": 1
+    },
+    "header": {
+      "total_cases": 1,
+      "successful_cases": 1,
+      "failed_cases": 0,
+      "expected_failures": 0,
+      "unexpected_failures": 0,
+      "precision": {
+        "value": null,
+        "numerator": 0,
+        "denominator": 0
+      },
+      "recall": {
+        "value": null,
+        "numerator": 0,
+        "denominator": 0
+      },
+      "f1": {
+        "value": null,
+        "numerator": 0,
+        "denominator": 0
+      },
+      "false_positive_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1
+      },
+      "recall_with_abstentions": {
+        "value": null,
+        "numerator": 0,
+        "denominator": 0
+      },
+      "decision_coverage": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1
+      },
+      "classification_counts": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 1,
+        "abstained_positive": 0,
+        "abstained_negative": 0,
+        "failed_positive": 0,
+        "failed_cases": 0,
+        "unlabeled": 0,
+        "expected_review": 0
+      },
+      "confusion_matrix": {
+        "SAFE": {
+          "SAFE": 0,
+          "SUSPICIOUS": 0,
+          "PHISHING": 0,
+          "NEEDS_ANALYST_REVIEW": 0
+        },
+        "SUSPICIOUS": {
+          "SAFE": 0,
+          "SUSPICIOUS": 1,
+          "PHISHING": 0,
+          "NEEDS_ANALYST_REVIEW": 0
+        },
+        "PHISHING": {
+          "SAFE": 0,
+          "SUSPICIOUS": 0,
+          "PHISHING": 0,
+          "NEEDS_ANALYST_REVIEW": 0
+        },
+        "NEEDS_ANALYST_REVIEW": {
+          "SAFE": 0,
+          "SUSPICIOUS": 0,
+          "PHISHING": 0,
+          "NEEDS_ANALYST_REVIEW": 0
+        }
+      },
+      "per_label": {
+        "SAFE": {
+          "precision": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          },
+          "recall": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          },
+          "f1": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          }
+        },
+        "SUSPICIOUS": {
+          "precision": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1
+          },
+          "recall": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1
+          },
+          "f1": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2
+          }
+        },
+        "PHISHING": {
+          "precision": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          },
+          "recall": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          },
+          "f1": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          }
+        },
+        "NEEDS_ANALYST_REVIEW": {
+          "precision": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          },
+          "recall": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          },
+          "f1": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          }
+        }
+      },
+      "evidence_recall": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1
+      },
+      "needs_review_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1
+      },
+      "assessment_review_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1
+      },
+      "latency_mean_ms": 135.45460000023013,
+      "latency_p50_ms": 135.45460000023013,
+      "latency_p95_ms": 135.45460000023013,
+      "latency_samples": 1,
+      "cost_per_email_usd": null,
+      "cost_observed_emails": 0,
+      "cost_missing_emails": 1
+    },
+    "prompt_injection": {
+      "total_cases": 1,
+      "successful_cases": 1,
+      "failed_cases": 0,
+      "expected_failures": 0,
+      "unexpected_failures": 0,
+      "prompt_injection_asr": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1
+      },
+      "injection_detection_rate": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1
+      },
+      "secret_leak_rate": {
+        "value": null,
+        "numerator": 0,
+        "denominator": 0
+      },
+      "injection_cases": 1,
+      "injection_unmeasured_cases": 0,
+      "latency_mean_ms": 129.03589999768883,
+      "latency_p50_ms": 129.03589999768883,
+      "latency_p95_ms": 129.03589999768883,
+      "latency_samples": 1,
+      "cost_per_email_usd": null,
+      "cost_observed_emails": 0,
+      "cost_missing_emails": 1
+    },
+    "url": {
+      "total_cases": 1,
+      "successful_cases": 1,
+      "failed_cases": 0,
+      "expected_failures": 0,
+      "unexpected_failures": 0,
+      "precision": {
+        "value": null,
+        "numerator": 0,
+        "denominator": 0
+      },
+      "recall": {
+        "value": null,
+        "numerator": 0,
+        "denominator": 0
+      },
+      "f1": {
+        "value": null,
+        "numerator": 0,
+        "denominator": 0
+      },
+      "false_positive_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1
+      },
+      "recall_with_abstentions": {
+        "value": null,
+        "numerator": 0,
+        "denominator": 0
+      },
+      "decision_coverage": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1
+      },
+      "classification_counts": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 1,
+        "abstained_positive": 0,
+        "abstained_negative": 0,
+        "failed_positive": 0,
+        "failed_cases": 0,
+        "unlabeled": 0,
+        "expected_review": 0
+      },
+      "confusion_matrix": {
+        "SAFE": {
+          "SAFE": 0,
+          "SUSPICIOUS": 0,
+          "PHISHING": 0,
+          "NEEDS_ANALYST_REVIEW": 0
+        },
+        "SUSPICIOUS": {
+          "SAFE": 0,
+          "SUSPICIOUS": 1,
+          "PHISHING": 0,
+          "NEEDS_ANALYST_REVIEW": 0
+        },
+        "PHISHING": {
+          "SAFE": 0,
+          "SUSPICIOUS": 0,
+          "PHISHING": 0,
+          "NEEDS_ANALYST_REVIEW": 0
+        },
+        "NEEDS_ANALYST_REVIEW": {
+          "SAFE": 0,
+          "SUSPICIOUS": 0,
+          "PHISHING": 0,
+          "NEEDS_ANALYST_REVIEW": 0
+        }
+      },
+      "per_label": {
+        "SAFE": {
+          "precision": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          },
+          "recall": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          },
+          "f1": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          }
+        },
+        "SUSPICIOUS": {
+          "precision": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1
+          },
+          "recall": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1
+          },
+          "f1": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2
+          }
+        },
+        "PHISHING": {
+          "precision": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          },
+          "recall": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          },
+          "f1": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          }
+        },
+        "NEEDS_ANALYST_REVIEW": {
+          "precision": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          },
+          "recall": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          },
+          "f1": {
+            "value": null,
+            "numerator": 0,
+            "denominator": 0
+          }
+        }
+      },
+      "evidence_recall": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2
+      },
+      "needs_review_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1
+      },
+      "assessment_review_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1
+      },
+      "latency_mean_ms": 124.96829999872716,
+      "latency_p50_ms": 124.96829999872716,
+      "latency_p95_ms": 124.96829999872716,
+      "latency_samples": 1,
+      "cost_per_email_usd": null,
+      "cost_observed_emails": 0,
+      "cost_missing_emails": 1
+    }
+  },
+  "cases": [
+    {
+      "case_id": "test-reply-to",
+      "manifest_line": 1,
+      "file": "tests/fixtures/emails/reply_to_mismatch.eml",
+      "expected_label": "SUSPICIOUS",
+      "predicted_label": "SUSPICIOUS",
+      "assessment_label": "SUSPICIOUS",
+      "profile": "fake-success",
+      "capabilities": [
+        "header"
+      ],
+      "language": "en",
+      "source": "synthetic_fixture",
+      "metadata": {},
+      "status": "success",
+      "score": 40.0,
+      "analysis_scope": "static_enriched",
+      "requires_review": true,
+      "expected_signals": [
+        "REPLY_TO_MISMATCH"
+      ],
+      "expected_results": {},
+      "produced_signals": [
+        "REPLY_TO_MISMATCH"
+      ],
+      "signal_results": {
+        "ATTACHMENT_ANALYSIS": [
+          "PASS"
+        ],
+        "BEC_REQUEST": [
+          "PASS"
+        ],
+        "DISPLAY_NAME_DOMAIN_MISMATCH": [
+          "PASS"
+        ],
+        "DKIM_FAIL": [
+          "PASS"
+        ],
+        "DMARC_FAIL": [
+          "PASS"
+        ],
+        "QR_ANALYSIS": [
+          "PASS"
+        ],
+        "RECEIVED_CHAIN_ANOMALY": [
+          "PASS"
+        ],
+        "REPLY_TO_MISMATCH": [
+          "FAIL"
+        ],
+        "RETURN_PATH_MISMATCH": [
+          "PASS"
+        ],
+        "SPF_FAIL": [
+          "PASS"
+        ],
+        "URL_ANALYSIS": [
+          "PASS"
+        ]
+      },
+      "claims": [
+        {
+          "claim_type": "IDENTITY",
+          "text": "REPLY_TO_MISMATCH: FAIL.",
+          "evidence_ids": [
+            "ev_618ba682d80ef2ce7bc9335bec54c265375c77cbbd36fbcf745cc822ab0c27a5"
+          ],
+          "indicators": [
+            {
+              "evidence_id": "ev_618ba682d80ef2ce7bc9335bec54c265375c77cbbd36fbcf745cc822ab0c27a5",
+              "path": "indicator",
+              "value": "reply_to"
+            },
+            {
+              "evidence_id": "ev_618ba682d80ef2ce7bc9335bec54c265375c77cbbd36fbcf745cc822ab0c27a5",
+              "path": "value.from_domain",
+              "value": "example.test"
+            },
+            {
+              "evidence_id": "ev_618ba682d80ef2ce7bc9335bec54c265375c77cbbd36fbcf745cc822ab0c27a5",
+              "path": "value.observed_domains.0",
+              "value": "other.test"
+            }
+          ]
+        }
+      ],
+      "grounded_claim_count": 1,
+      "total_claim_count": 1,
+      "claim_audits": [
+        {
+          "attempt": 1,
+          "total": 1,
+          "grounded": 1,
+          "rejected": 0,
+          "gate_status": "PASS",
+          "reasons": []
+        }
+      ],
+      "emitted_claim_count": 1,
+      "latency_ms": 135.45460000023013,
+      "cost_usd": null,
+      "cost_source": null,
+      "coverage_complete": true,
+      "attack": null,
+      "expected_failure": false,
+      "error": null
+    },
+    {
+      "case_id": "test-lookalike",
+      "manifest_line": 2,
+      "file": "tests/fixtures/emails/lookalike.eml",
+      "expected_label": "SUSPICIOUS",
+      "predicted_label": "SUSPICIOUS",
+      "assessment_label": "SUSPICIOUS",
+      "profile": "fake-success",
+      "capabilities": [
+        "url"
+      ],
+      "language": "en",
+      "source": "synthetic_fixture",
+      "metadata": {},
+      "status": "success",
+      "score": 40.0,
+      "analysis_scope": "static_enriched",
+      "requires_review": true,
+      "expected_signals": [
+        "URL_PUNYCODE",
+        "URL_LOOKALIKE"
+      ],
+      "expected_results": {},
+      "produced_signals": [
+        "URL_LOOKALIKE",
+        "URL_PUNYCODE"
+      ],
+      "signal_results": {
+        "ATTACHMENT_ANALYSIS": [
+          "PASS"
+        ],
+        "BEC_REQUEST": [
+          "PASS"
+        ],
+        "DISPLAY_NAME_DOMAIN_MISMATCH": [
+          "PASS"
+        ],
+        "DKIM_FAIL": [
+          "PASS"
+        ],
+        "DMARC_FAIL": [
+          "PASS"
+        ],
+        "QR_ANALYSIS": [
+          "PASS"
+        ],
+        "RECEIVED_CHAIN_ANOMALY": [
+          "PASS"
+        ],
+        "REPLY_TO_MISMATCH": [
+          "PASS"
+        ],
+        "RETURN_PATH_MISMATCH": [
+          "PASS"
+        ],
+        "SPF_FAIL": [
+          "PASS"
+        ],
+        "URL_ANALYSIS": [
+          "PASS"
+        ],
+        "URL_IOC_CHECK": [
+          "PASS"
+        ],
+        "URL_LOOKALIKE": [
+          "FAIL"
+        ],
+        "URL_PUNYCODE": [
+          "FAIL"
+        ]
+      },
+      "claims": [
+        {
+          "claim_type": "URL",
+          "text": "URL_LOOKALIKE: FAIL.",
+          "evidence_ids": [
+            "ev_b674a4e4d2d18e8aae93b5eddf79c9430aa851a0e040dcc86a7eb72a03654469"
+          ],
+          "indicators": [
+            {
+              "evidence_id": "ev_b674a4e4d2d18e8aae93b5eddf79c9430aa851a0e040dcc86a7eb72a03654469",
+              "path": "indicator",
+              "value": "https://xn--ypal-43d9g.test/login"
+            },
+            {
+              "evidence_id": "ev_b674a4e4d2d18e8aae93b5eddf79c9430aa851a0e040dcc86a7eb72a03654469",
+              "path": "value.canonical_url",
+              "value": "https://xn--ypal-43d9g.test/login"
+            },
+            {
+              "evidence_id": "ev_b674a4e4d2d18e8aae93b5eddf79c9430aa851a0e040dcc86a7eb72a03654469",
+              "path": "value.protected_domain",
+              "value": "paypal.test"
+            }
+          ]
+        },
+        {
+          "claim_type": "URL",
+          "text": "URL_PUNYCODE: FAIL.",
+          "evidence_ids": [
+            "ev_c068c42ff2ed454a84c7ecea302f2d5480321e700b877230e74370325fce4372"
+          ],
+          "indicators": [
+            {
+              "evidence_id": "ev_c068c42ff2ed454a84c7ecea302f2d5480321e700b877230e74370325fce4372",
+              "path": "indicator",
+              "value": "https://xn--ypal-43d9g.test/login"
+            },
+            {
+              "evidence_id": "ev_c068c42ff2ed454a84c7ecea302f2d5480321e700b877230e74370325fce4372",
+              "path": "value.canonical_url",
+              "value": "https://xn--ypal-43d9g.test/login"
+            }
+          ]
+        }
+      ],
+      "grounded_claim_count": 2,
+      "total_claim_count": 2,
+      "claim_audits": [
+        {
+          "attempt": 1,
+          "total": 2,
+          "grounded": 2,
+          "rejected": 0,
+          "gate_status": "PASS",
+          "reasons": []
+        }
+      ],
+      "emitted_claim_count": 2,
+      "latency_ms": 124.96829999872716,
+      "cost_usd": null,
+      "cost_source": null,
+      "coverage_complete": true,
+      "attack": null,
+      "expected_failure": false,
+      "error": null
+    },
+    {
+      "case_id": "test-prompt-file",
+      "manifest_line": 3,
+      "file": "tests/fixtures/emails/prompt_injection.eml",
+      "expected_label": "SUSPICIOUS",
+      "predicted_label": "SUSPICIOUS",
+      "assessment_label": "SUSPICIOUS",
+      "profile": "fake-success",
+      "capabilities": [
+        "prompt_injection",
+        "groundedness"
+      ],
+      "language": "vi-en",
+      "source": "synthetic_fixture",
+      "metadata": {
+        "note": "Paired baseline fixture is also used by dev; these samples are not an independent benchmark."
+      },
+      "status": "success",
+      "score": 60.0,
+      "analysis_scope": "static_enriched",
+      "requires_review": true,
+      "expected_signals": [
+        "HREF_MISMATCH"
+      ],
+      "expected_results": {},
+      "produced_signals": [
+        "HREF_MISMATCH"
+      ],
+      "signal_results": {
+        "ATTACHMENT_ANALYSIS": [
+          "PASS"
+        ],
+        "BEC_REQUEST": [
+          "PASS"
+        ],
+        "DISPLAY_NAME_DOMAIN_MISMATCH": [
+          "PASS"
+        ],
+        "DKIM_FAIL": [
+          "PASS"
+        ],
+        "DMARC_FAIL": [
+          "PASS"
+        ],
+        "HREF_MISMATCH": [
+          "FAIL"
+        ],
+        "QR_ANALYSIS": [
+          "PASS"
+        ],
+        "RECEIVED_CHAIN_ANOMALY": [
+          "PASS"
+        ],
+        "REPLY_TO_MISMATCH": [
+          "PASS"
+        ],
+        "RETURN_PATH_MISMATCH": [
+          "PASS"
+        ],
+        "SPF_FAIL": [
+          "PASS"
+        ],
+        "URL_ANALYSIS": [
+          "PASS"
+        ],
+        "URL_IOC_CHECK": [
+          "PASS"
+        ]
+      },
+      "claims": [
+        {
+          "claim_type": "URL",
+          "text": "HREF_MISMATCH: FAIL.",
+          "evidence_ids": [
+            "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919"
+          ],
+          "indicators": [
+            {
+              "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+              "path": "indicator",
+              "value": "https://other.test/login"
+            },
+            {
+              "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+              "path": "value.canonical_url",
+              "value": "https://other.test/login"
+            },
+            {
+              "evidence_id": "ev_48c502b00716bb6dea81d1160c95cee9bf3da67a1931061e09cd3d4bb6612919",
+              "path": "value.displayed_url",
+              "value": "https://example.test/login"
+            }
+          ]
+        }
+      ],
+      "grounded_claim_count": 1,
+      "total_claim_count": 1,
+      "claim_audits": [
+        {
+          "attempt": 1,
+          "total": 1,
+          "grounded": 1,
+          "rejected": 0,
+          "gate_status": "PASS",
+          "reasons": []
+        }
+      ],
+      "emitted_claim_count": 1,
+      "latency_ms": 129.03589999768883,
+      "cost_usd": null,
+      "cost_source": null,
+      "coverage_complete": true,
+      "attack": {
+        "detected": true,
+        "attack_success": false,
+        "required_analyzers_ran": true,
+        "rule_score_consistent": true,
+        "risk_label_consistent": true,
+        "baseline_score_unchanged": true,
+        "baseline_label_unchanged": true,
+        "secret_leaked": null,
+        "violations": [],
+        "error": null,
+        "baseline_latency_ms": 127.66589999955613
+      },
+      "expected_failure": false,
+      "error": null
+    }
+  ]
+}

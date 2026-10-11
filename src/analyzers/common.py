@@ -5,6 +5,16 @@ from src.evidence.models import Evidence, EvidenceResult, ToolStatus
 from src.services.ioc_store import IOCClient, IOCKind, lookup_ioc
 
 
+def derived_domain_only(record: dict) -> bool:
+    """A URL-derived host is contextual evidence, not a direct domain assertion."""
+    if record.get("kind") != "domain" or not record.get("derived"):
+        return False
+    return not any(
+        row.get("role") == "MALICIOUS" and not row.get("derived", False)
+        for row in record.get("matched_records", ())
+    )
+
+
 def finding(
     analyzer: str,
     signal: str,
@@ -50,20 +60,22 @@ def ioc_evidence(
                     "indicator": value,
                     "error_code": result.error_code,
                     "scope": "configured_snapshot_only",
+                    "matched_record": result.data.model_dump(mode="json") if result.data is not None else None,
                 },
                 "UNKNOWN" if result.status != "OK" else "PASS",
                 status=result.status,
                 tool="exact_match_ioc",
             )
         )
-        if result.status == "OK" and result.data is not None:
+        if result.status == "OK" and result.data is not None and result.data.role == "MALICIOUS":
+            record = result.data.model_dump(mode="json")
             output.append(
                 finding(
                     analyzer,
-                    "IOC_MATCH",
+                    "IOC_DERIVED_DOMAIN" if derived_domain_only(record) else "IOC_MATCH",
                     "threat_intel",
                     f"{indicator}:{kind}",
-                    result.data.model_dump(mode="json"),
+                    record,
                     tool="exact_match_ioc",
                     confidence=result.data.confidence,
                 )

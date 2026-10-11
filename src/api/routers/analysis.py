@@ -1,6 +1,6 @@
 from uuid import uuid4
 
-from fastapi import APIRouter, File, HTTPException, UploadFile
+from fastapi import APIRouter, File, HTTPException, Request, UploadFile
 from starlette.concurrency import run_in_threadpool
 
 from src.agents.graph import agent
@@ -9,12 +9,14 @@ from src.parsers.email_parser import MAX_EMAIL_BYTES, EmailParseError
 from src.schemas.analysis import AnalysisResponse
 from src.schemas.case import PersistedAnalysisResponse
 from src.services.cases import persist_analysis
+from src.services.observability import EXTERNAL_TOOLS
 
 router = APIRouter()
 
 
 @router.post("", response_model=PersistedAnalysisResponse)
-async def analyze_email(user: Analyst, session: DBSession, file: UploadFile = File(...)) -> PersistedAnalysisResponse:
+async def analyze_email(request: Request, user: Analyst, session: DBSession,
+                        file: UploadFile = File(...)) -> PersistedAnalysisResponse:
     """Analyze locally, pass both gates, then atomically persist a PENDING case."""
     try:
         if not file.filename or not file.filename.lower().endswith(".eml"):
@@ -31,4 +33,11 @@ async def analyze_email(user: Analyst, session: DBSession, file: UploadFile = Fi
         await file.close()
     response = AnalysisResponse.from_agent_state(result)
     await run_in_threadpool(persist_analysis, session, response, file.filename, user)
+    request.state.analysis_summary = {
+        "case_id": response.case_id, "label": response.label_candidate, "score": response.score,
+        "external_tool_failures": len({item.tool for item in response.evidence
+                                       if item.analyzer in EXTERNAL_TOOLS and item.tool_status != "OK"})
+        + int(response.rag_status not in {None, "OK"})
+        + int(response.verdict_llm_status not in {"DISABLED", "OK"}),
+    }
     return PersistedAnalysisResponse(**{**response.model_dump(), "status": "PENDING"})

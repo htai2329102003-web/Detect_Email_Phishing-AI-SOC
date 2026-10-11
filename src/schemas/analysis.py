@@ -33,6 +33,8 @@ class AnalysisResponse(BaseModel):
     guardrail_signals: tuple[str, ...]
     pii_redaction_counts: dict[str, int]
     verdict_attempts: int
+    rag_status: str | None = None
+    verdict_llm_status: str = "DISABLED"
 
     @classmethod
     def from_agent_state(cls, state: AgentState) -> "AnalysisResponse":
@@ -46,7 +48,7 @@ class AnalysisResponse(BaseModel):
             analysis_scope=scope,
             analyzer_runs=sorted(state.get("analyzer_runs", []), key=lambda run: run["analyzer"]),
             status=state.get("review_status", "pending"),
-            evidence=state.get("validated_evidence", []),
+            evidence=[*state.get("validated_evidence", []), *state.get("knowledge_evidence", [])],
             score=risk.score,
             label_candidate=risk.label_candidate,
             coverage=risk.coverage,
@@ -65,4 +67,6 @@ class AnalysisResponse(BaseModel):
             guardrail_signals=state.get("guardrail_signals", ()),
             pii_redaction_counts=state.get("pii_counts", {}),
             verdict_attempts=state["verdict_attempts"],
+            rag_status=state.get("rag_status"),
+            verdict_llm_status=state.get("verdict_llm_status", "DISABLED"),
         )

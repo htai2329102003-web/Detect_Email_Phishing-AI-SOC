@@ -7,7 +7,7 @@ from pydantic import Field, StrictInt, model_validator
 
 from src.evidence.models import Contract, NonEmpty
 from src.schemas.tool import ToolResult
-from src.services.external import HTTPTransport, HTTPXTransport, controlled_call, provider_json
+from src.services.external import HTTPTransport, HTTPXTransport, LookupCache, controlled_call, provider_json
 from src.services.ioc_store import normalize_ioc
 
 Count = Annotated[StrictInt, Field(ge=0)]
@@ -21,6 +21,7 @@ class FileReputation(Contract):
     undetected: Count
     last_analysis_at: datetime | None = None
     source_reference: NonEmpty
+    looked_up_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
 
     @model_validator(mode="after")
     def validate_binding(self):
@@ -36,15 +37,19 @@ class HashReputationClient(Protocol):
 
 
 class VirusTotalClient:
-    def __init__(self, *, api_key: str = "", transport: HTTPTransport | None = None, timeout: float = 5):
+    def __init__(self, *, api_key: str = "", transport: HTTPTransport | None = None, timeout: float = 5,
+                 cache_ttl: float = 3600, min_interval: float = 0):
         self.api_key, self.transport, self.timeout = api_key, transport, timeout
+        self.cache = LookupCache(ttl=cache_ttl, min_interval=min_interval)
 
     @classmethod
     def from_settings(cls, settings):
         return cls(
-            api_key=settings.virustotal_api_key,
+            api_key=settings.virustotal_api_key if settings.virustotal_enabled else "",
             transport=HTTPXTransport(settings.virustotal_base_url),
-            timeout=settings.external_timeout_seconds,
+            timeout=settings.virustotal_timeout_seconds,
+            cache_ttl=settings.virustotal_cache_ttl_seconds,
+            min_interval=settings.virustotal_min_interval_seconds,
         )
 
     def lookup_hash(self, sha256: str) -> ToolResult[FileReputation]:
@@ -75,4 +80,12 @@ class VirusTotalClient:
                 source_reference=f"virustotal:files/{digest}",
             )
 
-        return controlled_call("VT", lookup, configured=bool(self.api_key and self.transport))
+        if not self.api_key or self.transport is None:
+            return controlled_call("VT", lookup, configured=False)
+        try:
+            digest = normalize_ioc("hash", sha256)
+            if len(digest) != 64:
+                raise ValueError("Only SHA-256 supported")
+        except ValueError:
+            return ToolResult(status="ERROR", error_code="VT_INVALID_QUERY", latency_ms=0)
+        return self.cache.call("VT", digest, lambda: controlled_call("VT", lookup))

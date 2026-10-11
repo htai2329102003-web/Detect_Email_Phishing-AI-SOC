@@ -38,7 +38,7 @@ class FakeTransport:
                     "attributes": {
                         "sha256": digest,
                         "last_analysis_stats": {
-                            "malicious": int(self.malicious),
+                            "malicious": 3 if self.malicious else 0,
                             "suspicious": 0,
                             "harmless": 1,
                             "undetected": 9,
@@ -106,7 +106,7 @@ def fake_services(scenario="success"):
     model = FakeStructuredModel(positive=scenario == "bec")
     return ExternalServices(
         virustotal=VirusTotalClient(api_key="test-only-key", transport=transport),
-        urlscan=URLScanClient(api_key="test-only-key", transport=transport),
+        urlscan=URLScanClient(api_key="test-only-key", transport=transport, strict_privacy=False),
         content=StructuredContentAnalyzer(LLMClient(model)),
         rag=RAGService(FakeKnowledgeRepository()),
     ), InMemoryIOCStore()

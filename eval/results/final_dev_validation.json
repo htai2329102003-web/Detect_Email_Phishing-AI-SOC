@@ -1,0 +1,53 @@
+{
+  "validation_type": "FINAL_DEV_VALIDATION",
+  "status": "PASS",
+  "config": {
+    "phishing_threshold": 62.0,
+    "suspicious_threshold": 30.0,
+    "url_ip_literal_weight": 0.55,
+    "ioc_derived_domain_weight": 0.2,
+    "allow_partial_suspicious": true,
+    "allow_partial_header_suspicious": true,
+    "partial_header_rule": "local URL/attachment failure with strength >= 0.35 and completed analyzer marker; missing coverage limited to auth/identity; all tools OK; no evidence-integrity errors",
+    "unexpected_environment_overrides": []
+  },
+  "data": {
+    "dataset_version": "1.1.1",
+    "manifest_checksums_verified": 8,
+    "manifest_checksum_mismatches": 0,
+    "dev_manifest_sha256": "895e9ce0032d6a1886e8ebe3424716e9b91ab1ec35b8d54368a3ca6c5a7d281b",
+    "dev_manifest_matches_round2_baseline": true,
+    "dev_split": {"canonical": 3462, "safe": 2750, "phishing": 712},
+    "dev_split_changed": false,
+    "test_executed": 0
+  },
+  "final_dev": {
+    "canonical": 3462,
+    "defender_skipped": 4,
+    "attempted": 3458,
+    "successful": 3456,
+    "execution_errors": 2,
+    "labels": {"SAFE": 0, "SUSPICIOUS": 663, "PHISHING": 192, "NEEDS_ANALYST_REVIEW": 2601},
+    "confusion": {"tp": 185, "tn": 481, "fp": 7, "fn": 182},
+    "metrics": {
+      "phishing_recall": {"value": 0.2612994350282486, "numerator": 185, "denominator": 708},
+      "safe_fpr": {"value": 0.0025454545454545456, "numerator": 7, "denominator": 2750},
+      "precision": {"value": 0.9635416666666666, "numerator": 185, "denominator": 192},
+      "decision_coverage": {"value": 0.24739583333333334, "numerator": 855, "denominator": 3456},
+      "abstention": {"value": 0.7526041666666666, "numerator": 2601, "denominator": 3456}
+    }
+  },
+  "parity_vs_round2": {
+    "attempted_success_errors_match": true,
+    "label_counts_match": true,
+    "confusion_counts_match": true,
+    "metrics_match_rounded_to_4_decimal_percent": true
+  },
+  "validation": {"focused_tests_pass": 45, "focused_tests_fail": 0, "compile": "PASS", "ruff": "PASS"},
+  "cost": {"llm_calls": 0, "rag_calls": 0, "virustotal_calls": 0, "urlscan_calls": 0},
+  "safety": {"test_executed": 0, "data_modified": false, "production_code_modified": false, "config_modified": false, "commit": false, "push": false},
+  "read_only_inputs": {
+    "evidence_cache_sha256": "8de5049459335fec69bfcc3d18a1ed53e2f92e77f35fb80d9fb240dbbef716f0",
+    "round2_baseline_manifest_sha256": "895e9ce0032d6a1886e8ebe3424716e9b91ab1ec35b8d54368a3ca6c5a7d281b"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": "1.1.1",
+  "canonical": 3462,
+  "labels": {
+    "SAFE": 2750,
+    "PHISHING": 712
+  },
+  "known_quarantine_ids": [
+    "e2a_recov_3605149c",
+    "e2a_recov_766d1b32",
+    "e2a_recov_c3cfdcc0",
+    "e2a_recov_cde83d5b"
+  ],
+  "executable": 3458,
+  "unexpected_broken_paths": [],
+  "duplicate_physical_samples": [],
+  "empty_capabilities_grouped_as_core_in_memory": 783,
+  "output_writable": true,
+  "manifest_sha256": "895e9ce0032d6a1886e8ebe3424716e9b91ab1ec35b8d54368a3ca6c5a7d281b",
+  "providers": {
+    "rag_enabled": false,
+    "external_enrichment_enabled": false,
+    "llm_key_present": true,
+    "llm_provider_wired": false,
+    "embedding_endpoint_present": true,
+    "embedding_model_present": true,
+    "embedding_credential_present": true
+  },
+  "ioc": {
+    "status": "OK",
+    "error_code": null,
+    "record_count": 1105349
+  },
+  "qdrant": {
+    "status": "PASS",
+    "collection_status": "green",
+    "total_points": 1162,
+    "chunk_points": 1161,
+    "manifest_complete": true,
+    "graph_rag_enabled": false
+  }
+}

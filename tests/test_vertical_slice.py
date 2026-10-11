@@ -108,7 +108,7 @@ async def test_static_checks_run_but_unconfigured_ioc_remains_unknown(client, mo
     monkeypatch.setattr(get_settings(), "header_trusted_authserv_ids", TRUSTED[0])
     response = await client.post("/api/v1/analysis", files={"file": ("multipart.eml", multipart_email().as_bytes())})
     assert response.status_code == 200
-    assert response.json()["label_candidate"] == "NEEDS_ANALYST_REVIEW"
+    assert response.json()["label_candidate"] == "PHISHING" and response.json()["score"] >= 70
     assert {"URL_IOC_CHECK", "ATTACHMENT_IOC_CHECK"} <= set(response.json()["coverage"]["missing"])
     assert "URL_ANALYSIS" in response.json()["coverage"]["completed"]
     assert "ATTACHMENT_ANALYSIS" in response.json()["coverage"]["completed"]
@@ -152,10 +152,11 @@ def test_parser_charset_fallback_and_structural_limits(monkeypatch):
     quoted = parse_email(b'From: "Billing" <"name with space"@example.test>\nReturn-Path: <>\n\nhello')
     assert quoted.raw_for_analyzers["from"]["domain"] == "example.test"
     assert quoted.raw_for_analyzers["return_path"] == []
-    with pytest.raises(EmailParseError):
-        parse_email(b"From: one@example.test\nFrom: two@example.test\n\nhello")
-    with pytest.raises(EmailParseError):
-        parse_email(b"From: one@example.test\x00\n\nhello")
+    for malformed in (b"From: one@example.test\nFrom: two@example.test\n\nhello",
+                      b"From: one@example.test\x00\n\nhello"):
+        partial = parse_email(malformed).raw_for_analyzers
+        assert partial["partial_parse"] and partial["from"] == {}
+        assert partial["text_body"] == "hello" and partial["raw_bytes"] == malformed
     with pytest.raises(EmailParseError):
         parse_email(b'From: one@example.test\nContent-Type: multipart/mixed; boundary="missing"\n\nno MIME boundary')
     monkeypatch.setattr("src.parsers.email_parser.MAX_MIME_PARTS", 2)

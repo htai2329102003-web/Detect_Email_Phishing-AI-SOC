@@ -10,6 +10,7 @@ Pillow>=10.4.0
 zxing-cpp>=2.3.0
 
 # AI / LangChain
+openai>=1.99.0
 langchain>=0.3.0
 langchain-openai>=0.3.0
 langgraph>=0.2.0
